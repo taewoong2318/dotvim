@@ -1,0 +1,7 @@
+language-servers/*
+!language-servers/.gitkeep
+
+swap/*
+!swap/.gitkeep
+
+viminfo

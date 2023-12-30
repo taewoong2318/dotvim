@@ -1,0 +1,9 @@
+[submodule "pack/pkg/opt/auto-pairs"]
+	path = pack/pkg/opt/auto-pairs
+	url = https://github.com/jiangmiao/auto-pairs.git
+[submodule "pack/pkg/opt/nord"]
+	path = pack/pkg/opt/nord
+	url = https://github.com/nordtheme/vim.git
+[submodule "pack/pkg/opt/lsp"]
+	path = pack/pkg/opt/lsp
+	url = https://github.com/yegappan/lsp.git
