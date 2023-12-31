@@ -8,6 +8,7 @@ function! s:onLspAttached()
     nnoremap <buffer> K <cmd>LspHover<CR>
     nnoremap <buffer> <C-k> <cmd>LspDiag current<CR>
     nnoremap <buffer> <F2> <cmd>LspRename<CR>
+    nnoremap <buffer> gA <cmd>LspCodeAction<CR>
 endfunction
 
 augroup VimrcLsp
