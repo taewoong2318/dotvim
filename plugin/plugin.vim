@@ -1,9 +1,6 @@
 packadd nord
 packadd nord-conf
 
-packadd auto-pairs
-packadd auto-pairs-conf
-
 packadd lsp
 packadd lsp-conf
 
@@ -23,3 +20,10 @@ packadd asyncrun
 packadd asyncrun-conf
 
 packadd copilot
+
+packadd lexima
+
+packadd smartword
+packadd smartword-conf
+
+packadd abolish
