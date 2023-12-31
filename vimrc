@@ -35,9 +35,17 @@ set completeopt=menu,menuone
 set diffopt+=vertical,algorithm:histogram,indent-heuristic
 set ambiwidth=double
 set background=dark
-set viminfo+=n~/.vim/viminfo
-set directory=~/.vim/swap
-set shell=/bin/bash
+
+let g:VimHome = expand('<sfile>:p:h')
+
+let &viminfo .= ',n' . g:VimHome . '/viminfo'
+let &directory = g:VimHome . '/swap'
+
+if has('unix')
+    set shell=bash
+elseif has('win32')
+    set shell=pwsh
+endif
 
 if has('termguicolors')
     set termguicolors
@@ -47,53 +55,7 @@ syntax enable
 
 filetype plugin indent on
 
-augroup VimrcIndent
-    autocmd!
-    autocmd FileType json setlocal ts=2 sts=2 sw=2
-    autocmd FileType yaml setlocal ts=2 sts=2 sw=2
-    autocmd FileType sshconfig setlocal ts=2 sts=2 sw=2
-    autocmd FileType c setlocal ts=4 sts=4 sw=4
-augroup END
-
 augroup VimrcFormatOptions
     autocmd!
     autocmd FileType * setlocal formatoptions-=ro indentkeys-=0#
 augroup END
-
-command! Vimrc :edit $MYVIMRC <args>
-
-packadd nord
-colorscheme nord
-
-packadd auto-pairs
-
-packadd lsp
-
-function! s:onLspAttached()
-    setlocal tagfunc=lsp#lsp#TagFunc
-    setlocal formatexpr=lsp#lsp#FormatExpr()
-
-    nnoremap <buffer> gd <cmd>:LspGotoDefinition<CR>
-    nnoremap <buffer> gD <cmd>:LspGotoDeclaration<CR>
-    nnoremap <buffer> gr <cmd>:LspShowReferences<CR>
-    nnoremap <buffer> K <cmd>:LspHover<CR>
-    nnoremap <buffer> <C-k> <cmd>:LspDiag current<CR>
-endfunction
-
-augroup VimrcLsp
-    autocmd!
-    autocmd User LspAttached call s:onLspAttached()
-augroup END
-
-call LspOptionsSet(#{
-    \    autoComplete: v:false,
-    \    omniComplete: v:true,
-    \    showSignature: v:false
-    \  })
-
-call LspAddServer([#{
-    \    name: 'clangd',
-    \    filetype: ['c', 'cpp'],
-    \    path: $HOME . '/.vim/language-servers/clangd_17.0.3/bin/clangd',
-    \    args: ['--background-index']
-    \  }])
