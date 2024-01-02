@@ -18,14 +18,16 @@ augroup END
 
 call LspOptionsSet(#{
             \   autoComplete: v:false,
+            \   completionMatcher: 'fuzzy',
             \   omniComplete: v:true,
+            \   semanticHighlight: v:true,
             \   showSignature: v:false
             \   })
 
 call LspAddServer([#{
             \   name: 'clangd',
             \   filetype: ['c', 'cpp'],
-            \   path: g:VimHome . '/language-servers/clangd_17.0.3/bin/clangd',
+            \   path: '/usr/bin/clangd',
             \   args: ['--background-index']
             \   }])
 
@@ -35,3 +37,19 @@ call LspAddServer([#{
             \   path: $HOME . '/go/bin/gopls',
             \   args: ['serve']
             \   }])
+
+call LspAddServer([#{
+            \   name: 'jdtls',
+            \   filetype: 'java',
+            \   path: '/usr/local/jdtls/bin/jdtls',
+            \   args: ['--jvm-arg=-javaagent:/usr/local/jdtls/lombok.jar', '--jvm-arg=-Xbootclasspath/a:/usr/local/jdtls/lombok.jar'],
+			\   initializationOptions: #{
+			\   	settings: #{
+            \           java: #{
+			\               completion: #{
+			\                   filteredTypes: ["com.sun.*", "java.awt.*", "jdk.*", "org.graalvm.*", "sun.*", "javax.awt.*", "javax.swing.*"],
+			\               },
+			\           },
+			\       },
+			\   },
+			\	}])
