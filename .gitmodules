@@ -34,3 +34,6 @@
 [submodule "pack/pkg/opt/lexima"]
 	path = pack/pkg/opt/lexima
 	url = https://github.com/cohama/lexima.vim.git
+[submodule "pack/pkg/opt/bbye"]
+	path = pack/pkg/opt/bbye
+	url = https://github.com/moll/vim-bbye.git
