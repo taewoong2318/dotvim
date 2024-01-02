@@ -20,6 +20,7 @@ packadd asyncrun
 packadd asyncrun-conf
 
 packadd copilot
+packadd copilot-conf
 
 packadd lexima
 
@@ -27,3 +28,5 @@ packadd smartword
 packadd smartword-conf
 
 packadd abolish
+
+packadd bbye
