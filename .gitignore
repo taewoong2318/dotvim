@@ -1,5 +1,4 @@
-language-servers/*
-!language-servers/.gitkeep
+plugged
 
 swap/*
 !swap/.gitkeep
