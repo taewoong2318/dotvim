@@ -8,12 +8,12 @@ Simple Vim powered by LSP and AI
 
 ## Installation
 
-Clone this repository including submodules:
+Clone this repository and install plugins:
 
 ```sh
-cd ~
-mv .vim .vim-backup
-git clone --recurse-submodules -j8 https://github.com/e2318501/.vim.git
+mv ~/.vim ~/.vim-backup
+git https://github.com/e2318501/dotvim.git ~/.vim
+vim +PlugInstall +qa
 ```
 
-After cloning the repository, install language servers into specific pathes described in [this file](https://github.com/e2318501/.vim/blob/main/pack/pkgconf/opt/lsp-conf/plugin/lsp-conf.vim).
+After cloning the repository, install language servers into specific pathes described in [vimrc](https://github.com/e2318501/dotvim/blob/main/vimrc).
