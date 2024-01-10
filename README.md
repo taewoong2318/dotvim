@@ -1,4 +1,4 @@
-Simple Vim powered by LSP and AI
+Simple looking Vim powered by LSP and AI
 
 ## Requirements
 
@@ -16,4 +16,4 @@ git https://github.com/e2318501/dotvim.git ~/.vim
 vim +PlugInstall +qa
 ```
 
-After cloning the repository, install language servers into specific pathes described in [vimrc](https://github.com/e2318501/dotvim/blob/main/vimrc).
+After that, install language servers into specific pathes described in [vimrc](https://github.com/e2318501/dotvim/blob/main/vimrc).
