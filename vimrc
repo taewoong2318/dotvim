@@ -31,7 +31,7 @@ set pumheight=10
 set ruler
 set shell=/bin/bash
 set shiftwidth=4
-set signcolumn=auto
+set signcolumn=no
 set smartcase
 set softtabstop=4
 set splitbelow
@@ -71,6 +71,10 @@ call plug#begin()
 
 Plug 'cohama/lexima.vim'
 Plug 'github/copilot.vim'
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'kana/vim-smartword'
 Plug 'lambdalisue/fern-hijack.vim'
 Plug 'lambdalisue/fern.vim'
@@ -87,6 +91,15 @@ call plug#end()
 
 " github/copilot.vim {{{2
 imap <C-l> <Plug>(copilot-accept-word)
+
+" hrsh7th/vim-vsnip {{{2
+imap <expr> <Tab> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>'
+smap <expr> <Tab> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>'
+imap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'
+smap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'
+
+" junegunn/fzf.vim {{{2
+nnoremap <C-p> <cmd>Buffers<CR>
 
 " kana/vim-smartword {{{2
 map w <Plug>(smartword-w)
@@ -128,8 +141,9 @@ function! s:onLspAttached()
     nnoremap <buffer> gr <cmd>LspShowReferences<CR>
     nnoremap <buffer> K <cmd>LspHover<CR>
     nnoremap <buffer> <C-k> <cmd>LspDiag current<CR>
-    nnoremap <buffer> <F2> <cmd>LspRename<CR>
+    nnoremap <buffer> gR <cmd>LspRename<CR>
     nnoremap <buffer> gA <cmd>LspCodeAction<CR>
+    nnoremap <buffer> gG <cmd>LspDiagShow<CR>
 endfunction
 
 let s:lspOptions = #{
@@ -137,7 +151,9 @@ let s:lspOptions = #{
             \   completionMatcher: 'fuzzy',
             \   omniComplete: v:true,
             \   semanticHighlight: v:true,
-            \   showSignature: v:false
+            \   showSignature: v:false,
+            \   snippetSupport: v:true,
+            \   vsnipSupport: v:true,
             \   }
 
 let s:lspServers = [
