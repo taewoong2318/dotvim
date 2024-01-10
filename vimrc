@@ -15,10 +15,9 @@ set backspace=indent,eol,start
 set completeopt=menu,menuone
 set cursorline
 set diffopt+=vertical,algorithm:histogram,indent-heuristic
-set directory=~/.vim/swap
+set directory=/tmp
 set display=lastline
 set expandtab
-set foldmethod=marker
 set hidden
 set hlsearch
 set ignorecase
@@ -38,7 +37,7 @@ set softtabstop=4
 set splitbelow
 set tabstop=4
 set title
-set viminfo+=n~/.vim/viminfo
+set viminfofile=NONE
 set wildmode=longest,list
 
 if has('termguicolors')
@@ -64,6 +63,7 @@ augroup END
 
 " utils {{{1
 command! CdHere :cd %:h
+command! Reload :source $MYVIMRC
 command! Vimrc :edit $MYVIMRC
 
 " plugins {{{1
@@ -177,3 +177,4 @@ augroup VimrcLsp
     autocmd VimEnter * call LspAddServer(s:lspServers)
 augroup END
 
+" vim:fdm=marker
