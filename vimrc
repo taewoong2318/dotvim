@@ -1,4 +1,4 @@
-" general {{{1
+" Configure general options {{{1
 set encoding=utf-8
 scriptencoding utf-8
 set fileencodings+=cp932,enc-jp
@@ -61,16 +61,36 @@ augroup VimrcFormatOptions
     autocmd FileType * setlocal formatoptions-=ro indentkeys-=0#
 augroup END
 
-" utils {{{1
+let g:loaded_2html_plugin = 1
+let g:loaded_gzip = 1
+let g:loaded_logiPat = 1
+let g:loaded_matchit = 1
+let g:loaded_matchparen = 1
+let g:loaded_netrw = 1
+let g:loaded_netrwFileHandlers = 1
+let g:loaded_netrwPlugin = 1
+let g:loaded_netrwSettings = 1
+let g:loaded_rrhelper = 1
+let g:loaded_spellfile_plugin = 1
+let g:loaded_tar = 1
+let g:loaded_tarPlugin = 1
+let g:loaded_tutor_mode_plugin = 1
+let g:loaded_zip = 1
+let g:loaded_zipPlugin = 1
+
+" Define utils {{{1
 command! CdHere :cd %:h
 command! Reload :source $MYVIMRC
 command! Vimrc :edit $MYVIMRC
 
-" plugins {{{1
+" Configure plugins {{{1
 call plug#begin()
 
+Plug 'andymass/vim-matchup'
 Plug 'cohama/lexima.vim'
+Plug 'easymotion/vim-easymotion'
 Plug 'github/copilot.vim'
+Plug 'godlygeek/tabular'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
 Plug 'junegunn/fzf'
@@ -78,11 +98,16 @@ Plug 'junegunn/fzf.vim'
 Plug 'kana/vim-smartword'
 Plug 'lambdalisue/fern-hijack.vim'
 Plug 'lambdalisue/fern.vim'
+Plug 'lambdalisue/vim-protocol'
 Plug 'machakann/vim-sandwich'
 Plug 'moll/vim-bbye'
 Plug 'nordtheme/vim'
+Plug 'rhysd/clever-f.vim'
+Plug 'simeji/winresizer'
 Plug 'svermeulen/vim-subversive'
+Plug 'thinca/vim-qfreplace'
 Plug 'thinca/vim-quickrun'
+Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-fugitive'
 Plug 'yegappan/lsp'
@@ -99,7 +124,7 @@ imap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'
 smap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'
 
 " junegunn/fzf.vim {{{2
-nnoremap <C-p> <cmd>Buffers<CR>
+nnoremap <C-p> <Cmd>Buffers<CR>
 
 " kana/vim-smartword {{{2
 map w <Plug>(smartword-w)
@@ -108,10 +133,13 @@ map e <Plug>(smartword-e)
 map ge <Plug>(smartword-ge)
 
 " lambdalisue/fern.vim {{{2
-nnoremap <leader>f <cmd>Fern . -drawer -toggle -stay<CR>
+nnoremap <Leader>f <Cmd>Fern . -drawer -toggle -stay<CR>
 
 " nordtheme/vim {{{2
 colorscheme nord
+
+" simeji/winresizer {{{2
+let g:winresizer_start_key = '<Leader>e'
 
 " svermeulen/vim-subversive {{{2
 nmap s <plug>(SubversiveSubstitute)
@@ -129,21 +157,21 @@ let g:quickrun_config._ = {
             \   }
 let g:quickrun_config.python = {'command': 'python3'}
 
-nnoremap <leader>r <cmd>QuickRun<CR>
+nnoremap <Leader>r <Cmd>QuickRun<CR>
 
 " yegappan/lsp {{{2
 function! s:onLspAttached()
     setlocal tagfunc=lsp#lsp#TagFunc
     setlocal formatexpr=lsp#lsp#FormatExpr()
 
-    nnoremap <buffer> gd <cmd>LspGotoDefinition<CR>
-    nnoremap <buffer> gD <cmd>LspGotoDeclaration<CR>
-    nnoremap <buffer> gr <cmd>LspShowReferences<CR>
-    nnoremap <buffer> K <cmd>LspHover<CR>
-    nnoremap <buffer> <C-k> <cmd>LspDiag current<CR>
-    nnoremap <buffer> gR <cmd>LspRename<CR>
-    nnoremap <buffer> gA <cmd>LspCodeAction<CR>
-    nnoremap <buffer> gG <cmd>LspDiagShow<CR>
+    nnoremap <buffer> gd <Cmd>LspGotoDefinition<CR>
+    nnoremap <buffer> gD <Cmd>LspGotoDeclaration<CR>
+    nnoremap <buffer> gr <Cmd>LspShowReferences<CR>
+    nnoremap <buffer> K <Cmd>LspHover<CR>
+    nnoremap <buffer> <C-k> <Cmd>LspDiag current<CR>
+    nnoremap <buffer> gR <Cmd>LspRename<CR>
+    nnoremap <buffer> gA <Cmd>LspCodeAction<CR>
+    nnoremap <buffer> gG <Cmd>LspDiagShow<CR>
 endfunction
 
 let s:lspOptions = #{
