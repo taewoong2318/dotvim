@@ -61,6 +61,8 @@ augroup VimrcFormatOptions
     autocmd FileType * setlocal formatoptions-=ro indentkeys-=0#
 augroup END
 
+let g:mapleader = "\<Space>"
+
 let g:loaded_2html_plugin = 1
 let g:loaded_gzip = 1
 let g:loaded_logiPat = 1
