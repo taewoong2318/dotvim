@@ -90,7 +90,6 @@ call plug#begin()
 
 Plug 'andymass/vim-matchup'
 Plug 'cohama/lexima.vim'
-Plug 'easymotion/vim-easymotion'
 Plug 'github/copilot.vim'
 Plug 'godlygeek/tabular'
 Plug 'hrsh7th/vim-vsnip'
