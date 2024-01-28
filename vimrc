@@ -12,7 +12,7 @@ set autoindent
 set autoread
 set background=dark
 set backspace=indent,eol,start
-set completeopt=menu,menuone
+set completeopt=menuone,noinsert
 set cursorline
 set diffopt+=vertical,algorithm:histogram,indent-heuristic
 set directory=/tmp
@@ -85,6 +85,10 @@ command! CdHere :cd %:h
 command! Reload :source $MYVIMRC
 command! Vimrc :edit $MYVIMRC
 
+inoremap <expr> <Tab> pumvisible() ? '<C-y>' : '<Tab>'
+inoremap <expr> <C-n> pumvisible() ? '<Down>' : '<C-n>'
+inoremap <expr> <C-p> pumvisible() ? '<Up>' : '<C-p>'
+
 " Configure plugins {{{1
 call plug#begin()
 
@@ -117,12 +121,6 @@ call plug#end()
 
 " github/copilot.vim {{{2
 imap <C-l> <Plug>(copilot-accept-word)
-
-" hrsh7th/vim-vsnip {{{2
-imap <expr> <Tab> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>'
-smap <expr> <Tab> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>'
-imap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'
-smap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'
 
 " junegunn/fzf.vim {{{2
 nnoremap <C-p> <Cmd>Buffers<CR>
@@ -164,6 +162,7 @@ nnoremap <Leader>r <Cmd>QuickRun<CR>
 function! s:onLspAttached()
     setlocal tagfunc=lsp#lsp#TagFunc
     setlocal formatexpr=lsp#lsp#FormatExpr()
+    setlocal completeopt=menuone,noinsert
 
     nnoremap <buffer> gd <Cmd>LspGotoDefinition<CR>
     nnoremap <buffer> gD <Cmd>LspGotoDeclaration<CR>
@@ -176,7 +175,7 @@ function! s:onLspAttached()
 endfunction
 
 let s:lspOptions = #{
-            \   autoComplete: v:false,
+            \   autoComplete: v:true,
             \   completionMatcher: 'fuzzy',
             \   omniComplete: v:true,
             \   semanticHighlight: v:true,
@@ -186,6 +185,12 @@ let s:lspOptions = #{
             \   }
 
 let s:lspServers = [
+            \   #{
+            \       name: 'bashls',
+            \       filetype: ['sh'],
+            \       path: '/usr/local/bin/bash-language-server',
+            \       args: ['start']
+            \   },
             \   #{
             \       name: 'clangd',
             \       filetype: ['c', 'cpp'],
