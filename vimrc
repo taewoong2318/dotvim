@@ -195,24 +195,42 @@ let s:lspServers = [
             \   #{
             \       name: 'gopls',
             \       filetype: 'go',
-            \       path: $HOME . '/go/bin/gopls',
+            \       path: expand('~/go/bin/gopls'),
             \       args: ['serve']
+            \   },
+            \   #{
+            \       name: 'luals',
+            \       filetype: 'lua',
+            \       path: expand('~/.local/luals/bin/lua-language-server'),
+            \       args: []
             \   },
             \   #{
             \       name: 'jdtls',
             \       filetype: 'java',
             \       path: '/usr/local/jdtls/bin/jdtls',
             \       args: ['--jvm-arg=-javaagent:/usr/local/jdtls/lombok.jar', '--jvm-arg=-Xbootclasspath/a:/usr/local/jdtls/lombok.jar'],
-			\       initializationOptions: #{
-			\   	    settings: #{
+            \       initializationOptions: #{
+            \           settings: #{
             \               java: #{
-			\                   completion: #{
-			\                       filteredTypes: ["com.sun.*", "java.awt.*", "jdk.*", "org.graalvm.*", "sun.*", "javax.awt.*", "javax.swing.*"],
-			\                   },
-			\               },
-			\           },
-			\       },
-			\	}
+            \                   completion: #{
+            \                       filteredTypes: ["com.sun.*", "java.awt.*", "jdk.*", "org.graalvm.*", "sun.*", "javax.awt.*", "javax.swing.*"],
+            \                   },
+            \               },
+            \           },
+            \       },
+            \   },
+            \   #{
+            \       name: 'pylsp',
+            \       filetype: 'python',
+            \       path: expand('~/.local/bin/pylsp'),
+            \       args: []
+            \   },
+            \   #{
+            \       name: 'vimls',
+            \       filetype: 'vim',
+            \       path: expand('/usr/local/bin/vim-language-server'),
+            \       args: ['--stdio']
+            \   }
             \   ]
 
 augroup VimrcLsp
