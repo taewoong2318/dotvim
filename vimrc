@@ -15,7 +15,6 @@ set backspace=indent,eol,start
 set completeopt=menuone,noinsert
 set cursorline
 set diffopt+=vertical,algorithm:histogram,indent-heuristic
-set directory=/tmp
 set display=lastline
 set expandtab
 set hidden
@@ -29,7 +28,6 @@ set noshowcmd
 set omnifunc=syntaxcomplete#Complete
 set pumheight=10
 set ruler
-set shell=/bin/bash
 set shiftwidth=4
 set signcolumn=no
 set smartcase
@@ -37,8 +35,30 @@ set softtabstop=4
 set splitbelow
 set tabstop=4
 set title
-set viminfofile=NONE
 set wildmode=longest,list
+
+if has('win32')
+  set viminfo+=n~/vimfiles/viminfo
+  set directory=~/vimfiles/swap
+  call mkdir(&directory, 'p')
+
+  let s:pwsh = 'pwsh'
+  let s:powershell = 'powershell'
+  if executable(s:pwsh)
+    let &shell = s:pwsh
+  elseif executable(s:powershell)
+    let &shell = s:powershell
+  endif
+elseif has('unix')
+  set viminfo+=n~/.vim/viminfo
+  set directory=~/.vim/swap
+  call mkdir(&directory, 'p')
+
+  let s:bash = '/bin/bash'
+  if executable(s:bash)
+    let &shell = s:bash
+  endif
+endif
 
 if has('termguicolors')
     set termguicolors
@@ -94,12 +114,7 @@ call plug#begin()
 
 Plug 'andymass/vim-matchup'
 Plug 'cohama/lexima.vim'
-Plug 'github/copilot.vim'
 Plug 'godlygeek/tabular'
-Plug 'hrsh7th/vim-vsnip'
-Plug 'hrsh7th/vim-vsnip-integ'
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
 Plug 'kana/vim-smartword'
 Plug 'lambdalisue/fern-hijack.vim'
 Plug 'lambdalisue/fern.vim'
@@ -111,19 +126,11 @@ Plug 'rhysd/clever-f.vim'
 Plug 'simeji/winresizer'
 Plug 'svermeulen/vim-subversive'
 Plug 'thinca/vim-qfreplace'
-Plug 'thinca/vim-quickrun'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-fugitive'
-Plug 'yegappan/lsp'
 
 call plug#end()
-
-" github/copilot.vim {{{2
-imap <C-l> <Plug>(copilot-accept-word)
-
-" junegunn/fzf.vim {{{2
-nnoremap <C-p> <Cmd>Buffers<CR>
 
 " kana/vim-smartword {{{2
 map w <Plug>(smartword-w)
@@ -144,105 +151,5 @@ let g:winresizer_start_key = '<Leader>e'
 nmap s <plug>(SubversiveSubstitute)
 nmap ss <plug>(SubversiveSubstituteLine)
 nmap S <plug>(SubversiveSubstituteToEndOfLine)
-
-" thinca/vim-quickrun {{{2
-let g:quickrun_config = get(g:, 'quickrun_config', {})
-let g:quickrun_config._ = {
-            \   'outputter': 'error',
-            \   'outputter/error/success': 'buffer',
-            \   'outputter/error/error': 'quickfix',
-            \   'outputter/buffer/opener': 'new',
-            \   'outputter/buffer/close_on_empty': 1,
-            \   }
-let g:quickrun_config.python = {'command': 'python3'}
-
-nnoremap <Leader>r <Cmd>QuickRun<CR>
-
-" yegappan/lsp {{{2
-function! s:onLspAttached()
-    setlocal tagfunc=lsp#lsp#TagFunc
-    setlocal formatexpr=lsp#lsp#FormatExpr()
-    setlocal completeopt=menuone,noinsert
-
-    nnoremap <buffer> gd <Cmd>LspGotoDefinition<CR>
-    nnoremap <buffer> gD <Cmd>LspGotoDeclaration<CR>
-    nnoremap <buffer> gr <Cmd>LspShowReferences<CR>
-    nnoremap <buffer> K <Cmd>LspHover<CR>
-    nnoremap <buffer> <C-k> <Cmd>LspDiag current<CR>
-    nnoremap <buffer> gR <Cmd>LspRename<CR>
-    nnoremap <buffer> gA <Cmd>LspCodeAction<CR>
-    nnoremap <buffer> gG <Cmd>LspDiagShow<CR>
-endfunction
-
-let s:lspOptions = #{
-            \   autoComplete: v:true,
-            \   completionMatcher: 'fuzzy',
-            \   omniComplete: v:true,
-            \   semanticHighlight: v:true,
-            \   showSignature: v:false,
-            \   snippetSupport: v:true,
-            \   vsnipSupport: v:true,
-            \   }
-
-let s:lspServers = [
-            \   #{
-            \       name: 'bashls',
-            \       filetype: ['sh'],
-            \       path: '/usr/local/bin/bash-language-server',
-            \       args: ['start']
-            \   },
-            \   #{
-            \       name: 'clangd',
-            \       filetype: ['c', 'cpp'],
-            \       path: '/usr/bin/clangd',
-            \       args: ['--background-index']
-            \   },
-            \   #{
-            \       name: 'gopls',
-            \       filetype: 'go',
-            \       path: expand('~/go/bin/gopls'),
-            \       args: ['serve']
-            \   },
-            \   #{
-            \       name: 'luals',
-            \       filetype: 'lua',
-            \       path: expand('~/.local/luals/bin/lua-language-server'),
-            \       args: []
-            \   },
-            \   #{
-            \       name: 'jdtls',
-            \       filetype: 'java',
-            \       path: '/usr/local/jdtls/bin/jdtls',
-            \       args: ['--jvm-arg=-javaagent:/usr/local/jdtls/lombok.jar', '--jvm-arg=-Xbootclasspath/a:/usr/local/jdtls/lombok.jar'],
-            \       initializationOptions: #{
-            \           settings: #{
-            \               java: #{
-            \                   completion: #{
-            \                       filteredTypes: ["com.sun.*", "java.awt.*", "jdk.*", "org.graalvm.*", "sun.*", "javax.awt.*", "javax.swing.*"],
-            \                   },
-            \               },
-            \           },
-            \       },
-            \   },
-            \   #{
-            \       name: 'pylsp',
-            \       filetype: 'python',
-            \       path: expand('~/.local/bin/pylsp'),
-            \       args: []
-            \   },
-            \   #{
-            \       name: 'vimls',
-            \       filetype: 'vim',
-            \       path: expand('/usr/local/bin/vim-language-server'),
-            \       args: ['--stdio']
-            \   }
-            \   ]
-
-augroup VimrcLsp
-    autocmd!
-    autocmd User LspAttached call s:onLspAttached()
-    autocmd VimEnter * call LspOptionsSet(s:lspOptions)
-    autocmd VimEnter * call LspAddServer(s:lspServers)
-augroup END
 
 " vim:fdm=marker
