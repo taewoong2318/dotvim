@@ -105,11 +105,7 @@ command! CdHere :cd %:h
 command! Reload :source $MYVIMRC
 command! Vimrc :edit $MYVIMRC
 
-inoremap <expr> <Tab> pumvisible() ? '<C-y>' : '<Tab>'
-inoremap <expr> <C-n> pumvisible() ? '<Down>' : '<C-n>'
-inoremap <expr> <C-p> pumvisible() ? '<Up>' : '<C-p>'
-
-" Configure plugins {{{1
+" plugins {{{1
 call plug#begin()
 
 Plug 'andymass/vim-matchup'
