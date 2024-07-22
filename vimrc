@@ -1,4 +1,4 @@
-" Configure general options {{{1
+" options {{{1
 set encoding=utf-8
 scriptencoding utf-8
 set fileencodings+=cp932,enc-jp
@@ -100,7 +100,7 @@ let g:loaded_tutor_mode_plugin = 1
 let g:loaded_zip = 1
 let g:loaded_zipPlugin = 1
 
-" Define utils {{{1
+" shortcuts {{{1
 command! CdHere :cd %:h
 command! Reload :source $MYVIMRC
 command! Vimrc :edit $MYVIMRC
