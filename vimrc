@@ -4,7 +4,7 @@ scriptencoding utf-8
 set fileencodings+=cp932,enc-jp
 
 if &compatible
-    set nocompatible
+  set nocompatible
 endif
 
 set ambiwidth=double
@@ -61,7 +61,7 @@ elseif has('unix')
 endif
 
 if has('termguicolors')
-    set termguicolors
+  set termguicolors
 endif
 
 syntax enable
@@ -69,16 +69,16 @@ syntax enable
 filetype plugin indent on
 
 augroup VimrcFileTypeIndent
-    autocmd!
-    autocmd FileType c setlocal sts=4 sw=4 ts=4
-    autocmd FileType json setlocal sts=2 sw=2 ts=2
-    autocmd FileType sshconfig setlocal sts=2 sw=2 ts=2
-    autocmd FileType yaml setlocal sts=2 sw=2 ts=2
+  autocmd!
+  autocmd FileType c setlocal sts=4 sw=4 ts=4
+  autocmd FileType json setlocal sts=2 sw=2 ts=2
+  autocmd FileType sshconfig setlocal sts=2 sw=2 ts=2
+  autocmd FileType yaml setlocal sts=2 sw=2 ts=2
 augroup END
 
 augroup VimrcFormatOptions
-    autocmd!
-    autocmd FileType * setlocal formatoptions-=ro indentkeys-=0#
+  autocmd!
+  autocmd FileType * setlocal formatoptions-=ro indentkeys-=0#
 augroup END
 
 let g:mapleader = "\<Space>"
