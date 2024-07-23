@@ -109,6 +109,7 @@ command! Vimrc :edit $MYVIMRC
 call plug#begin()
 
 Plug 'andymass/vim-matchup'
+Plug 'chrisbra/Recover.vim'
 Plug 'cohama/lexima.vim'
 Plug 'godlygeek/tabular'
 Plug 'kana/vim-smartword'
@@ -116,14 +117,17 @@ Plug 'lambdalisue/fern-hijack.vim'
 Plug 'lambdalisue/fern.vim'
 Plug 'lambdalisue/vim-protocol'
 Plug 'machakann/vim-sandwich'
+Plug 'markonm/traces.vim'
 Plug 'moll/vim-bbye'
 Plug 'nordtheme/vim'
+Plug 'ntpeters/vim-better-whitespace'
 Plug 'simeji/winresizer'
 Plug 'svermeulen/vim-subversive'
 Plug 'thinca/vim-qfreplace'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-sleuth'
 
 call plug#end()
 
@@ -138,6 +142,9 @@ nnoremap <Leader>f <Cmd>Fern . -drawer -toggle -stay<CR>
 
 " nordtheme/vim {{{2
 colorscheme nord
+
+" ntpeters/vim-better-whitespace
+highlight link ExtraWhitespace Error
 
 " simeji/winresizer {{{2
 let g:winresizer_start_key = '<Leader>e'
