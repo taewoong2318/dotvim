@@ -128,6 +128,7 @@ Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sleuth'
+Plug 'tyru/open-browser.vim'
 
 call plug#end()
 
@@ -150,8 +151,14 @@ highlight link ExtraWhitespace Error
 let g:winresizer_start_key = '<Leader>e'
 
 " svermeulen/vim-subversive {{{2
-nmap s <plug>(SubversiveSubstitute)
-nmap ss <plug>(SubversiveSubstituteLine)
-nmap S <plug>(SubversiveSubstituteToEndOfLine)
+nmap s <Plug>(SubversiveSubstitute)
+nmap ss <Plug>(SubversiveSubstituteLine)
+nmap S <Plug>(SubversiveSubstituteToEndOfLine)
+
+" tyru/open-browser.vim {{{2
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
+
+let g:openbrowser_default_search = 'duckduckgo'
 
 " vim:fdm=marker
