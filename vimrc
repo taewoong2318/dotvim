@@ -131,6 +131,25 @@ Plug 'tyru/open-browser.vim'
 
 call plug#end()
 
+" cohama/lexima.vim {{{2
+let g:lexima_ctrlh_as_backspace = 1
+let g:lexima_disable_on_nofile = 1
+
+autocmd vimrc FileType text let b:lexima_disabled = 1
+
+call lexima#add_rule({'char': '"', 'syntax': 'String'})
+call lexima#add_rule({'char': "'", 'syntax': 'String'})
+call lexima#add_rule({'char': '(', 'syntax': 'String'})
+call lexima#add_rule({'char': ')', 'syntax': 'String'})
+call lexima#add_rule({'char': '[', 'syntax': 'String'})
+call lexima#add_rule({'char': ']', 'syntax': 'String'})
+call lexima#add_rule({'char': '`', 'syntax': 'String'})
+call lexima#add_rule({'char': '{', 'syntax': 'String'})
+call lexima#add_rule({'char': '}', 'syntax': 'String'})
+call lexima#add_rule({'char': '<BS>', 'syntax': 'String'})
+call lexima#add_rule({'char': '<CR>', 'syntax': 'String'})
+call lexima#add_rule({'char': '<Space>', 'syntax': 'String'})
+
 " kana/vim-smartword {{{2
 map w <Plug>(smartword-w)
 map b <Plug>(smartword-b)
@@ -143,7 +162,7 @@ nnoremap <Leader>f <Cmd>Fern . -drawer -toggle -stay<CR>
 " nordtheme/vim {{{2
 silent! colorscheme nord
 
-" ntpeters/vim-better-whitespace
+" ntpeters/vim-better-whitespace {{{2
 highlight link ExtraWhitespace Error
 
 " simeji/winresizer {{{2
