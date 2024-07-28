@@ -143,7 +143,7 @@ map ge <Plug>(smartword-ge)
 nnoremap <Leader>f <Cmd>Fern . -drawer -toggle -stay<CR>
 
 " nordtheme/vim {{{2
-colorscheme nord
+silent! colorscheme nord
 
 " ntpeters/vim-better-whitespace
 highlight link ExtraWhitespace Error
