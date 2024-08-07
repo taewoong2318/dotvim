@@ -163,7 +163,7 @@ nnoremap <Leader>f <Cmd>Fern . -drawer -toggle -stay<CR>
 silent! colorscheme nord
 
 " ntpeters/vim-better-whitespace {{{2
-highlight link ExtraWhitespace Error
+highlight! link ExtraWhitespace Error
 
 " simeji/winresizer {{{2
 let g:winresizer_start_key = '<Leader>e'
