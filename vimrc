@@ -109,6 +109,7 @@ call plug#begin()
 Plug 'andymass/vim-matchup'
 Plug 'chrisbra/Recover.vim'
 Plug 'cohama/lexima.vim'
+Plug 'dstein64/vim-startuptime'
 Plug 'godlygeek/tabular'
 Plug 'junegunn/gv.vim'
 Plug 'kana/vim-smartword'
