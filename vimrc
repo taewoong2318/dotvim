@@ -132,6 +132,12 @@ Plug 'tyru/open-browser.vim'
 
 call plug#end()
 
+for k in keys(g:plugs)
+  if !isdirectory(g:plugs[k]['dir'])
+    finish
+  endif
+endfor
+
 " cohama/lexima.vim {{{2
 let g:lexima_ctrlh_as_backspace = 1
 let g:lexima_disable_on_nofile = 1
@@ -161,7 +167,7 @@ map ge <Plug>(smartword-ge)
 nnoremap <Leader>f <Cmd>Fern . -drawer -toggle -stay<CR>
 
 " nordtheme/vim {{{2
-silent! colorscheme nord
+colorscheme nord
 
 " ntpeters/vim-better-whitespace {{{2
 highlight! link ExtraWhitespace Error
