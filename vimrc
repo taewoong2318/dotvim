@@ -144,8 +144,6 @@ let g:lexima_disable_on_nofile = 1
 
 autocmd vimrc FileType text let b:lexima_disabled = 1
 
-call lexima#add_rule({'char': '=', 'at': ' \%#', 'input': '=<Space>'})
-
 call lexima#add_rule({'char': '"', 'syntax': ['Comment', 'String']})
 call lexima#add_rule({'char': "'", 'syntax': ['Comment', 'String']})
 call lexima#add_rule({'char': '(', 'syntax': ['Comment', 'String']})
@@ -158,7 +156,6 @@ call lexima#add_rule({'char': '}', 'syntax': ['Comment', 'String']})
 call lexima#add_rule({'char': '<BS>', 'syntax': ['Comment', 'String']})
 call lexima#add_rule({'char': '<CR>', 'syntax': ['Comment', 'String']})
 call lexima#add_rule({'char': '<Space>', 'syntax': ['Comment', 'String']})
-call lexima#add_rule({'char': '=', 'syntax': ['Comment', 'String']})
 
 " kana/vim-smartword {{{2
 map w <Plug>(smartword-w)
