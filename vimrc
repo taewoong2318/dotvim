@@ -129,6 +129,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sleuth'
 Plug 'tyru/open-browser.vim'
+Plug 'vim-scripts/mips.vim'
 
 call plug#end()
 
