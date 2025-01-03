@@ -168,6 +168,8 @@ map ge <Plug>(smartword-ge)
 " lambdalisue/fern.vim {{{2
 nnoremap <Leader>f <Cmd>Fern . -drawer -toggle -stay<CR>
 
+let g:fern_disable_startup_warnings = 1
+
 " nordtheme/vim {{{2
 colorscheme nord
 
