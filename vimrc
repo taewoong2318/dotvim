@@ -190,4 +190,4 @@ vmap gx <Plug>(openbrowser-smart-search)
 
 let g:openbrowser_default_search = 'duckduckgo'
 
-" vim:fdm=marker
+" vim: fdm=marker
