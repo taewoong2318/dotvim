@@ -14,10 +14,8 @@ augroup END
 set ambiwidth=double
 set autoindent
 set autoread
-set background=dark
 set backspace=indent,eol,start
 set completeopt=menuone,noinsert
-set cursorline
 set diffopt+=vertical,algorithm:histogram,indent-heuristic
 set display=lastline
 set expandtab
@@ -27,6 +25,7 @@ set ignorecase
 set incsearch
 set laststatus=0
 set modeline
+set nocursorline
 set nonumber
 set noshowcmd
 set omnifunc=syntaxcomplete#Complete
@@ -41,7 +40,19 @@ set tabstop=4
 set title
 set wildmode=longest,list
 
-if has('win32')
+if has('unix')
+  set viminfo+=n~/.vim/viminfo
+  set directory=~/.vim/swap
+  call mkdir(&directory, 'p')
+
+  let s:zsh = '/bin/zsh'
+  let s:bash = '/bin/bash'
+  if executable(s:zsh)
+    let &shell = s:zsh
+  elseif executable(s:bash)
+    let &shell = s:bash
+  endif
+elseif has('win32')
   set viminfo+=n~/vimfiles/viminfo
   set directory=~/vimfiles/swap
   call mkdir(&directory, 'p')
@@ -53,19 +64,6 @@ if has('win32')
   elseif executable(s:powershell)
     let &shell = s:powershell
   endif
-elseif has('unix')
-  set viminfo+=n~/.vim/viminfo
-  set directory=~/.vim/swap
-  call mkdir(&directory, 'p')
-
-  let s:bash = '/bin/bash'
-  if executable(s:bash)
-    let &shell = s:bash
-  endif
-endif
-
-if has('termguicolors')
-  set termguicolors
 endif
 
 syntax enable
@@ -101,7 +99,7 @@ let g:loaded_zipPlugin         = 1
 " shortcuts {{{1
 command! CdHere :cd %:h
 command! Reload :source $MYVIMRC
-command! Vimrc :edit $MYVIMRC
+command! Vimrc  :edit $MYVIMRC
 
 " plugins {{{1
 call plug#begin()
@@ -169,9 +167,6 @@ map ge <Plug>(smartword-ge)
 nnoremap <Leader>f <Cmd>Fern . -drawer -toggle -stay<CR>
 
 let g:fern_disable_startup_warnings = 1
-
-" nordtheme/vim {{{2
-colorscheme nord
 
 " ntpeters/vim-better-whitespace {{{2
 highlight! link ExtraWhitespace Error
