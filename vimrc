@@ -1,3 +1,5 @@
+" Author: Taewoong Han <mail@taewoong.me>
+
 " options {{{1
 set encoding=utf-8
 scriptencoding utf-8
