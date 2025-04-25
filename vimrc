@@ -108,6 +108,10 @@ command! CdHere :cd %:h
 command! Reload :source $MYVIMRC
 command! Vimrc  :edit $MYVIMRC
 
+" mappings {{{1
+nnoremap <C-J> <Cmd>bnext<CR>
+nnoremap <C-K> <Cmd>bprevious<CR>
+
 " plugins {{{1
 call plug#begin()
 
