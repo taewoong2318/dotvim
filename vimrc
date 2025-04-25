@@ -144,6 +144,7 @@ call plug#end()
 
 for k in keys(g:plugs)
   if !isdirectory(g:plugs[k]['dir'])
+    echo "Warning: At least one plugin is not installed yet."
     finish
   endif
 endfor
