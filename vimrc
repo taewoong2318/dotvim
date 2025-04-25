@@ -131,7 +131,6 @@ Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sleuth'
-Plug 'tyru/open-browser.vim'
 Plug 'vim-jp/vimdoc-ja'
 Plug 'vim-scripts/mips.vim'
 
@@ -183,11 +182,5 @@ let g:winresizer_start_key = '<Leader>e'
 nmap s <Plug>(SubversiveSubstitute)
 nmap ss <Plug>(SubversiveSubstituteLine)
 nmap S <Plug>(SubversiveSubstituteToEndOfLine)
-
-" tyru/open-browser.vim {{{2
-nmap gx <Plug>(openbrowser-smart-search)
-vmap gx <Plug>(openbrowser-smart-search)
-
-let g:openbrowser_default_search = 'duckduckgo'
 
 " vim: fdm=marker
