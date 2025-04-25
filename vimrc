@@ -82,8 +82,10 @@ autocmd vimrc FileType * setlocal formatoptions-=ro indentkeys-=0#
 let g:mapleader = "\<Space>"
 
 let g:loaded_2html_plugin      = 1
+let g:loaded_getscriptPlugin   = 1
 let g:loaded_gzip              = 1
 let g:loaded_logiPat           = 1
+let g:loaded_manpager_plugin   = 1
 let g:loaded_matchit           = 1
 let g:loaded_matchparen        = 1
 let g:loaded_netrw             = 1
@@ -95,6 +97,7 @@ let g:loaded_spellfile_plugin  = 1
 let g:loaded_tar               = 1
 let g:loaded_tarPlugin         = 1
 let g:loaded_tutor_mode_plugin = 1
+let g:loaded_vimballPlugin     = 1
 let g:loaded_zip               = 1
 let g:loaded_zipPlugin         = 1
 
@@ -119,7 +122,6 @@ Plug 'lambdalisue/vim-protocol'
 Plug 'machakann/vim-sandwich'
 Plug 'markonm/traces.vim'
 Plug 'moll/vim-bbye'
-Plug 'nordtheme/vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'simeji/winresizer'
 Plug 'svermeulen/vim-subversive'
