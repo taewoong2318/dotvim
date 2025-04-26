@@ -43,8 +43,8 @@ set title
 set wildmode=longest,list
 
 if has('unix')
-  set viminfo+=n~/.vim/viminfo
-  set directory=~/.vim/swap
+  set viminfo+=n~/.vim/.viminfo
+  set directory=~/.vim/.swap
   call mkdir(&directory, 'p')
 
   let s:zsh = '/bin/zsh'
@@ -55,8 +55,8 @@ if has('unix')
     let &shell = s:bash
   endif
 elseif has('win32')
-  set viminfo+=n~/vimfiles/viminfo
-  set directory=~/vimfiles/swap
+  set viminfo+=n~/vimfiles/.viminfo
+  set directory=~/vimfiles/.swap
   call mkdir(&directory, 'p')
 
   let s:pwsh = 'pwsh'
@@ -103,7 +103,7 @@ let g:loaded_zipPlugin         = 1
 
 let g:markdown_fenced_languages = ['bash=sh', 'c', 'cpp', 'cs', 'css', 'html', 'go', 'java', 'javascript', 'json', 'php', 'python', 'ruby', 'rust', 'typescript', 'vim', 'yaml']
 
-" shortcuts {{{1
+" commands {{{1
 command! CdHere :cd %:h
 command! Reload :source $MYVIMRC
 command! Vimrc  :edit $MYVIMRC
