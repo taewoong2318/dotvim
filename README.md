@@ -1,3 +1,9 @@
+Minimalist Vim Configuration
+
+## Requirements
+
+There is no requirement other than Vim itself :)
+
 ## Installation
 
 Clone this repository and install plugins:
