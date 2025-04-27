@@ -18,7 +18,9 @@ jobs:
           cp -r . ~/.vim
 
       - name: Install Vim plugins
-        run: timeout 30s vim -e -c "PlugInstall" -c "qa"
+        shell: 'script -q -e -c "bash {0}"'
+        run: timeout 30s vim -c "PlugInstall" -c "qa"
 
       - name: Launch Vim and exit
-        run: timeout 1s vim -e -c "q"
+        shell: 'script -q -e -c "bash {0}"'
+        run: timeout 1s vim -c "q"
