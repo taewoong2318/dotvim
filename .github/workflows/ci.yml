@@ -1,0 +1,24 @@
+name: Test Vim launching
+
+on: [ push, pull_request ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Vim
+        uses: rhysd/action-setup-vim@v1
+        id: vim
+
+      - name: Copy Vim configuration
+        run: |
+          rm -rf ~/.vim
+          cp -r . ~/.vim
+
+      - name: Install Vim plugins
+        run: timeout 30s vim -c "PlugInstall" -c "qa"
+
+      - name: Launch Vim and exit
+        run: timeout 1s vim -c "q"
