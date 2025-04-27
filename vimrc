@@ -138,11 +138,14 @@ Plug 'vim-scripts/mips.vim'
 
 call plug#end()
 
-for k in keys(g:plugs)
-  if !isdirectory(g:plugs[k]['dir'])
+for s:plug in keys(g:plugs)
+  if !isdirectory(g:plugs[s:plug]['dir'])
     if isdirectory(g:plug_home)
-      echo "Warning: At least one plugin is not installed yet."
+      echohl WarningMsg
+      echo 'Warning: At least one plugin is not installed yet.'
+      echohl None
     endif
+
     finish
   endif
 endfor
