@@ -72,11 +72,6 @@ syntax enable
 
 filetype plugin indent on
 
-autocmd vimrc FileType c         setlocal sts=4 sw=4 ts=4
-autocmd vimrc FileType json      setlocal sts=2 sw=2 ts=2
-autocmd vimrc FileType sshconfig setlocal sts=2 sw=2 ts=2
-autocmd vimrc FileType yaml      setlocal sts=2 sw=2 ts=2
-
 autocmd vimrc FileType * setlocal formatoptions-=ro indentkeys-=0#
 
 let g:mapleader = "\<Space>"
