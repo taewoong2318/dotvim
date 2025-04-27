@@ -1,3 +1,5 @@
+[![Test Vim launching](https://github.com/e2331177/dotvim/actions/workflows/ci.yml/badge.svg)](https://github.com/e2331177/dotvim/actions/workflows/ci.yml)
+
 Minimalist Vim Configuration
 
 ## Requirements
