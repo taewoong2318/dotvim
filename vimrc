@@ -96,7 +96,7 @@ let g:loaded_vimballPlugin     = 1
 let g:loaded_zip               = 1
 let g:loaded_zipPlugin         = 1
 
-let g:markdown_fenced_languages = ['bash=sh', 'c', 'cpp', 'cs', 'css', 'html', 'go', 'java', 'javascript', 'json', 'php', 'python', 'ruby', 'rust', 'typescript', 'vim', 'yaml']
+let g:markdown_fenced_languages = ['bash=sh', 'c', 'cpp', 'cs', 'css', 'html', 'go', 'javascript', 'json', 'php', 'python', 'ruby', 'rust', 'typescript', 'vim', 'yaml']
 
 " commands {{{1
 command! CdHere :cd %:h
