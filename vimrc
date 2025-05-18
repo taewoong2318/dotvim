@@ -1,27 +1,25 @@
+" Minimalist Vim Configuration
 " Author: Taewoong Han <mail@taewoong.me>
-
-" options {{{1
-set encoding=utf-8
-scriptencoding utf-8
-set fileencodings+=cp932,enc-jp
-
-if &compatible
-  set nocompatible
-endif
 
 augroup vimrc
   autocmd!
 augroup END
 
+" options {{{1
 set ambiwidth=double
 set autoindent
 set autoread
 set backspace=indent,eol,start
 set completeopt=menuone,noinsert
-set diffopt+=vertical,algorithm:histogram,indent-heuristic
+set diffopt=internal,filler,closeoff,inline:simple,vertical,algorithm:histogram,indent-heuristic
 set display=lastline
+set encoding=utf-8
 set expandtab
+set fileencoding=utf-8
+set fileencodings=ucs-bom,utf-8,default,latin1
+set fileformats=unix,dos,mac
 set hidden
+set history=10000
 set hlsearch
 set ignorecase
 set incsearch
@@ -42,23 +40,17 @@ set tabstop=4
 set title
 set wildmode=longest,list
 
-if has('unix')
-  set viminfo+=n~/.vim/.viminfo
-  set directory=~/.vim/.swap
-  call mkdir(&directory, 'p')
+let s:vim_home = expand('<sfile>:p:h')
 
-  let s:zsh = '/bin/zsh'
-  let s:bash = '/bin/bash'
-  if executable(s:zsh)
-    let &shell = s:zsh
-  elseif executable(s:bash)
-    let &shell = s:bash
-  endif
-elseif has('win32')
-  set viminfo+=n~/vimfiles/.viminfo
-  set directory=~/vimfiles/.swap
-  call mkdir(&directory, 'p')
+let &viminfo .= ',n' . s:vim_home . '/.viminfo'
 
+let s:swap_dir = s:vim_home . '/.swap'
+if !isdirectory(s:swap_dir)
+  call mkdir(s:swap_dir, 'p')
+endif
+let &directory = s:swap_dir . '//'
+
+if has('win32')
   let s:pwsh = 'pwsh'
   let s:powershell = 'powershell'
   if executable(s:pwsh)
@@ -72,7 +64,7 @@ syntax enable
 
 filetype plugin indent on
 
-autocmd vimrc FileType * setlocal formatoptions-=ro indentkeys-=0#
+autocmd vimrc FileType * setlocal formatoptions-=ro
 
 let g:mapleader = "\<Space>"
 
