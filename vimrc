@@ -1,4 +1,4 @@
-" Minimalist Vim Configuration
+" The Vim configuration with compatibility in mind for Linux, macOS, and Windows
 " Author: Taewoong Han <mail@taewoong.me>
 
 augroup vimrc
