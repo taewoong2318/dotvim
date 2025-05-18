@@ -56,6 +56,7 @@ filetype plugin indent on
 
 autocmd vimrc FileType * setlocal formatoptions-=ro
 
+" variables {{{1
 let g:mapleader = "\<Space>"
 
 let g:loaded_2html_plugin      = 1
