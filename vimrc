@@ -50,16 +50,6 @@ if !isdirectory(s:swap_dir)
 endif
 let &directory = s:swap_dir . '//'
 
-if has('win32')
-  let s:pwsh = 'pwsh'
-  let s:powershell = 'powershell'
-  if executable(s:pwsh)
-    let &shell = s:pwsh
-  elseif executable(s:powershell)
-    let &shell = s:powershell
-  endif
-endif
-
 syntax enable
 
 filetype plugin indent on
