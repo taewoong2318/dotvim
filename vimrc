@@ -11,7 +11,7 @@ set autoindent
 set autoread
 set backspace=indent,eol,start
 set completeopt=menuone,noinsert
-set diffopt=internal,filler,closeoff,inline:simple,vertical,algorithm:histogram,indent-heuristic
+set diffopt+=algorithm:histogram,indent-heuristic,vertical
 set display=lastline
 set encoding=utf-8
 set expandtab
