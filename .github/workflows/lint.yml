@@ -15,7 +15,7 @@ jobs:
           python-version: "3.10"
 
       - name: Install Vint
-        run: pip install vim-vint=0.3.21
+        run: pip install vim-vint==0.3.21
 
       - name: Run Vint
         run: vint --style-problem --color --stat vimrc
