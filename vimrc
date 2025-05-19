@@ -40,15 +40,15 @@ set tabstop=4
 set title
 set wildmode=longest,list
 
-let s:vim_home = expand('<sfile>:p:h')
+let s:vim_cache = expand('<sfile>:p:h') . '/.cache'
 
-let &viminfo .= ',n' . s:vim_home . '/.viminfo'
-
-let s:swap_dir = s:vim_home . '/.swap'
+let s:swap_dir = s:vim_cache . '/swap'
 if !isdirectory(s:swap_dir)
   call mkdir(s:swap_dir, 'p')
 endif
 let &directory = s:swap_dir . '//'
+
+let &viminfo .= ',n' . s:vim_cache . '/viminfo'
 
 syntax enable
 
