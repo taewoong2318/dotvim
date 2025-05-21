@@ -23,11 +23,13 @@ set history=10000
 set hlsearch
 set ignorecase
 set incsearch
+set infercase
 set laststatus=0
 set modeline
 set nocursorline
 set nonumber
 set noshowcmd
+set nostartofline
 set omnifunc=syntaxcomplete#Complete
 set pumheight=10
 set ruler
@@ -38,6 +40,7 @@ set softtabstop=4
 set splitbelow
 set tabstop=4
 set title
+set virtualedit=block
 set wildmode=longest,list
 
 let s:vim_cache = expand('<sfile>:p:h') . '/.cache'
