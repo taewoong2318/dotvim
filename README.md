@@ -1,6 +1,6 @@
 [![Lint](https://github.com/e2331177/dotvim/actions/workflows/lint.yml/badge.svg)](https://github.com/e2331177/dotvim/actions/workflows/lint.yml)
 
-The Vim configuration with compatibility in mind for Linux, macOS, and Windows
+The Vim configuration with compatibility in mind, for Linux, macOS, and Windows
 
 ## Requirements
 
