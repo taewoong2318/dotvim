@@ -1,0 +1,10 @@
+cmdargs:
+  severity: style_problem
+  stat: true
+  color: true
+
+policies:
+  ProhibitImplicitScopeVariable:
+    enabled: true
+  ProhibitUnusedVariable:
+    enabled: true
