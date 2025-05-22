@@ -1,4 +1,4 @@
-" The Vim configuration with compatibility in mind for Linux, macOS, and Windows
+" The Vim configuration with compatibility in mind, for Linux, macOS, and Windows
 " Author: Taewoong Han <mail@taewoong.me>
 
 augroup vimrc
@@ -57,11 +57,13 @@ syntax enable
 
 filetype plugin indent on
 
+" Disable the automatic insertion of a comment leader on every file type
 autocmd vimrc FileType * setlocal formatoptions-=ro
 
 " variables {{{1
 let g:mapleader = "\<Space>"
 
+" Disable the built-in plugins
 let g:loaded_2html_plugin      = 1
 let g:loaded_getscriptPlugin   = 1
 let g:loaded_gzip              = 1
@@ -126,6 +128,7 @@ Plug 'vim-scripts/mips.vim'
 
 call plug#end()
 
+" Exit if at least one plugin is not installed, in order to avoid errors
 for s:plug in keys(g:plugs)
   if !isdirectory(g:plugs[s:plug]['dir'])
     if isdirectory(g:plug_home)
