@@ -142,20 +142,29 @@ endfor
 let g:lexima_ctrlh_as_backspace = 1
 let g:lexima_disable_on_nofile = 1
 
-autocmd vimrc FileType text let b:lexima_disabled = 1
+autocmd vimrc FileType markdown,text let b:lexima_disabled = 1
 
-call lexima#add_rule({'char': '"', 'syntax': ['Comment', 'String']})
-call lexima#add_rule({'char': "'", 'syntax': ['Comment', 'String']})
-call lexima#add_rule({'char': '(', 'syntax': ['Comment', 'String']})
-call lexima#add_rule({'char': ')', 'syntax': ['Comment', 'String']})
-call lexima#add_rule({'char': '[', 'syntax': ['Comment', 'String']})
-call lexima#add_rule({'char': ']', 'syntax': ['Comment', 'String']})
-call lexima#add_rule({'char': '`', 'syntax': ['Comment', 'String']})
-call lexima#add_rule({'char': '{', 'syntax': ['Comment', 'String']})
-call lexima#add_rule({'char': '}', 'syntax': ['Comment', 'String']})
-call lexima#add_rule({'char': '<BS>', 'syntax': ['Comment', 'String']})
-call lexima#add_rule({'char': '<CR>', 'syntax': ['Comment', 'String']})
-call lexima#add_rule({'char': '<Space>', 'syntax': ['Comment', 'String']})
+" Disable the default rules when the cursor is in a comment
+call lexima#add_rule({'char': '"', 'input': '"', 'syntax': 'Comment'})
+call lexima#add_rule({'char': "'", 'input': "'", 'syntax': 'Comment'})
+call lexima#add_rule({'char': '(', 'input': '(', 'syntax': 'Comment'})
+call lexima#add_rule({'char': ')', 'input': ')', 'syntax': 'Comment'})
+call lexima#add_rule({'char': '[', 'input': '[', 'syntax': 'Comment'})
+call lexima#add_rule({'char': ']', 'input': ']', 'syntax': 'Comment'})
+call lexima#add_rule({'char': '`', 'input': '`', 'syntax': 'Comment'})
+call lexima#add_rule({'char': '{', 'input': '{', 'syntax': 'Comment'})
+call lexima#add_rule({'char': '}', 'input': '}', 'syntax': 'Comment'})
+call lexima#add_rule({'char': '<BS>', 'input': '<BS>', 'syntax': 'Comment'})
+call lexima#add_rule({'char': '<CR>', 'input': '<CR>', 'syntax': 'Comment'})
+call lexima#add_rule({'char': '<Space>', 'input': '<Space>', 'syntax': 'Comment'})
+
+" Disable the default rules when the cursor is at the front of a word
+call lexima#add_rule({'at': '\%#\w', 'char': "'", 'input': "'"})
+call lexima#add_rule({'at': '\%#\w', 'char': '"', 'input': '"'})
+call lexima#add_rule({'at': '\%#\w', 'char': '(', 'input': '('})
+call lexima#add_rule({'at': '\%#\w', 'char': '[', 'input': '['})
+call lexima#add_rule({'at': '\%#\w', 'char': '`', 'input': '`'})
+call lexima#add_rule({'at': '\%#\w', 'char': '{', 'input': '{'})
 
 " kana/vim-smartword {{{2
 map w <Plug>(smartword-w)
