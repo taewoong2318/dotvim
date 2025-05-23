@@ -33,10 +33,10 @@ set nostartofline
 set omnifunc=syntaxcomplete#Complete
 set pumheight=10
 set ruler
-set shiftwidth=4
+set shiftwidth=0    " Use the value of 'tabstop'
 set signcolumn=no
 set smartcase
-set softtabstop=4
+set softtabstop=-1  " Use the value of 'tabstop'
 set splitbelow
 set tabstop=4
 set title
