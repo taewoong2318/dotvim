@@ -138,8 +138,8 @@ call plug#end()
 if len(filter(values(g:plugs), '!isdirectory(v:val.dir)')) != 0
   if isdirectory(g:plug_home)
     echohl WarningMsg
-      echo 'Warning: There are plugins that are not yet installed.'
-      echohl None
+    echo 'Warning: There are plugins that are not yet installed.'
+    echohl None
   endif
 
   finish
