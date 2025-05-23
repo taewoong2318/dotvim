@@ -1,6 +1,7 @@
 " The Vim configuration with compatibility in mind, for Linux, macOS, and Windows
 " Author: Taewoong Han <mail@taewoong.me>
 
+" Remove all the autocommands in vimrc to avoid multiple registration
 augroup vimrc
   autocmd!
 augroup END
@@ -133,11 +134,11 @@ Plug 'vim-scripts/mips.vim'
 
 call plug#end()
 
-" Exit if at least one plugin is not installed, in order to avoid errors
+" Exit vimrc immediately if there are plugins that are not yet installed
 if len(filter(values(g:plugs), '!isdirectory(v:val.dir)')) != 0
   if isdirectory(g:plug_home)
     echohl WarningMsg
-      echo 'Warning: At least one plugin is not installed yet.'
+      echo 'Warning: There are plugins that are not yet installed.'
       echohl None
   endif
 
