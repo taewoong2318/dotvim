@@ -41,17 +41,18 @@ set splitbelow
 set tabstop=4
 set title
 set virtualedit=block
-set wildmode=longest,list
+set wildmode=longest,list " Complete like Bash
 
-let s:vim_cache = expand('<sfile>:p:h') . '/.cache'
+" Store *.swp and viminfo under ~/.vim/.cache (~\vimfiles\.cache on Windows)
+let s:cache_dir = expand('<sfile>:p:h') . '/.cache'
 
-let s:swap_dir = s:vim_cache . '/swap'
+let s:swap_dir = s:cache_dir . '/swap'
 if !isdirectory(s:swap_dir)
   call mkdir(s:swap_dir, 'p')
 endif
 let &directory = s:swap_dir . '//'
 
-let &viminfo .= ',n' . s:vim_cache . '/viminfo'
+let &viminfo .= ',n' . s:cache_dir . '/viminfo'
 
 syntax enable
 
@@ -84,12 +85,15 @@ let g:loaded_vimballPlugin     = 1
 let g:loaded_zip               = 1
 let g:loaded_zipPlugin         = 1
 
-let g:markdown_fenced_languages = ['bash=sh', 'c', 'cpp', 'cs', 'css', 'html', 'go', 'javascript', 'json', 'php', 'python', 'ruby', 'rust', 'typescript', 'vim', 'yaml']
+let g:markdown_fenced_languages = [
+      \ 'bash=sh', 'c', 'cpp', 'cs', 'css', 'html', 'go', 'javascript', 'json',
+      \ 'php', 'python', 'ruby', 'rust', 'typescript', 'vim', 'yaml'
+      \ ]
 
 " commands {{{1
-command! CdHere :cd %:h
-command! Reload :source $MYVIMRC
-command! Vimrc  :edit $MYVIMRC
+command! CdHere cd %:h
+command! Reload source $MYVIMRC
+command! Vimrc  edit $MYVIMRC
 
 " mappings {{{1
 nnoremap <C-J> <Cmd>bnext<CR>
@@ -129,17 +133,15 @@ Plug 'vim-scripts/mips.vim'
 call plug#end()
 
 " Exit if at least one plugin is not installed, in order to avoid errors
-for s:plug in keys(g:plugs)
-  if !isdirectory(g:plugs[s:plug]['dir'])
-    if isdirectory(g:plug_home)
-      echohl WarningMsg
+if len(filter(values(g:plugs), '!isdirectory(v:val.dir)')) != 0
+  if isdirectory(g:plug_home)
+    echohl WarningMsg
       echo 'Warning: At least one plugin is not installed yet.'
       echohl None
-    endif
-
-    finish
   endif
-endfor
+
+  finish
+endif
 
 " cohama/lexima.vim {{{2
 let g:lexima_ctrlh_as_backspace = 1
