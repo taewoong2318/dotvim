@@ -122,7 +122,6 @@ Plug 'moll/vim-bbye'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'rhysd/vim-healthcheck'
 Plug 'simeji/winresizer'
-Plug 'svermeulen/vim-subversive'
 Plug 'thinca/vim-partedit'
 Plug 'thinca/vim-qfreplace'
 Plug 'tpope/vim-abolish'
@@ -189,10 +188,5 @@ highlight! link ExtraWhitespace Error
 
 " simeji/winresizer {{{2
 let g:winresizer_start_key = '<Leader>e'
-
-" svermeulen/vim-subversive {{{2
-nmap s <Plug>(SubversiveSubstitute)
-nmap ss <Plug>(SubversiveSubstituteLine)
-nmap S <Plug>(SubversiveSubstituteToEndOfLine)
 
 " vim: fdm=marker
