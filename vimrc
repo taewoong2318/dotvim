@@ -1,4 +1,5 @@
-" The Vim configuration with compatibility in mind, for Linux, macOS, and Windows
+" Vim configuration with compatibility in mind, for Linux, macOS, and Windows
+"
 " Author: Taewoong Han <mail@taewoong.me>
 
 " Remove all the autocommands in vimrc to avoid multiple registration
