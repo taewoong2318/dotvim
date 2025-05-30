@@ -61,7 +61,9 @@ syntax enable
 filetype plugin indent on
 
 " Disable the automatic insertion of a comment leader on every file type
-autocmd vimrc FileType * setlocal formatoptions-=ro
+autocmd vimrc FileType *
+      \ setlocal formatoptions-=r |
+      \ setlocal formatoptions-=o
 
 " variables {{{1
 let g:mapleader = "\<Space>"
