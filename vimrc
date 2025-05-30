@@ -106,33 +106,34 @@ nnoremap <C-K> <Cmd>bprevious<CR>
 " plugins {{{1
 call plug#begin()
 
-Plug 'andymass/vim-matchup'
-Plug 'chrisbra/Recover.vim'
-Plug 'cohama/lexima.vim'
-Plug 'dstein64/vim-startuptime'
-Plug 'godlygeek/tabular'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/gv.vim'
-Plug 'junegunn/vim-plug'
-Plug 'kana/vim-smartword'
-Plug 'lambdalisue/vim-fern'
-Plug 'lambdalisue/vim-fern-hijack'
-Plug 'lambdalisue/vim-protocol'
-Plug 'lambdalisue/vim-suda'
-Plug 'machakann/vim-sandwich'
-Plug 'markonm/traces.vim'
-Plug 'moll/vim-bbye'
-Plug 'ntpeters/vim-better-whitespace'
-Plug 'rhysd/vim-healthcheck'
-Plug 'simeji/winresizer'
-Plug 'thinca/vim-partedit'
-Plug 'thinca/vim-qfreplace'
-Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-sleuth'
-Plug 'vim-jp/vimdoc-ja'
-Plug 'vim-scripts/mips.vim'
+Plug 'https://github.com/andymass/vim-matchup'
+Plug 'https://github.com/chrisbra/Recover.vim'
+Plug 'https://github.com/cohama/lexima.vim'
+Plug 'https://github.com/dstein64/vim-startuptime'
+Plug 'https://github.com/godlygeek/tabular'
+Plug 'https://github.com/junegunn/goyo.vim'
+Plug 'https://github.com/junegunn/gv.vim'
+Plug 'https://github.com/junegunn/vim-plug'
+Plug 'https://github.com/kana/vim-smartword'
+Plug 'https://github.com/lambdalisue/vim-fern'
+Plug 'https://github.com/lambdalisue/vim-fern-hijack'
+Plug 'https://github.com/lambdalisue/vim-protocol'
+Plug 'https://github.com/lambdalisue/vim-suda'
+Plug 'https://github.com/machakann/vim-sandwich'
+Plug 'https://github.com/markonm/traces.vim'
+Plug 'https://github.com/moll/vim-bbye'
+Plug 'https://github.com/ntpeters/vim-better-whitespace'
+Plug 'https://github.com/rhysd/vim-healthcheck'
+Plug 'https://github.com/simeji/winresizer'
+Plug 'https://github.com/thinca/vim-partedit'
+Plug 'https://github.com/thinca/vim-qfreplace'
+Plug 'https://github.com/tpope/vim-abolish'
+Plug 'https://github.com/tpope/vim-commentary'
+Plug 'https://github.com/tpope/vim-fugitive'
+Plug 'https://github.com/tpope/vim-rhubarb'
+Plug 'https://github.com/tpope/vim-sleuth'
+Plug 'https://github.com/vim-jp/vimdoc-ja'
+Plug 'https://github.com/vim-scripts/mips.vim'
 
 call plug#end()
 
@@ -147,7 +148,7 @@ if len(filter(values(g:plugs), '!isdirectory(v:val.dir)')) != 0
   finish
 endif
 
-" cohama/lexima.vim {{{2
+" https://github.com/cohama/lexima.vim {{{2
 let g:lexima_ctrlh_as_backspace = 1
 let g:lexima_disable_on_nofile = 1
 
@@ -175,21 +176,25 @@ call lexima#add_rule({'at': '\%#\w', 'char': '[', 'input': '['})
 call lexima#add_rule({'at': '\%#\w', 'char': '`', 'input': '`'})
 call lexima#add_rule({'at': '\%#\w', 'char': '{', 'input': '{'})
 
-" kana/vim-smartword {{{2
+" https://github.com/kana/vim-smartword {{{2
 map w <Plug>(smartword-w)
 map b <Plug>(smartword-b)
 map e <Plug>(smartword-e)
 map ge <Plug>(smartword-ge)
 
-" lambdalisue/fern.vim {{{2
+" https://github.com/lambdalisue/fern.vim {{{2
 nnoremap <Leader>f <Cmd>Fern . -drawer -toggle -stay<CR>
 
 let g:fern_disable_startup_warnings = 1
 
-" ntpeters/vim-better-whitespace {{{2
+" https://github.com/ntpeters/vim-better-whitespace {{{2
 highlight! link ExtraWhitespace Error
 
-" simeji/winresizer {{{2
+" https://github.com/simeji/winresizer {{{2
 let g:winresizer_start_key = '<Leader>e'
+
+" https://github.com/tpope/vim-rhubarb {{{2
+" Define :Browse for :GBrowse because I use OpenPlugin, not Netrw
+command! -complete=file -nargs=1 Browse Open <args>
 
 " vim: fdm=marker
