@@ -194,7 +194,7 @@ highlight! link ExtraWhitespace Error
 let g:winresizer_start_key = '<Leader>e'
 
 " https://github.com/tpope/vim-rhubarb {{{2
-" Define :Browse for :GBrowse because I use OpenPlugin, not Netrw
-command! -complete=file -nargs=1 Browse Open <args>
+" Define :Browse for :GBrowse because Netrw will not be loaded
+command! -nargs=1 Browse Open <args>
 
 " vim: fdm=marker
