@@ -1,6 +1,6 @@
-[![Lint](https://github.com/e2331177/dotvim/actions/workflows/lint.yml/badge.svg)](https://github.com/e2331177/dotvim/actions/workflows/lint.yml)
+[![Lint](https://github.com/taewoong2318/dotvim/actions/workflows/lint.yml/badge.svg)](https://github.com/taewoong2318/dotvim/actions/workflows/lint.yml)
 
-Vim configuration with compatibility in mind, for Linux, macOS, and Windows
+Vim configuration with portability in mind, for Linux, macOS, and Windows
 
 ## Requirements
 
@@ -10,5 +10,5 @@ There is no requirement other than Vim itself :)
 
 Clone this repository and install plugins:
 
-    git clone https://github.com/e2331177/dotvim.git ~/.vim
+    git clone https://github.com/taewoong2318/dotvim.git ~/.vim
     vim +PlugInstall +qa
