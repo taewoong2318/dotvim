@@ -95,9 +95,9 @@ let g:markdown_fenced_languages = [
       \ ]
 
 " commands {{{1
-command! CdHere cd %:h
-command! Reload source $MYVIMRC
-command! Vimrc  edit $MYVIMRC
+command! -nargs=0 -bar CdHere   cd %:h
+command! -nargs=0 -bar Reload   source $MYVIMRC
+command! -nargs=0 -bar Vimrc    edit $MYVIMRC
 
 " mappings {{{1
 nnoremap <C-J> <Cmd>bnext<CR>
@@ -190,13 +190,13 @@ let g:fern_disable_startup_warnings = 1
 " https://github.com/lambdalisue/vim-suda {{{2
 " Define aliases to use in the same way as sudo.vim
 " (https://github.com/vim-scripts/sudo.vim)
-command! -nargs=? -complete=file SudoRead SudaRead <args>
-command! -nargs=? -complete=file SudoWrite SudaWrite <args>
+command! -nargs=? -complete=file SudoRead   SudaRead <args>
+command! -nargs=? -complete=file SudoWrite  SudaWrite <args>
 
 " https://github.com/moll/vim-bbye {{{2
 " Define an alias so that you do not have to press the Shift key (':Bclose' can
 " be typed by ':bc<Tab>'.)
-command! -bang -complete=buffer -nargs=? Bclose Bdelete<bang> <args>
+command! -nargs=? -complete=buffer -bang Bclose Bdelete<bang> <args>
 
 " https://github.com/ntpeters/vim-better-whitespace {{{2
 highlight! link ExtraWhitespace Error
