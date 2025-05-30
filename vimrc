@@ -106,6 +106,8 @@ nnoremap <C-K> <Cmd>bprevious<CR>
 " plugins {{{1
 call plug#begin()
 
+" Use full URLs instead of '<user>/<repository>' because you have to simply
+" paste URLs to add plugins and can open the web page by typing 'gx' as well
 Plug 'https://github.com/andymass/vim-matchup'
 Plug 'https://github.com/chrisbra/Recover.vim'
 Plug 'https://github.com/cohama/lexima.vim'
