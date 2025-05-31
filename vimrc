@@ -26,7 +26,6 @@ set ignorecase
 set incsearch
 set infercase
 set laststatus=0
-set noshowcmd
 set nostartofline
 set nrformats-=octal
 set omnifunc=syntaxcomplete#Complete
@@ -97,6 +96,9 @@ nnoremap <C-J> <Cmd>bnext<CR>
 nnoremap <C-K> <Cmd>bprevious<CR>
 
 nnoremap <C-L> <Cmd>nohlsearch<CR><C-L>
+
+" Start new undoable edit before CTRL-U
+inoremap <C-U> <C-G>u<C-U>
 
 " plugins {{{1
 call plug#begin()
