@@ -11,7 +11,6 @@ augroup END
 set ambiwidth=double
 set autoindent
 set autoread
-set backspace=indent,eol,start
 set completeopt=menuone,noinsert
 set diffopt+=algorithm:histogram,indent-heuristic,vertical
 set display=lastline
@@ -27,9 +26,6 @@ set ignorecase
 set incsearch
 set infercase
 set laststatus=0
-set modeline
-set nocursorline
-set nonumber
 set noshowcmd
 set nostartofline
 set omnifunc=syntaxcomplete#Complete
