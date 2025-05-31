@@ -28,6 +28,7 @@ set infercase
 set laststatus=0
 set noshowcmd
 set nostartofline
+set nrformats-=octal
 set omnifunc=syntaxcomplete#Complete
 set pumheight=10
 set ruler
@@ -38,6 +39,8 @@ set softtabstop=-1  " Use the value of 'tabstop'
 set splitbelow
 set tabstop=4
 set title
+set ttimeout
+set ttimeoutlen=100       " See https://vi.stackexchange.com/a/24938
 set virtualedit=block
 set wildmode=longest,list " Complete like Bash
 
@@ -93,6 +96,8 @@ command! -nargs=0 -bar Vimrc    edit $MYVIMRC
 nnoremap <C-J> <Cmd>bnext<CR>
 nnoremap <C-K> <Cmd>bprevious<CR>
 
+nnoremap <C-L> <Cmd>nohlsearch<CR><C-L>
+
 " plugins {{{1
 call plug#begin()
 
@@ -115,6 +120,7 @@ Plug 'https://github.com/machakann/vim-sandwich'
 Plug 'https://github.com/markonm/traces.vim'
 Plug 'https://github.com/moll/vim-bbye'
 Plug 'https://github.com/ntpeters/vim-better-whitespace'
+Plug 'https://github.com/psliwka/vim-smoothie'
 Plug 'https://github.com/rhysd/vim-healthcheck'
 Plug 'https://github.com/simeji/winresizer'
 Plug 'https://github.com/thinca/vim-partedit'
@@ -200,4 +206,4 @@ let g:winresizer_start_key = '<Leader>e'
 " Define :Browse for :GBrowse because Netrw will not be loaded
 command! -nargs=1 Browse Open <args>
 
-" vim: fdm=marker
+" vim:fdm=marker
