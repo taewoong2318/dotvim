@@ -32,6 +32,7 @@ set omnifunc=syntaxcomplete#Complete
 set pumheight=10
 set ruler
 set shiftwidth=0    " Use the value of 'tabstop'
+set showcmd
 set signcolumn=no
 set smartcase
 set softtabstop=-1  " Use the value of 'tabstop'
@@ -66,7 +67,7 @@ autocmd vimrc FileType *
 " variables {{{1
 let g:mapleader = "\<Space>"
 
-" Disable unnecessary built-in plugins
+" Disable unnecessary built-in plugins (under $VIMRUNTIME/plugin)
 let g:loaded_2html_plugin      = 1
 let g:loaded_getscriptPlugin   = 1
 let g:loaded_gzip              = 1
@@ -87,14 +88,17 @@ let g:markdown_fenced_languages = [
       \ ]
 
 " commands {{{1
+" Define some shortcuts
 command! -nargs=0 -bar CdHere   cd %:h
 command! -nargs=0 -bar Reload   source $MYVIMRC
 command! -nargs=0 -bar Vimrc    edit $MYVIMRC
 
 " mappings {{{1
+" Switch buffers quickly
 nnoremap <C-J> <Cmd>bnext<CR>
 nnoremap <C-K> <Cmd>bprevious<CR>
 
+" Use CTRL-L to stop highlightling and redraw
 nnoremap <C-L> <Cmd>nohlsearch<CR><C-L>
 
 " Start new undoable edit before CTRL-U
