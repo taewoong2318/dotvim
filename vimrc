@@ -55,6 +55,12 @@ let &directory = s:swap_dir . '//'
 
 let &viminfo .= ',n' . s:cache_dir . '/viminfo'
 
+" Use keyword completion on Unix
+let s:unix_words_file = '/usr/share/dict/words'
+if has('unix') && filereadable(s:unix_words_file)
+  let &dictionary=s:unix_words_file
+endif
+
 syntax enable
 
 filetype plugin indent on
@@ -98,7 +104,7 @@ command! -nargs=0 -bar Vimrc    edit $MYVIMRC
 nnoremap <C-J> <Cmd>bnext<CR>
 nnoremap <C-K> <Cmd>bprevious<CR>
 
-" Use CTRL-L to stop highlightling and redraw
+" Use CTRL-L to stop highlighting and redraw
 nnoremap <C-L> <Cmd>nohlsearch<CR><C-L>
 
 " Start new undoable edit before CTRL-U
