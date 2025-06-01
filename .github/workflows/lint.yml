@@ -19,4 +19,4 @@ jobs:
         run: pip install vim-vint==0.3.21
 
       - name: Run Vint
-        run: vint --verbose vimrc
+        run: vint --verbose gvimrc vimrc
