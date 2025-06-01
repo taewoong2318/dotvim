@@ -219,6 +219,9 @@ let g:winresizer_start_key = '<Leader>e'
 
 " https://github.com/tpope/vim-rhubarb {{{2
 " Define :Browse for :GBrowse because Netrw will not be loaded
-command! -nargs=1 Browse Open <args>
+" Use :Open from $VIMRUNTIME/plugin/openPlugin.vim
+if exists(':Open')
+  command! -nargs=1 Browse Open <args>
+endif
 
 " vim: fdm=marker:ts=2:tw=78
