@@ -104,6 +104,9 @@ nnoremap <C-L> <Cmd>nohlsearch<CR><C-L>
 " Start new undoable edit before CTRL-U
 inoremap <C-U> <C-G>u<C-U>
 
+" Yank from the cursor to the end of the line
+inoremap Y y$
+
 " plugins {{{1
 call plug#begin()
 
@@ -212,4 +215,4 @@ let g:winresizer_start_key = '<Leader>e'
 " Define :Browse for :GBrowse because Netrw will not be loaded
 command! -nargs=1 Browse Open <args>
 
-" vim:fdm=marker
+" vim: fdm=marker:ts=2:tw=78
