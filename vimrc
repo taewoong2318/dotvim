@@ -58,7 +58,7 @@ let &viminfo .= ',n' . s:cache_dir . '/viminfo'
 " Use keyword completion on Unix
 let s:unix_words_file = '/usr/share/dict/words'
 if has('unix') && filereadable(s:unix_words_file)
-  let &dictionary=s:unix_words_file
+  let &dictionary = s:unix_words_file
 endif
 
 syntax enable
