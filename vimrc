@@ -133,8 +133,6 @@ Plug 'https://github.com/junegunn/goyo.vim'
 Plug 'https://github.com/junegunn/gv.vim'
 Plug 'https://github.com/junegunn/vim-plug'
 Plug 'https://github.com/kana/vim-smartword'
-Plug 'https://github.com/lambdalisue/vim-fern'
-Plug 'https://github.com/lambdalisue/vim-fern-hijack'
 Plug 'https://github.com/lambdalisue/vim-protocol'
 Plug 'https://github.com/lambdalisue/vim-suda'
 Plug 'https://github.com/machakann/vim-sandwich'
@@ -147,12 +145,26 @@ Plug 'https://github.com/simeji/winresizer'
 Plug 'https://github.com/thinca/vim-partedit'
 Plug 'https://github.com/thinca/vim-qfreplace'
 Plug 'https://github.com/tpope/vim-abolish'
-Plug 'https://github.com/tpope/vim-commentary'
 Plug 'https://github.com/tpope/vim-fugitive'
 Plug 'https://github.com/tpope/vim-rhubarb'
 Plug 'https://github.com/tpope/vim-sleuth'
 Plug 'https://github.com/vim-jp/vimdoc-ja'
 Plug 'https://github.com/vim-scripts/mips.vim'
+
+if has('patch-8.1.0311')
+  packadd cfilter
+endif
+
+if has('patch-8.2.5136')
+  Plug 'https://github.com/lambdalisue/vim-fern'
+  Plug 'https://github.com/lambdalisue/vim-fern-hijack'
+endif
+
+if has('patch-9.1.0375')
+  packadd comment
+elseif
+  Plug 'https://github.com/tpope/vim-commentary'
+endif
 
 call plug#end()
 
@@ -202,9 +214,9 @@ map e <Plug>(smartword-e)
 map ge <Plug>(smartword-ge)
 
 " https://github.com/lambdalisue/fern.vim {{{2
-nnoremap <Leader>f <Cmd>Fern . -drawer -toggle -stay<CR>
-
-let g:fern_disable_startup_warnings = 1
+if has('patch-8.2.5136')
+  nnoremap <Leader>f <Cmd>Fern . -drawer -toggle -stay<CR>
+endif
 
 " https://github.com/lambdalisue/vim-suda {{{2
 " Define aliases to use in the same way as sudo.vim
@@ -226,7 +238,7 @@ let g:winresizer_start_key = '<Leader>e'
 " https://github.com/tpope/vim-rhubarb {{{2
 " Define :Browse for :GBrowse because Netrw will not be loaded
 " Use :Open from $VIMRUNTIME/plugin/openPlugin.vim
-if exists(':Open')
+if has('patch-9.1.1054')
   command! -nargs=1 Browse Open <args>
 endif
 
