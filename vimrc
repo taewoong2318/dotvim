@@ -162,7 +162,7 @@ endif
 
 if has('patch-9.1.0375')
   packadd comment
-elseif
+else
   Plug 'https://github.com/tpope/vim-commentary'
 endif
 
