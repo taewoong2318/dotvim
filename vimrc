@@ -88,9 +88,15 @@ let g:loaded_tutor_mode_plugin = 1
 let g:loaded_vimballPlugin     = 1
 let g:loaded_zipPlugin         = 1
 
+" Enable fenced code block syntax highlighting
+" Some aliases are picked up from:
+" https://github.com/github-linguist/linguist/blob/main/lib/linguist/languages.yml
 let g:markdown_fenced_languages = [
-      \ 'bash=sh', 'c', 'cpp', 'cs', 'css', 'html', 'go', 'javascript', 'json',
-      \ 'php', 'python', 'ruby', 'rust', 'typescript', 'vim', 'yaml'
+      \ 'c', 'cpp', 'c++=cpp', 'cs', 'c#=cs', 'css', 'html', 'go', 'golang=go',
+      \ 'javascript', 'js=javascript', 'json', 'php', 'python', 'ruby',
+      \ 'rb=ruby', 'rust', 'rs=rust', 'sh', 'bash=sh', 'shell=sh', 'zsh=sh',
+      \ 'typescript', 'ts=typescript', 'vim', 'viml=vim', 'vimscript=vim',
+      \ 'yaml', 'yml=yaml'
       \ ]
 
 " commands {{{1
