@@ -120,14 +120,17 @@ inoremap <C-U> <C-G>u<C-U>
 inoremap Y y$
 
 " plugins {{{1
+" editexisting {{{2
 if has('patch-7.4.1674')
   packadd editexisting
 endif
 
+" cfilter {{{2
 if has('patch-8.1.311')
   packadd cfilter
 endif
 
+" vim-fern* {{{2
 if has('patch-8.2.5136')
   packadd vim-fern
   packadd vim-fern-hijack
@@ -135,6 +138,7 @@ if has('patch-8.2.5136')
   nnoremap <Leader>f <Cmd>Fern . -drawer -toggle -stay<CR>
 endif
 
+" comment or vim-commentary {{{2
 if has('patch-9.1.375')
   packadd comment
 else
