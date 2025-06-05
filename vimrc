@@ -120,66 +120,28 @@ inoremap <C-U> <C-G>u<C-U>
 inoremap Y y$
 
 " plugins {{{1
-call plug#begin()
+if has('patch-7.4.1674')
+  packadd editexisting
+endif
 
-" Use full URLs instead of '<user>/<repository>' because you have to simply
-" paste URLs to add plugins and can open the web page by typing 'gx' as well
-Plug 'https://github.com/andymass/vim-matchup'
-Plug 'https://github.com/chrisbra/Recover.vim'
-Plug 'https://github.com/cohama/lexima.vim'
-Plug 'https://github.com/dstein64/vim-startuptime'
-Plug 'https://github.com/godlygeek/tabular'
-Plug 'https://github.com/junegunn/goyo.vim'
-Plug 'https://github.com/junegunn/gv.vim'
-Plug 'https://github.com/junegunn/vim-plug'
-Plug 'https://github.com/kana/vim-smartword'
-Plug 'https://github.com/lambdalisue/vim-protocol'
-Plug 'https://github.com/lambdalisue/vim-suda'
-Plug 'https://github.com/machakann/vim-sandwich'
-Plug 'https://github.com/markonm/traces.vim'
-Plug 'https://github.com/moll/vim-bbye'
-Plug 'https://github.com/ntpeters/vim-better-whitespace'
-Plug 'https://github.com/psliwka/vim-smoothie'
-Plug 'https://github.com/rhysd/vim-healthcheck'
-Plug 'https://github.com/simeji/winresizer'
-Plug 'https://github.com/thinca/vim-partedit'
-Plug 'https://github.com/thinca/vim-qfreplace'
-Plug 'https://github.com/tpope/vim-abolish'
-Plug 'https://github.com/tpope/vim-fugitive'
-Plug 'https://github.com/tpope/vim-rhubarb'
-Plug 'https://github.com/tpope/vim-sleuth'
-Plug 'https://github.com/vim-jp/vimdoc-ja'
-Plug 'https://github.com/vim-scripts/mips.vim'
-
-if has('patch-8.1.0311')
+if has('patch-8.1.311')
   packadd cfilter
 endif
 
 if has('patch-8.2.5136')
-  Plug 'https://github.com/lambdalisue/vim-fern'
-  Plug 'https://github.com/lambdalisue/vim-fern-hijack'
+  packadd vim-fern
+  packadd vim-fern-hijack
+
+  nnoremap <Leader>f <Cmd>Fern . -drawer -toggle -stay<CR>
 endif
 
-if has('patch-9.1.0375')
+if has('patch-9.1.375')
   packadd comment
 else
-  Plug 'https://github.com/tpope/vim-commentary'
+  packadd vim-commentary
 endif
 
-call plug#end()
-
-" Exit vimrc immediately if there are plugins that are not yet installed
-if len(filter(values(g:plugs), '!isdirectory(v:val.dir)')) != 0
-  if isdirectory(g:plug_home)
-    echohl WarningMsg
-    echo 'Warning: There are plugins that are not yet installed.'
-    echohl None
-  endif
-
-  finish
-endif
-
-" https://github.com/cohama/lexima.vim {{{2
+" lexima.vim {{{2
 let g:lexima_ctrlh_as_backspace = 1
 let g:lexima_disable_on_nofile = 1
 
@@ -207,35 +169,30 @@ call lexima#add_rule({'at': '\%#\w', 'char': '[', 'input': '['})
 call lexima#add_rule({'at': '\%#\w', 'char': '`', 'input': '`'})
 call lexima#add_rule({'at': '\%#\w', 'char': '{', 'input': '{'})
 
-" https://github.com/kana/vim-smartword {{{2
+" vim-smartword {{{2
 map w <Plug>(smartword-w)
 map b <Plug>(smartword-b)
 map e <Plug>(smartword-e)
 map ge <Plug>(smartword-ge)
 
-" https://github.com/lambdalisue/fern.vim {{{2
-if has('patch-8.2.5136')
-  nnoremap <Leader>f <Cmd>Fern . -drawer -toggle -stay<CR>
-endif
-
-" https://github.com/lambdalisue/vim-suda {{{2
+" vim-suda {{{2
 " Define aliases to use in the same way as sudo.vim
 " (https://github.com/vim-scripts/sudo.vim)
 command! -nargs=? -complete=file SudoRead   SudaRead <args>
 command! -nargs=? -complete=file SudoWrite  SudaWrite <args>
 
-" https://github.com/moll/vim-bbye {{{2
+" vim-bbye {{{2
 " Define an alias so that you do not have to press the Shift key (':Bclose' can
 " be typed by ':bc<Tab>'.)
 command! -nargs=? -complete=buffer -bang Bclose Bdelete<bang> <args>
 
-" https://github.com/ntpeters/vim-better-whitespace {{{2
+" vim-better-whitespace {{{2
 highlight! link ExtraWhitespace Error
 
-" https://github.com/simeji/winresizer {{{2
+" winresizer {{{2
 let g:winresizer_start_key = '<Leader>e'
 
-" https://github.com/tpope/vim-rhubarb {{{2
+" vim-rhubarb {{{2
 " Define :Browse for :GBrowse because Netrw will not be loaded
 " Use :Open from $VIMRUNTIME/plugin/openPlugin.vim
 if has('patch-9.1.1054')
