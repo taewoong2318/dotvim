@@ -52,16 +52,12 @@ set virtualedit=block
 set wildmode=longest,list " Complete like Bash
 set wildoptions=pum
 
-" Store *.swp and viminfo under ~/.vim/.cache (~\vimfiles\.cache on Windows)
-let s:cache_dir = expand('<sfile>:p:h') . '/.cache'
-
-let s:swap_dir = s:cache_dir . '/swap'
-if !isdirectory(s:swap_dir)
-  call mkdir(s:swap_dir, 'p')
+" Store swap files under ~/.vimswap
+let s:vimswap = expand('~/.vimswap')
+if !isdirectory(s:vimswap)
+  call mkdir(s:vimswap)
 endif
-let &directory = s:swap_dir . '//'
-
-let &viminfo .= ',n' . s:cache_dir . '/viminfo'
+let &directory = s:vimswap . '//'
 
 " Use keyword completion on Unix
 let s:unix_words_file = '/usr/share/dict/words'
