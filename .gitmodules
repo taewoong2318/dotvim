@@ -74,10 +74,10 @@
 	path = pack/default/start/mips.vim
 	url = https://github.com/vim-scripts/mips.vim
 [submodule "pack/default/start/vim-fern"]
-	path = pack/default/opt/vim-fern
+	path = pack/default/start/vim-fern
 	url = https://github.com/lambdalisue/vim-fern
 [submodule "pack/default/start/vim-fern-hijack"]
-	path = pack/default/opt/vim-fern-hijack
+	path = pack/default/start/vim-fern-hijack
 	url = https://github.com/lambdalisue/vim-fern-hijack
 [submodule "pack/default/opt/vim-commentary"]
 	path = pack/default/opt/vim-commentary

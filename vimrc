@@ -2,6 +2,11 @@
 "
 " Author: Taewoong Han <mail@taewoong.me>
 
+if v:version < 901
+  echo 'Error: Version 9.1 or later is required.'
+  cquit
+endif
+
 " Remove all the autocommands in vimrc to avoid multiple registration
 augroup vimrc
   autocmd!
@@ -11,6 +16,7 @@ augroup END
 set ambiwidth=double
 set autoindent
 set autoread
+set cdhome
 set completeopt=menuone,noinsert
 set diffopt+=algorithm:histogram,indent-heuristic,vertical
 set display=lastline
@@ -36,6 +42,7 @@ set showcmd
 set signcolumn=no
 set smartcase
 set softtabstop=-1  " Use the value of 'tabstop'
+set spelloptions=camel
 set splitbelow
 set tabstop=4
 set title
@@ -43,6 +50,7 @@ set ttimeout
 set ttimeoutlen=100       " See https://vi.stackexchange.com/a/24938
 set virtualedit=block
 set wildmode=longest,list " Complete like Bash
+set wildoptions=pum
 
 " Store *.swp and viminfo under ~/.vim/.cache (~\vimfiles\.cache on Windows)
 let s:cache_dir = expand('<sfile>:p:h') . '/.cache'
@@ -121,22 +129,10 @@ inoremap Y y$
 
 " plugins {{{1
 " editexisting {{{2
-if has('patch-7.4.1674')
-  packadd editexisting
-endif
+packadd editexisting
 
 " cfilter {{{2
-if has('patch-8.1.311')
-  packadd cfilter
-endif
-
-" vim-fern* {{{2
-if has('patch-8.2.5136')
-  packadd vim-fern
-  packadd vim-fern-hijack
-
-  nnoremap <Leader>f <Cmd>Fern . -drawer -toggle -stay<CR>
-endif
+packadd cfilter
 
 " comment or vim-commentary {{{2
 if has('patch-9.1.375')
@@ -178,6 +174,9 @@ map w <Plug>(smartword-w)
 map b <Plug>(smartword-b)
 map e <Plug>(smartword-e)
 map ge <Plug>(smartword-ge)
+
+" vim-fern {{{2
+nnoremap <Leader>f <Cmd>Fern . -drawer -toggle -stay<CR>
 
 " vim-suda {{{2
 " Define aliases to use in the same way as sudo.vim
