@@ -8,7 +8,7 @@ There is no requirement other than Vim itself :)
 
 ## Installation
 
-Clone this repository and install plugins:
+Clone this repository and update submodules:
 
     git clone https://github.com/taewoong2318/dotvim.git ~/.vim
-    vim +PlugInstall +qa
+    git submodule update --init
