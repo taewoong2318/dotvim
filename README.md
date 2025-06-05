@@ -4,7 +4,7 @@ Vim configuration with portability in mind, for Linux, macOS, and Windows
 
 ## Requirements
 
-- Vim 9.1 or later
+- Vim 9.0 or later
 
 ## Installation
 

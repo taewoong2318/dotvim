@@ -2,8 +2,8 @@
 "
 " Author: Taewoong Han <mail@taewoong.me>
 
-if v:version < 901
-  echo 'Error: Version 9.1 or later is required.'
+if v:version < 900
+  echo 'Error: Version 9.0 or later is required.'
   cquit
 endif
 
