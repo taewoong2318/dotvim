@@ -52,17 +52,35 @@ set virtualedit=block
 set wildmode=longest,list " Complete like Bash
 set wildoptions=pum
 
-" Store swap files under ~/.vimswap
-let s:vimswap = expand('~/.vimswap')
-if !isdirectory(s:vimswap)
-  call mkdir(s:vimswap)
-endif
-let &directory = s:vimswap . '//'
-
 " Use keyword completion on Unix
 let s:unix_words_file = '/usr/share/dict/words'
 if has('unix') && filereadable(s:unix_words_file)
   let &dictionary = s:unix_words_file
+endif
+
+" Store state files following the XDG Base Directory specification, like
+" Neovim (see https://neovim.io/doc/user/starting.html#_standard-paths)
+let s:state_dir = ''
+if has('unix')
+  let s:state_dir = exists('$XDG_STATE_HOME') ?
+        \ expand('$XDG_STATE_HOME/vim') : expand('~/.local/state/vim')
+elseif has('win32')
+  s:state_dir = expand('~/AppData/Local/vim-data')
+endif
+
+if !empty(s:state_dir)
+  if !isdirectory(s:state_dir)
+    call mkdir(s:state_dir, 'p', 0o700)
+  endif
+
+  let &viminfofile = s:state_dir . '/viminfo'
+
+  let s:swap_dir = s:state_dir . '/swap'
+  if !isdirectory(s:swap_dir)
+    call mkdir(s:swap_dir, 'p', 0o700)
+  endif
+
+  let &directory = s:swap_dir . '//'
 endif
 
 syntax enable
