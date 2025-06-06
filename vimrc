@@ -62,10 +62,10 @@ endif
 " Neovim (see https://neovim.io/doc/user/starting.html#_standard-paths)
 let s:state_dir = ''
 if has('unix')
-  let s:state_dir = exists('$XDG_STATE_HOME') ?
-        \ expand('$XDG_STATE_HOME/vim') : expand('~/.local/state/vim')
+  let s:state_dir = !empty($XDG_STATE_HOME) ?
+        \ $XDG_STATE_HOME . '/vim' : expand('~/.local/state/vim')
 elseif has('win32')
-  s:state_dir = expand('~/AppData/Local/vim-data')
+  let s:state_dir = expand('~/AppData/Local/vim-data')
 endif
 
 if !empty(s:state_dir)
