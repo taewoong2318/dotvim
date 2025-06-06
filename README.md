@@ -1,5 +1,3 @@
-[![Lint](https://github.com/taewoong2318/dotvim/actions/workflows/lint.yml/badge.svg)](https://github.com/taewoong2318/dotvim/actions/workflows/lint.yml)
-
 Vim configuration with portability in mind, for Linux, macOS, and Windows
 
 ## Requirements
