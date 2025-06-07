@@ -16,7 +16,7 @@ Clone this repository to the following directory:
 | Unix      | <9.1.327  | `~/.vim`                                  |
 | Windows   |           | `~\vimfiles`                              |
 
-Move into the repository and update submodules to install plugins:
+Then move into the repository and update submodules to install plugins:
 
     git submodule update --init
 
