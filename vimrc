@@ -23,8 +23,6 @@ set display=lastline
 set encoding=utf-8
 set expandtab
 set fileencoding=utf-8
-set fileencodings=ucs-bom,utf-8,default,latin1
-set fileformats=unix,dos,mac
 set hidden
 set history=10000
 set hlsearch
