@@ -1,3 +1,5 @@
+# Taewoong's Vim Configuration
+
 Vim configuration with portability in mind, for Linux, macOS, and Windows
 
 ## Requirements
@@ -20,10 +22,11 @@ Move into the repository and update submodules to install plugins:
 
 ## Updating
 
-Pull new changes and clean unused submodules:
+Pull new changes, update submodules, and clean unused submodules (if needed):
 
     git pull
+    git submodule update --init
     git clean -dff
 
 > [!WARNING]
-> This operation will remove all untracked files and directories.
+> `git clean -dff` will remove all untracked files and directories.
