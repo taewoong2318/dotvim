@@ -30,7 +30,7 @@ Pull new changes, update submodules, and clean unused submodules (if needed):
     git submodule update --init
     git clean -dff
 
-Note that `git clean -dff` will remove **all untracked files and directories** in the local repository.
+Note that `git clean -dff` will remove **all untracked files and directories** in the local repository. To check what will be removed, run `git clean -dffn`.
 
 ## Help Tags
 
