@@ -12,7 +12,7 @@ augroup vimrc
   autocmd!
 augroup END
 
-" options {{{1
+" Options {{{1
 set ambiwidth=double
 set autoindent
 set autoread
@@ -81,8 +81,47 @@ if !empty(s:state_dir)
   let &directory = s:swap_dir . '//'
 endif
 
+" Commands {{{1
+" Define some shortcuts
+command! -nargs=0 -bar CdHere   cd %:h
+command! -nargs=0 -bar Reload   source $MYVIMRC
+command! -nargs=0 -bar Vimrc    edit $MYVIMRC
+
+" Mappings {{{1
+let g:mapleader = "\<Space>"
+
+" Switch buffers quickly
+nnoremap <C-J> <Cmd>bnext<CR>
+nnoremap <C-K> <Cmd>bprevious<CR>
+
+" Use CTRL-L to stop highlighting and redraw
+nnoremap <C-L> <Cmd>nohlsearch<CR><C-L>
+
+" Start new undoable edit before CTRL-U
+inoremap <C-U> <C-G>u<C-U>
+
+" Yank from the cursor to the end of the line
+inoremap Y y$
+
+" Automations {{{1
+autocmd vimrc QuickFixCmdPost [^l]* cwindow
+autocmd vimrc QuickFixCmdPost l*    lwindow
+
+" Syntax {{{1
 syntax enable
 
+" Enable fenced code block syntax highlighting
+" Some aliases are picked up from:
+" https://github.com/github-linguist/linguist/blob/main/lib/linguist/languages.yml
+let g:markdown_fenced_languages = [
+      \ 'c', 'cpp', 'c++=cpp', 'cs', 'c#=cs', 'css', 'html', 'go', 'golang=go',
+      \ 'javascript', 'js=javascript', 'json', 'php', 'python', 'ruby',
+      \ 'rb=ruby', 'rust', 'rs=rust', 'sh', 'bash=sh', 'shell=sh', 'zsh=sh',
+      \ 'typescript', 'ts=typescript', 'vim', 'viml=vim', 'vimscript=vim',
+      \ 'yaml', 'yml=yaml'
+      \ ]
+
+" Filetype {{{1
 filetype plugin indent on
 
 " Disable the automatic insertion of a comment leader on every file type
@@ -90,9 +129,10 @@ autocmd vimrc FileType *
       \ setlocal formatoptions-=r |
       \ setlocal formatoptions-=o
 
-" variables {{{1
-let g:mapleader = "\<Space>"
+" Load the man filetype plugin
+runtime! ftplugin/man.vim
 
+" Plugin {{{1
 " Disable unnecessary built-in plugins (under $VIMRUNTIME/plugin)
 let g:loaded_2html_plugin      = 1
 let g:loaded_getscriptPlugin   = 1
@@ -108,38 +148,7 @@ let g:loaded_tutor_mode_plugin = 1
 let g:loaded_vimballPlugin     = 1
 let g:loaded_zipPlugin         = 1
 
-" Enable fenced code block syntax highlighting
-" Some aliases are picked up from:
-" https://github.com/github-linguist/linguist/blob/main/lib/linguist/languages.yml
-let g:markdown_fenced_languages = [
-      \ 'c', 'cpp', 'c++=cpp', 'cs', 'c#=cs', 'css', 'html', 'go', 'golang=go',
-      \ 'javascript', 'js=javascript', 'json', 'php', 'python', 'ruby',
-      \ 'rb=ruby', 'rust', 'rs=rust', 'sh', 'bash=sh', 'shell=sh', 'zsh=sh',
-      \ 'typescript', 'ts=typescript', 'vim', 'viml=vim', 'vimscript=vim',
-      \ 'yaml', 'yml=yaml'
-      \ ]
-
-" commands {{{1
-" Define some shortcuts
-command! -nargs=0 -bar CdHere   cd %:h
-command! -nargs=0 -bar Reload   source $MYVIMRC
-command! -nargs=0 -bar Vimrc    edit $MYVIMRC
-
-" mappings {{{1
-" Switch buffers quickly
-nnoremap <C-J> <Cmd>bnext<CR>
-nnoremap <C-K> <Cmd>bprevious<CR>
-
-" Use CTRL-L to stop highlighting and redraw
-nnoremap <C-L> <Cmd>nohlsearch<CR><C-L>
-
-" Start new undoable edit before CTRL-U
-inoremap <C-U> <C-G>u<C-U>
-
-" Yank from the cursor to the end of the line
-inoremap Y y$
-
-" plugins {{{1
+" Packages {{{1
 " editexisting {{{2
 packadd editexisting
 
@@ -151,6 +160,13 @@ if has('patch-9.1.375')
   packadd comment
 else
   packadd vim-commentary
+endif
+
+" helptoc {{{2
+if has('patch-9.1.831')
+  packadd helptoc
+
+  nnoremap <Leader>h <Cmd>HelpToc<CR>
 endif
 
 " lexima.vim {{{2
@@ -209,7 +225,7 @@ let g:winresizer_start_key = '<Leader>e'
 
 " vim-rhubarb {{{2
 " Define :Browse for :GBrowse because Netrw will not be loaded
-" Use :Open from $VIMRUNTIME/plugin/openPlugin.vim
+" Use :Open from $VIMRUNTIME/plugin/openPlugin.vim if exists
 if has('patch-9.1.1054')
   command! -nargs=1 Browse Open <args>
 endif
