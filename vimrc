@@ -197,12 +197,6 @@ call lexima#add_rule({'at': '\%#\w', 'char': '[', 'input': '['})
 call lexima#add_rule({'at': '\%#\w', 'char': '`', 'input': '`'})
 call lexima#add_rule({'at': '\%#\w', 'char': '{', 'input': '{'})
 
-" vim-smartword {{{2
-map w <Plug>(smartword-w)
-map b <Plug>(smartword-b)
-map e <Plug>(smartword-e)
-map ge <Plug>(smartword-ge)
-
 " vim-fern {{{2
 nnoremap <Leader>f <Cmd>Fern . -drawer -toggle -stay<CR>
 
