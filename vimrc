@@ -104,8 +104,8 @@ inoremap <C-U> <C-G>u<C-U>
 inoremap Y y$
 
 " Automations {{{1
-autocmd vimrc QuickFixCmdPost [^l]* cwindow
-autocmd vimrc QuickFixCmdPost l*    lwindow
+autocmd vimrc QuickFixCmdPost [^l]* copen
+autocmd vimrc QuickFixCmdPost l*    lopen
 
 " Syntax {{{1
 syntax enable
