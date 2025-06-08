@@ -96,11 +96,11 @@ nnoremap <C-K> <Cmd>bprevious<CR>
 " Use CTRL-L to stop highlighting and redraw
 nnoremap <C-L> <Cmd>nohlsearch<CR><C-L>
 
+" Yank from the cursor to the end of the line
+nnoremap Y y$
+
 " Start new undoable edit before CTRL-U
 inoremap <C-U> <C-G>u<C-U>
-
-" Yank from the cursor to the end of the line
-inoremap Y y$
 
 " Automations {{{1
 autocmd vimrc QuickFixCmdPost [^l]* copen
