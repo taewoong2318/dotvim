@@ -7,4 +7,4 @@ if has('win32')
   set renderoptions=type:directx
 endif
 
-" vim: ts=2:tw=78
+" vim: et:ts=2:tw=78
