@@ -30,5 +30,10 @@ Pull new changes, update submodules, and clean unused submodules (if needed):
     git submodule update --init
     git clean -dff
 
-> [!WARNING]
-> `git clean -dff` will remove all untracked files and directories in the local repository.
+Note that `git clean -dff` will remove **all untracked files and directories** in the local repository.
+
+## Help Tags
+
+Run the following command inside Vim to generate the help tags:
+
+    :helptags ALL
