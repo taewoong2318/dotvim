@@ -155,11 +155,11 @@ packadd editexisting
 " cfilter {{{2
 packadd cfilter
 
-" comment or vim-commentary {{{2
+" comment or commentary {{{2
 if has('patch-9.1.375')
   packadd comment
 else
-  packadd vim-commentary
+  packadd commentary
 endif
 
 " helptoc {{{2
@@ -169,7 +169,7 @@ if has('patch-9.1.831')
   nnoremap <Leader>h <Cmd>HelpToc<CR>
 endif
 
-" lexima.vim {{{2
+" lexima {{{2
 let g:lexima_ctrlh_as_backspace = 1
 let g:lexima_disable_on_nofile = 1
 
@@ -197,27 +197,27 @@ call lexima#add_rule({'at': '\%#\w', 'char': '[', 'input': '['})
 call lexima#add_rule({'at': '\%#\w', 'char': '`', 'input': '`'})
 call lexima#add_rule({'at': '\%#\w', 'char': '{', 'input': '{'})
 
-" vim-fern {{{2
+" fern {{{2
 nnoremap <Leader>f <Cmd>Fern . -drawer -toggle -stay<CR>
 
-" vim-suda {{{2
+" suda {{{2
 " Define aliases to use in the same way as sudo.vim
 " (https://github.com/vim-scripts/sudo.vim)
 command! -nargs=? -complete=file SudoRead   SudaRead <args>
 command! -nargs=? -complete=file SudoWrite  SudaWrite <args>
 
-" vim-bbye {{{2
+" bbye {{{2
 " Define an alias so that you do not have to press the Shift key (':Bclose' can
 " be typed by ':bc<Tab>'.)
 command! -nargs=? -complete=buffer -bang Bclose Bdelete<bang> <args>
 
-" vim-better-whitespace {{{2
+" better-whitespace {{{2
 highlight! link ExtraWhitespace Error
 
 " winresizer {{{2
 let g:winresizer_start_key = '<Leader>e'
 
-" vim-rhubarb {{{2
+" rhubarb {{{2
 " Define :Browse for :GBrowse because Netrw will not be loaded
 " Use :Open from $VIMRUNTIME/plugin/openPlugin.vim if exists
 if has('patch-9.1.1054')
