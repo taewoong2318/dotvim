@@ -46,7 +46,6 @@ set tabstop=4
 set title
 set ttimeout
 set ttimeoutlen=100       " See https://vi.stackexchange.com/a/24938
-set virtualedit=block
 set wildmode=longest,list " Complete like Bash
 set wildoptions=pum
 
