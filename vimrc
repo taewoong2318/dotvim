@@ -223,4 +223,4 @@ command! -nargs=? -complete=file SudoWrite  SudaWrite <args>
 " winresizer {{{2
 let g:winresizer_start_key = '<Leader>e'
 
-" vim: fdm=marker:et:ts=2:tw=78
+" vim: et:fdm=marker:ts=2:tw=78
