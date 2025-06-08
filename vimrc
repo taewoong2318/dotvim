@@ -149,8 +149,13 @@ let g:loaded_vimballPlugin     = 1
 let g:loaded_zipPlugin         = 1
 
 " Packages {{{1
-" editexisting {{{2
-packadd editexisting
+" bbye {{{2
+" Define an alias so that you do not have to press the Shift key (':Bclose' can
+" be typed by ':bc<Tab>'.)
+command! -nargs=? -complete=buffer -bang Bclose Bdelete<bang> <args>
+
+" better-whitespace {{{2
+highlight! link ExtraWhitespace Error
 
 " cfilter {{{2
 packadd cfilter
@@ -160,6 +165,19 @@ if has('patch-9.1.375')
   packadd comment
 else
   packadd commentary
+endif
+
+" editexisting {{{2
+packadd editexisting
+
+" fern {{{2
+nnoremap <Leader>f <Cmd>Fern . -drawer -toggle -stay<CR>
+
+" fugitive {{{2
+" Define :Browse for :GBrowse because Netrw will not be loaded
+" Use :Open from $VIMRUNTIME/plugin/openPlugin.vim if exists
+if has('patch-9.1.1054')
+  command! -nargs=1 Browse Open <args>
 endif
 
 " helptoc {{{2
@@ -197,31 +215,13 @@ call lexima#add_rule({'at': '\%#\w', 'char': '[', 'input': '['})
 call lexima#add_rule({'at': '\%#\w', 'char': '`', 'input': '`'})
 call lexima#add_rule({'at': '\%#\w', 'char': '{', 'input': '{'})
 
-" fern {{{2
-nnoremap <Leader>f <Cmd>Fern . -drawer -toggle -stay<CR>
-
 " suda {{{2
 " Define aliases to use in the same way as sudo.vim
 " (https://github.com/vim-scripts/sudo.vim)
 command! -nargs=? -complete=file SudoRead   SudaRead <args>
 command! -nargs=? -complete=file SudoWrite  SudaWrite <args>
 
-" bbye {{{2
-" Define an alias so that you do not have to press the Shift key (':Bclose' can
-" be typed by ':bc<Tab>'.)
-command! -nargs=? -complete=buffer -bang Bclose Bdelete<bang> <args>
-
-" better-whitespace {{{2
-highlight! link ExtraWhitespace Error
-
 " winresizer {{{2
 let g:winresizer_start_key = '<Leader>e'
-
-" rhubarb {{{2
-" Define :Browse for :GBrowse because Netrw will not be loaded
-" Use :Open from $VIMRUNTIME/plugin/openPlugin.vim if exists
-if has('patch-9.1.1054')
-  command! -nargs=1 Browse Open <args>
-endif
 
 " vim: fdm=marker:ts=2:tw=78
