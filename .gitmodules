@@ -1,66 +1,66 @@
-[submodule "pack/default/start/vim-matchup"]
+[submodule "pack/default/start/matchup"]
 	path = pack/default/start/matchup
 	url = https://github.com/andymass/vim-matchup.git
-[submodule "pack/default/start/lexima.vim"]
+[submodule "pack/default/start/lexima"]
 	path = pack/default/start/lexima
 	url = https://github.com/cohama/lexima.vim
-[submodule "pack/default/start/vim-startuptime"]
+[submodule "pack/default/start/startuptime"]
 	path = pack/default/start/startuptime
 	url = https://github.com/dstein64/vim-startuptime
 [submodule "pack/default/start/tabular"]
 	path = pack/default/start/tabular
 	url = https://github.com/godlygeek/tabular
-[submodule "pack/default/start/goyo.vim"]
+[submodule "pack/default/start/goyo"]
 	path = pack/default/start/goyo
 	url = https://github.com/junegunn/goyo.vim
-[submodule "pack/default/start/gv.vim"]
+[submodule "pack/default/start/gv"]
 	path = pack/default/start/gv
 	url = https://github.com/junegunn/gv.vim
-[submodule "pack/default/start/vim-suda"]
+[submodule "pack/default/start/suda"]
 	path = pack/default/start/suda
 	url = https://github.com/lambdalisue/vim-suda
-[submodule "pack/default/start/vim-sandwich"]
+[submodule "pack/default/start/sandwich"]
 	path = pack/default/start/sandwich
 	url = https://github.com/machakann/vim-sandwich
-[submodule "pack/default/start/traces.vim"]
+[submodule "pack/default/start/traces"]
 	path = pack/default/start/traces
 	url = https://github.com/markonm/traces.vim
-[submodule "pack/default/start/vim-bbye"]
+[submodule "pack/default/start/bbye"]
 	path = pack/default/start/bbye
 	url = https://github.com/moll/vim-bbye
-[submodule "pack/default/start/vim-better-whitespace"]
+[submodule "pack/default/start/better-whitespace"]
 	path = pack/default/start/better-whitespace
 	url = https://github.com/ntpeters/vim-better-whitespace
-[submodule "pack/default/start/vim-smoothie"]
+[submodule "pack/default/start/smoothie"]
 	path = pack/default/start/smoothie
 	url = https://github.com/psliwka/vim-smoothie
 [submodule "pack/default/start/winresizer"]
 	path = pack/default/start/winresizer
 	url = https://github.com/simeji/winresizer
-[submodule "pack/default/start/vim-abolish"]
+[submodule "pack/default/start/abolish"]
 	path = pack/default/start/abolish
 	url = https://github.com/tpope/vim-abolish
-[submodule "pack/default/start/vim-fugitive"]
+[submodule "pack/default/start/fugitive"]
 	path = pack/default/start/fugitive
 	url = https://github.com/tpope/vim-fugitive
-[submodule "pack/default/start/vim-rhubarb"]
+[submodule "pack/default/start/rhubarb"]
 	path = pack/default/start/rhubarb
 	url = https://github.com/tpope/vim-rhubarb
-[submodule "pack/default/start/vim-sleuth"]
+[submodule "pack/default/start/sleuth"]
 	path = pack/default/start/sleuth
 	url = https://github.com/tpope/vim-sleuth
-[submodule "pack/default/start/vimdoc-ja"]
+[submodule "pack/default/start/help_ja"]
 	path = pack/default/start/help_ja
 	url = https://github.com/vim-jp/vimdoc-ja
-[submodule "pack/default/start/mips.vim"]
+[submodule "pack/default/start/mips"]
 	path = pack/default/start/mips
 	url = https://github.com/vim-scripts/mips.vim
-[submodule "pack/default/start/vim-fern"]
+[submodule "pack/default/start/fern"]
 	path = pack/default/start/fern
 	url = https://github.com/lambdalisue/vim-fern
-[submodule "pack/default/start/vim-fern-hijack"]
+[submodule "pack/default/start/fern-hijack"]
 	path = pack/default/start/fern-hijack
 	url = https://github.com/lambdalisue/vim-fern-hijack
-[submodule "pack/default/opt/vim-commentary"]
+[submodule "pack/default/opt/commentary"]
 	path = pack/default/opt/commentary
 	url = https://github.com/tpope/vim-commentary
