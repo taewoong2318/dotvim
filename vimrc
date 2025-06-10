@@ -99,8 +99,9 @@ nnoremap <C-L> <Cmd>nohlsearch<CR><C-L>
 " Yank from the cursor to the end of the line
 nnoremap Y y$
 
-" Start new undoable edit before CTRL-U
+" Start new undoable edit before CTRL-U and CTRL-W
 inoremap <C-U> <C-G>u<C-U>
+inoremap <C-W> <C-G>u<C-W>
 
 " Automations {{{1
 autocmd vimrc QuickFixCmdPost [^l]* copen
