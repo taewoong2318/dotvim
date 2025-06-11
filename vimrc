@@ -99,6 +99,14 @@ nnoremap <C-L> <Cmd>nohlsearch<CR><C-L>
 " Yank from the cursor to the end of the line
 nnoremap Y y$
 
+" Select without surrounding white spaces
+xnoremap a" 2i"
+xnoremap a' 2i'
+xnoremap a` 2i`
+onoremap a" 2i"
+onoremap a' 2i'
+onoremap a` 2i`
+
 " Start new undoable edit before CTRL-U and CTRL-W
 inoremap <C-U> <C-G>u<C-U>
 inoremap <C-W> <C-G>u<C-W>
