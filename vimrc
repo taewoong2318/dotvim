@@ -12,7 +12,6 @@ endif
 " ---------------------------------------------------------------------------
 
 " Remove all the autocommands in vimrc to avoid multiple registration
-
 augroup vimrc
   autocmd!
 augroup END
@@ -58,7 +57,6 @@ set wildoptions=pum
 " ---------------------------------------------------------------------------
 
 " Use the keyword completion on Unix
-
 let s:unix_words_file = '/usr/share/dict/words'
 if has('unix') && filereadable(s:unix_words_file)
   let &dictionary = s:unix_words_file
@@ -68,7 +66,6 @@ endif
 
 " Store state files as Neovim does
 " See https://neovim.io/doc/user/starting.html#_standard-paths
-
 let s:state_dir = ''
 if has('unix')
   let s:state_dir = !empty($XDG_STATE_HOME) ?
@@ -97,20 +94,16 @@ endif
 let g:mapleader = "\<Space>"
 
 " Switch buffers quickly
-
 nnoremap <C-J> <Cmd>bnext<CR>
 nnoremap <C-K> <Cmd>bprevious<CR>
 
 " Use CTRL-L to stop highlighting and redraw
-
 nnoremap <C-L> <Cmd>nohlsearch<CR><C-L>
 
 " Yank from the cursor to the end of the line
-
 nnoremap Y y$
 
 " Select without surrounding white spaces
-
 xnoremap a" 2i"
 xnoremap a' 2i'
 xnoremap a` 2i`
@@ -119,20 +112,19 @@ onoremap a' 2i'
 onoremap a` 2i`
 
 " Start new undoable edit before CTRL-U and CTRL-W
-
 inoremap <C-U> <C-G>u<C-U>
 inoremap <C-W> <C-G>u<C-W>
 
 " ---------------------------------------------------------------------------
 
 " Tweak vimrc quickly
-
 command! -nargs=0 -bar CdHere   cd %:h
 command! -nargs=0 -bar Reload   source $MYVIMRC
 command! -nargs=0 -bar Vimrc    edit $MYVIMRC
 
-" Open the QuickFix window automatically
+" ---------------------------------------------------------------------------
 
+" Open the QuickFix window automatically
 autocmd vimrc QuickFixCmdPost [^l]* copen
 autocmd vimrc QuickFixCmdPost l*    lopen
 
@@ -141,7 +133,6 @@ autocmd vimrc QuickFixCmdPost l*    lopen
 syntax enable
 
 " Enable the syntax highlighting of fenced code blocks in Markdown
-
 let g:markdown_fenced_languages = [
       \ 'c', 'cpp', 'c++=cpp', 'cs', 'c#=cs', 'css', 'html', 'go',
       \ 'golang=go', 'javascript', 'js=javascript', 'json', 'php', 'python',
@@ -156,19 +147,16 @@ filetype plugin indent on
 
 " Disable the automatic insertion of comment leaders on every file type
 " NOTE: Must be placed after 'filetype plugin indent on'
-
 autocmd vimrc FileType *
       \ setlocal formatoptions-=r |
       \ setlocal formatoptions-=o
 
 " Load the man filetype plugin
-
 runtime! ftplugin/man.vim
 
 " ---------------------------------------------------------------------------
 
 " Disable unnecessary built-in plugins (under $VIMRUNTIME/plugin)
-
 let g:loaded_2html_plugin      = 1
 let g:loaded_getscriptPlugin   = 1
 let g:loaded_gzip              = 1
@@ -185,25 +173,21 @@ let g:loaded_zipPlugin         = 1
 " ----------------------------------------------------------------------------
 
 " bbye
-
 command! -nargs=? -complete=buffer -bang Bclose Bdelete<bang> <args>
 
 " ----------------------------------------------------------------------------
 
 " better-whitespace
-
 highlight! link ExtraWhitespace Error
 
 " ----------------------------------------------------------------------------
 
 " cfilter
-
 packadd cfilter
 
 " ----------------------------------------------------------------------------
 
 " comment or commentary
-
 if has('patch-9.1.375')
   packadd comment
 else
@@ -213,17 +197,14 @@ endif
 " ----------------------------------------------------------------------------
 
 " editexisting
-
 packadd editexisting
 
 " ----------------------------------------------------------------------------
 
 " lexima
-
 let g:lexima_ctrlh_as_backspace = 1
 
 " Disable the auto closing when the cursor is at the front of a word
-
 call lexima#add_rule({'at': '\%#\w', 'char': "'", 'input': "'"})
 call lexima#add_rule({'at': '\%#\w', 'char': '"', 'input': '"'})
 call lexima#add_rule({'at': '\%#\w', 'char': '(', 'input': '('})
@@ -234,7 +215,6 @@ call lexima#add_rule({'at': '\%#\w', 'char': '{', 'input': '{'})
 " ----------------------------------------------------------------------------
 
 " netrw
-
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 if !empty(s:state_dir)
@@ -244,22 +224,18 @@ endif
 " ----------------------------------------------------------------------------
 
 " suda
-
 " Use the same commands as sudo.vim (https://github.com/vim-scripts/sudo.vim)
-
 command! -nargs=? -complete=file SudoRead   SudaRead <args>
 command! -nargs=? -complete=file SudoWrite  SudaWrite <args>
 
 " ----------------------------------------------------------------------------
 
 " traces
-
 let g:traces_abolish_integration = 1
 
 " ----------------------------------------------------------------------------
 
 " winresizer
-
 let g:winresizer_start_key = '<Leader>e'
 
 " ---------------------------------------------------------------------------
