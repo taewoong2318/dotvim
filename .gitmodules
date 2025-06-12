@@ -31,9 +31,6 @@
 [submodule "pack/default/start/better-whitespace"]
 	path = pack/default/start/better-whitespace
 	url = https://github.com/ntpeters/vim-better-whitespace
-[submodule "pack/default/start/smoothie"]
-	path = pack/default/start/smoothie
-	url = https://github.com/psliwka/vim-smoothie
 [submodule "pack/default/start/winresizer"]
 	path = pack/default/start/winresizer
 	url = https://github.com/simeji/winresizer
@@ -52,15 +49,6 @@
 [submodule "pack/default/start/help_ja"]
 	path = pack/default/start/help_ja
 	url = https://github.com/vim-jp/vimdoc-ja
-[submodule "pack/default/start/mips"]
-	path = pack/default/start/mips
-	url = https://github.com/vim-scripts/mips.vim
-[submodule "pack/default/start/fern"]
-	path = pack/default/start/fern
-	url = https://github.com/lambdalisue/vim-fern
-[submodule "pack/default/start/fern-hijack"]
-	path = pack/default/start/fern-hijack
-	url = https://github.com/lambdalisue/vim-fern-hijack
 [submodule "pack/default/opt/commentary"]
 	path = pack/default/opt/commentary
 	url = https://github.com/tpope/vim-commentary
