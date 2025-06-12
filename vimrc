@@ -11,7 +11,7 @@ endif
 
 " ---------------------------------------------------------------------------
 
-" Remove all the autocommands in vimrc to avoid multiple registration
+" Reset the autocommands defined in vimrc to avoid duplicate triggers
 augroup vimrc
   autocmd!
 augroup END
@@ -50,8 +50,8 @@ set splitbelow
 set tabstop=4
 set title
 set ttimeout
-set ttimeoutlen=100         " See https://vi.stackexchange.com/a/24938
-set wildmode=longest,list   " Complete like Bash
+set ttimeoutlen=100         " Make <ESC> faster
+set wildmode=longest,list   " Perform Bash-like completion
 set wildoptions=pum
 
 " ---------------------------------------------------------------------------
@@ -111,7 +111,7 @@ onoremap a" 2i"
 onoremap a' 2i'
 onoremap a` 2i`
 
-" Start new undoable edit before CTRL-U and CTRL-W
+" Make a new undo chunk before CTRL-U and CTRL-W
 inoremap <C-U> <C-G>u<C-U>
 inoremap <C-W> <C-G>u<C-W>
 
