@@ -146,7 +146,7 @@ let g:markdown_fenced_languages = [
 filetype plugin indent on
 
 " Disable the automatic insertion of comment leaders on every file type
-" NOTE: Must be placed after 'filetype plugin indent on'
+" NOTE: Must be placed after `filetype plugin indent on`
 autocmd vimrc FileType *
       \ setlocal formatoptions-=r |
       \ setlocal formatoptions-=o
