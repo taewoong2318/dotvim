@@ -28,6 +28,7 @@ set display=lastline
 set encoding=utf-8
 set expandtab
 set fileencoding=utf-8
+set formatoptions+=j
 set hidden
 set history=10000
 set hlsearch
