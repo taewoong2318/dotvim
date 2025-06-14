@@ -52,3 +52,6 @@
 [submodule "pack/default/opt/commentary"]
 	path = pack/default/opt/commentary
 	url = https://github.com/tpope/vim-commentary
+[submodule "pack/default/start/molder"]
+	path = pack/default/start/molder
+	url = https://github.com/mattn/vim-molder.git

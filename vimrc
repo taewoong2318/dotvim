@@ -164,6 +164,8 @@ let g:loaded_gzip              = 1
 let g:loaded_logiPat           = 1
 let g:loaded_manpager_plugin   = 1
 let g:loaded_matchparen        = 1
+let g:loaded_netrw             = 1
+let g:loaded_netrwPlugin       = 1
 let g:loaded_rrhelper          = 1
 let g:loaded_spellfile_plugin  = 1
 let g:loaded_tarPlugin         = 1
@@ -212,15 +214,6 @@ call lexima#add_rule({'at': '\%#\w', 'char': '(', 'input': '('})
 call lexima#add_rule({'at': '\%#\w', 'char': '[', 'input': '['})
 call lexima#add_rule({'at': '\%#\w', 'char': '`', 'input': '`'})
 call lexima#add_rule({'at': '\%#\w', 'char': '{', 'input': '{'})
-
-" ----------------------------------------------------------------------------
-
-" netrw
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-if !empty(s:state_dir)
-  let g:netrw_home = s:state_dir
-endif
 
 " ----------------------------------------------------------------------------
 
