@@ -6,7 +6,7 @@ Vim configuration with portability in mind, for Linux, macOS, and Windows
 
 ## Requirements
 
-- Vim 9.0 or later
+- Vim 8.2.1978 or later
 
 ## Installation
 
