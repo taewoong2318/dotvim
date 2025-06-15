@@ -4,8 +4,9 @@
 
 " ---------------------------------------------------------------------------
 
-if v:version < 900
-  echo 'Error: Version 9.0 or later is required.'
+" Restrict version for <Cmd> in key mappings
+if !has('patch-8.2.1978')
+  echo 'Error: Version 8.2.1978 or later is required.'
   cquit
 endif
 
@@ -21,8 +22,7 @@ augroup END
 set ambiwidth=double
 set autoindent
 set autoread
-set cdhome
-set completeopt=menuone,noinsert,popup
+set completeopt=menuone,noinsert
 set diffopt+=algorithm:histogram,indent-heuristic,vertical
 set display=lastline
 set encoding=utf-8
@@ -53,7 +53,14 @@ set title
 set ttimeout
 set ttimeoutlen=100         " Make <ESC> faster
 set wildmode=longest,list   " Perform Bash-like completion
-set wildoptions=pum
+
+if has('patch-8.2.3780')
+  set cdhome
+endif
+
+if has('patch-8.2.4325')
+  set wildoptions=pum
+endif
 
 " ---------------------------------------------------------------------------
 
