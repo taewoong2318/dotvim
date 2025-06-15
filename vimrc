@@ -214,16 +214,18 @@ packadd editexisting
 " lexima
 let g:lexima_ctrlh_as_backspace = 1
 
-" Restrict version for autoload functions in a package
-if has('patch-8.2.4275')
-  " Disable the auto closing when the cursor is at the front of a word
-  call lexima#add_rule({'at': '\%#\w', 'char': "'", 'input': "'"})
-  call lexima#add_rule({'at': '\%#\w', 'char': '"', 'input': '"'})
-  call lexima#add_rule({'at': '\%#\w', 'char': '(', 'input': '('})
-  call lexima#add_rule({'at': '\%#\w', 'char': '[', 'input': '['})
-  call lexima#add_rule({'at': '\%#\w', 'char': '`', 'input': '`'})
-  call lexima#add_rule({'at': '\%#\w', 'char': '{', 'input': '{'})
+" Load manually to call autoload functions
+if !has('patch-8.2.4275')
+  packadd lexima
 endif
+
+" Disable the auto closing when the cursor is at the front of a word
+call lexima#add_rule({'at': '\%#\w', 'char': "'", 'input': "'"})
+call lexima#add_rule({'at': '\%#\w', 'char': '"', 'input': '"'})
+call lexima#add_rule({'at': '\%#\w', 'char': '(', 'input': '('})
+call lexima#add_rule({'at': '\%#\w', 'char': '[', 'input': '['})
+call lexima#add_rule({'at': '\%#\w', 'char': '`', 'input': '`'})
+call lexima#add_rule({'at': '\%#\w', 'char': '{', 'input': '{'})
 
 " ----------------------------------------------------------------------------
 
