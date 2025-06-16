@@ -2,22 +2,22 @@
 "
 " Author: Taewoong Han <mail@taewoong.me>
 
-" ---------------------------------------------------------------------------
+" ----------------------------------------------------------------------------
 
-" Restrict version for <Cmd> in key mappings
+" Restrict version for the use of <Cmd> in key mappings
 if !has('patch-8.2.1978')
   echo 'Error: Version 8.2.1978 or later is required.'
   cquit
 endif
 
-" ---------------------------------------------------------------------------
+" ----------------------------------------------------------------------------
 
 " Reset the autocommands defined in vimrc to avoid duplicate triggers
 augroup vimrc
   autocmd!
 augroup END
 
-" ---------------------------------------------------------------------------
+" ----------------------------------------------------------------------------
 
 set ambiwidth=double
 set autoindent
@@ -62,7 +62,7 @@ if has('patch-8.2.4325')
   set wildoptions=pum
 endif
 
-" ---------------------------------------------------------------------------
+" ----------------------------------------------------------------------------
 
 " Use the keyword completion on Unix
 let s:unix_words_file = '/usr/share/dict/words'
@@ -70,10 +70,10 @@ if has('unix') && filereadable(s:unix_words_file)
   let &dictionary = s:unix_words_file
 endif
 
-" ---------------------------------------------------------------------------
+" ----------------------------------------------------------------------------
 
-" Store state files as Neovim does
-" See https://neovim.io/doc/user/starting.html#_standard-paths
+" Store state files respecting the XDG Base Directory specification, just like
+" Neovim (See https://neovim.io/doc/user/starting.html#_standard-paths)
 let s:state_dir = ''
 if has('unix')
   let s:state_dir = !empty($XDG_STATE_HOME) ?
@@ -97,7 +97,7 @@ if !empty(s:state_dir)
   let &directory = s:swap_dir . '//'
 endif
 
-" ---------------------------------------------------------------------------
+" ----------------------------------------------------------------------------
 
 let g:mapleader = "\<Space>"
 
@@ -105,7 +105,7 @@ let g:mapleader = "\<Space>"
 nnoremap <C-J> <Cmd>bnext<CR>
 nnoremap <C-K> <Cmd>bprevious<CR>
 
-" Use CTRL-L to stop highlighting and redraw
+" Stop highlighting and redraw
 nnoremap <C-L> <Cmd>nohlsearch<CR><C-L>
 
 " Yank from the cursor to the end of the line
@@ -123,20 +123,20 @@ onoremap a` 2i`
 inoremap <C-U> <C-G>u<C-U>
 inoremap <C-W> <C-G>u<C-W>
 
-" ---------------------------------------------------------------------------
+" ----------------------------------------------------------------------------
 
-" Tweak vimrc quickly
+" Run frequently used commands quickly
 command! -nargs=0 -bar CdHere   cd %:h
 command! -nargs=0 -bar Reload   source $MYVIMRC
 command! -nargs=0 -bar Vimrc    edit $MYVIMRC
 
-" ---------------------------------------------------------------------------
+" ----------------------------------------------------------------------------
 
 " Open the QuickFix window automatically
 autocmd vimrc QuickFixCmdPost [^l]* copen
 autocmd vimrc QuickFixCmdPost l*    lopen
 
-" ---------------------------------------------------------------------------
+" ----------------------------------------------------------------------------
 
 syntax enable
 
@@ -149,7 +149,7 @@ let g:markdown_fenced_languages = [
       \ 'vimscript=vim', 'yaml', 'yml=yaml'
       \ ]
 
-" ---------------------------------------------------------------------------
+" ----------------------------------------------------------------------------
 
 filetype plugin indent on
 
@@ -159,10 +159,10 @@ autocmd vimrc FileType *
       \ setlocal formatoptions-=r |
       \ setlocal formatoptions-=o
 
-" Load the man filetype plugin
+" Load the man filetype plugin to use :Man
 runtime! ftplugin/man.vim
 
-" ---------------------------------------------------------------------------
+" ----------------------------------------------------------------------------
 
 " Disable unnecessary built-in plugins (under $VIMRUNTIME/plugin)
 let g:loaded_2html_plugin      = 1
@@ -214,7 +214,7 @@ packadd editexisting
 " lexima
 let g:lexima_ctrlh_as_backspace = 1
 
-" Load manually to call autoload functions
+" Load the plugin manually to call the autoload functions on start-up
 if !has('patch-8.2.4275')
   packadd lexima
 endif
@@ -244,6 +244,6 @@ let g:traces_abolish_integration = 1
 " winresizer
 let g:winresizer_start_key = '<Leader>e'
 
-" ---------------------------------------------------------------------------
+" ----------------------------------------------------------------------------
 
 " vim: et:ts=2:tw=78
