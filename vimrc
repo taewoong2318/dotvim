@@ -125,13 +125,6 @@ inoremap <C-W> <C-G>u<C-W>
 
 " ----------------------------------------------------------------------------
 
-" Run frequently used commands quickly
-command! -nargs=0 -bar CdHere   cd %:h
-command! -nargs=0 -bar Reload   source $MYVIMRC
-command! -nargs=0 -bar Vimrc    edit $MYVIMRC
-
-" ----------------------------------------------------------------------------
-
 " Open the QuickFix window automatically
 autocmd vimrc QuickFixCmdPost [^l]* copen
 autocmd vimrc QuickFixCmdPost l*    lopen
