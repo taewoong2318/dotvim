@@ -4,7 +4,7 @@
 
 " ----------------------------------------------------------------------------
 
-" Restrict version for the use of <Cmd> in key mappings
+" Restrict version for the <Cmd> mappings
 if !has('patch-8.2.1978')
   echo 'Error: Version 8.2.1978 or later is required.'
   cquit
@@ -111,7 +111,7 @@ let g:mapleader = "\<Space>"
 nnoremap <C-J> <Cmd>bnext<CR>
 nnoremap <C-K> <Cmd>bprevious<CR>
 
-" Stop highlighting and redraw
+" Clear highlighting and redraw
 nnoremap <C-L> <Cmd>nohlsearch<CR><C-L>
 
 " Yank from the cursor to the end of the line
@@ -229,7 +229,7 @@ call lexima#add_rule({'at': '\%#\w', 'char': '{', 'input': '{'})
 " ----------------------------------------------------------------------------
 
 " suda
-" Use the same commands as sudo.vim (https://github.com/vim-scripts/sudo.vim)
+" Perform like sudo.vim (https://github.com/vim-scripts/sudo.vim)
 command! -nargs=? -complete=file SudoRead   SudaRead <args>
 command! -nargs=? -complete=file SudoWrite  SudaWrite <args>
 
