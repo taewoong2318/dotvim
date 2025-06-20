@@ -27,7 +27,7 @@ set diffopt+=algorithm:histogram,indent-heuristic,vertical
 set display=lastline
 set encoding=utf-8
 set expandtab
-set fileencoding=utf-8
+set fileencodings=ucs-bom,utf-8,sjis,cp932,default,latin1
 set formatoptions+=j
 set hidden
 set history=10000
