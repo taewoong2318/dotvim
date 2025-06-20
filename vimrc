@@ -27,7 +27,6 @@ set diffopt+=algorithm:histogram,indent-heuristic,vertical
 set display=lastline
 set encoding=utf-8
 set expandtab
-set fileencodings=ucs-bom,utf-8,sjis,cp932,default,latin1
 set formatoptions+=j
 set hidden
 set history=10000
@@ -41,25 +40,32 @@ set nrformats-=octal
 set omnifunc=syntaxcomplete#Complete
 set pumheight=10
 set ruler
-set shiftwidth=0            " Mirror the value of 'tabstop'
 set showcmd
 set signcolumn=no
 set smartcase
-set softtabstop=-1          " Mirror the value of 'tabstop'
 set spelloptions=camel
 set splitbelow
 set tabstop=4
 set title
+
+" NOTE: Give priority to Shift_JIS (sjis) over CP932 (cp932) to avoid saving
+" the Shift_JIS file in CP932
+" (See https://qiita.com/ke-suke-Soft/items/978365a9e63ba118fffc)
+set fileencodings=ucs-bom,utf-8,sjis,cp932,default,latin1
+
+" Mirror the value of 'tabstop'
+set shiftwidth=0
+set softtabstop=-1
+
+" Make <ESC> faster (See https://vi.stackexchange.com/a/24938)
 set ttimeout
-set ttimeoutlen=100         " Make <ESC> faster
-set wildmode=longest,list   " Perform Bash-like completion
+set ttimeoutlen=100
+
+" Perform Bash-like completion
+set wildmode=longest,list
 
 if has('patch-8.2.3780')
   set cdhome
-endif
-
-if has('patch-8.2.4325')
-  set wildoptions=pum
 endif
 
 " ----------------------------------------------------------------------------
