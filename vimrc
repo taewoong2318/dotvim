@@ -68,9 +68,11 @@ if has('patch-8.2.3780')
 endif
 
 if has('patch-9.1.1243')
-  set diffopt=algorithm:histogram,closeoff,filler,indent-heuristic,inline:word,internal,vertical
+  set diffopt=algorithm:histogram,closeoff,filler,indent-heuristic,
+        \inline:word,internal,vertical
 else
-  set diffopt=algorithm:histogram,closeoff,filler,indent-heuristic,internal,vertical
+  set diffopt=algorithm:histogram,closeoff,filler,indent-heuristic,internal,
+        \vertical
 endif
 
 " ----------------------------------------------------------------------------
