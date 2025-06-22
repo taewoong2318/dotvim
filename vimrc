@@ -38,6 +38,8 @@ set nostartofline
 set nrformats-=octal
 set omnifunc=syntaxcomplete#Complete
 set pumheight=10
+set pummaxwidth=40
+set pumwidth=40
 set ruler
 set showcmd
 set signcolumn=no
