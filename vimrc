@@ -82,7 +82,7 @@ endif
 
 " ----------------------------------------------------------------------------
 
-" Use the keyword completion on Unix
+" Enable keyword completion on Unix
 let s:unix_words_file = '/usr/share/dict/words'
 if has('unix') && filereadable(s:unix_words_file)
   let &dictionary = s:unix_words_file
