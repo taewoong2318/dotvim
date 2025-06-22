@@ -23,7 +23,6 @@ set ambiwidth=double
 set autoindent
 set autoread
 set completeopt=menuone,noinsert
-set diffopt+=algorithm:histogram,indent-heuristic,vertical
 set display=lastline
 set encoding=utf-8
 set expandtab
@@ -66,6 +65,12 @@ set wildmode=longest,list
 
 if has('patch-8.2.3780')
   set cdhome
+endif
+
+if has('patch-9.1.1243')
+  set diffopt=algorithm:histogram,closeoff,filler,indent-heuristic,inline:word,internal,vertical
+else
+  set diffopt=algorithm:histogram,closeoff,filler,indent-heuristic,internal,vertical
 endif
 
 " ----------------------------------------------------------------------------
