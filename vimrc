@@ -38,7 +38,6 @@ set nostartofline
 set nrformats-=octal
 set omnifunc=syntaxcomplete#Complete
 set pumheight=10
-set pummaxwidth=40
 set pumwidth=40
 set ruler
 set showcmd
@@ -75,6 +74,10 @@ if has('patch-9.1.1243')
 else
   set diffopt=algorithm:histogram,closeoff,filler,indent-heuristic,internal,
         \vertical
+endif
+
+if has('patch-9.1.1250')
+  set pummaxwidth=40
 endif
 
 " ----------------------------------------------------------------------------
