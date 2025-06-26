@@ -34,6 +34,7 @@ set ignorecase
 set incsearch
 set infercase
 set laststatus=0
+set nojoinspaces
 set nostartofline
 set nrformats-=octal
 set omnifunc=syntaxcomplete#Complete
