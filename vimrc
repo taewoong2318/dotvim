@@ -49,9 +49,9 @@ set splitbelow
 set tabstop=4
 set title
 
-" NOTE: Give priority to Shift_JIS (sjis) over CP932 (cp932) to avoid saving
-" the Shift_JIS file in CP932
-" (See https://qiita.com/ke-suke-Soft/items/978365a9e63ba118fffc)
+" NOTE: It is necessary to give priority to Shift_JIS (sjis) over CP932
+" (cp932) to avoid saving the Shift_JIS file in CP932 (See
+" https://qiita.com/ke-suke-Soft/items/978365a9e63ba118fffc).
 set fileencodings=ucs-bom,utf-8,sjis,cp932,default,latin1
 
 " Mirror the value of 'tabstop'
@@ -166,7 +166,8 @@ let g:markdown_fenced_languages = [
 filetype plugin indent on
 
 " Disable the automatic insertion of comment leaders on every file type
-" NOTE: Must be placed after `filetype plugin indent on`
+"
+" NOTE: This must be placed after `filetype plugin indent on`.
 autocmd vimrc FileType *
       \ setlocal formatoptions-=r |
       \ setlocal formatoptions-=o
@@ -277,30 +278,31 @@ if v:version >= 900
 
   " Register some language servers (See https://github.com/yegappan/lsp/wiki)
   call LspAddServer([#{
-        \ name: 'clangd',
-        \ filetype: [ 'c', 'cpp' ],
-        \ path: 'clangd',
-        \ args: [ '--background-index', '--clang-tidy' ]
+        \   name: 'clangd',
+        \   filetype: [ 'c', 'cpp' ],
+        \   path: 'clangd',
+        \   args: [ '--background-index', '--clang-tidy' ]
         \ }])
 
+  " TODO: Make it work with lombok
   call LspAddServer([#{
-        \ name: 'jdtls',
-        \ filetype: 'java',
-        \ path: 'jdtls',
-        \ args: [],
-        \ initializationOptions: #{
-        \   settings: #{
-        \     java: #{
-        \       completion: #{
-        \         filteredTypes: [
-        \           "com.sun.*", "java.awt.*", "jdk.*",
-        \           "org.graalvm.*", "sun.*", "javax.awt.*",
-        \           "javax.swing.*"
-        \         ]
+        \   name: 'jdtls',
+        \   filetype: 'java',
+        \   path: 'jdtls',
+        \   args: [],
+        \   initializationOptions: #{
+        \     settings: #{
+        \       java: #{
+        \         completion: #{
+        \           filteredTypes: [
+        \             "com.sun.*", "java.awt.*", "jdk.*",
+        \             "org.graalvm.*", "sun.*", "javax.awt.*",
+        \             "javax.swing.*"
+        \           ]
+        \         }
         \       }
         \     }
         \   }
-        \ }
         \ }])
 
   call LspAddServer([#{
@@ -321,11 +323,15 @@ if v:version >= 900
         \ }
         \ }])
 
+  " NOTE: python-lsp-server needs to be installed inside venv.
+  "
+  " NOTE: Some other pip packages (e.g. pycodestyle, autopep8) are needed for
+  " extra features (See https://github.com/python-lsp/python-lsp-server)
   call LspAddServer([#{
-        \ name: 'pylsp',
-        \ filetype: 'python',
-        \ path: 'pylsp',
-        \ args: []
+        \   name: 'pylsp',
+        \   filetype: 'python',
+        \   path: 'pylsp',
+        \   args: []
         \ }])
 endif
 
