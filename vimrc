@@ -22,7 +22,7 @@ augroup END
 set ambiwidth=double
 set autoindent
 set autoread
-set completeopt=menuone,noinsert
+set completeopt=menuone,noinsert,popup
 set display=lastline
 set encoding=utf-8
 set expandtab
@@ -232,12 +232,108 @@ if !has('patch-8.2.4275')
 endif
 
 " Disable the auto closing when the cursor is at the front of a word
-call lexima#add_rule({'at': '\%#\w', 'char': "'", 'input': "'"})
-call lexima#add_rule({'at': '\%#\w', 'char': '"', 'input': '"'})
-call lexima#add_rule({'at': '\%#\w', 'char': '(', 'input': '('})
-call lexima#add_rule({'at': '\%#\w', 'char': '[', 'input': '['})
-call lexima#add_rule({'at': '\%#\w', 'char': '`', 'input': '`'})
-call lexima#add_rule({'at': '\%#\w', 'char': '{', 'input': '{'})
+call lexima#add_rule(#{ at: '\%#\w', char: "'", input: "'" })
+call lexima#add_rule(#{ at: '\%#\w', char: '"', input: '"' })
+call lexima#add_rule(#{ at: '\%#\w', char: '(', input: '(' })
+call lexima#add_rule(#{ at: '\%#\w', char: '[', input: '[' })
+call lexima#add_rule(#{ at: '\%#\w', char: '`', input: '`' })
+call lexima#add_rule(#{ at: '\%#\w', char: '{', input: '{' })
+
+" ----------------------------------------------------------------------------
+
+" lsp
+if v:version >= 900
+  packadd lsp
+
+  call LspOptionsSet(#{
+        \ autoComplete: v:false,
+        \ autoHighlightDiags: v:false,
+        \ completionMatcher: 'icase',
+        \ ignoreMissingServer: v:true,
+        \ showSignature: v:false,
+        \ snippetSupport: v:true,
+        \ vsnipSupport: v:true
+        \ })
+
+  function! s:onLspAttached()
+    setlocal formatexpr=lsp#lsp#FormatExpr()
+    setlocal keywordprg=:LspHover
+    setlocal tagfunc=lsp#lsp#TagFunc
+
+    nnoremap <buffer> gD <Cmd>LspGotoDeclaration<CR>
+    nnoremap <buffer> gd <Cmd>LspGotoDefinition<CR>
+    nnoremap <buffer> gi <Cmd>LspGotoImpl<CR>
+    nnoremap <buffer> gl <Cmd>LspDiag show<CR>
+    nnoremap <buffer> gr <Cmd>LspShowReferences<CR>
+    nnoremap <buffer> gy <Cmd>LspGotoTypeDef<CR>
+  endfunction
+
+  autocmd vimrc User LspAttached call s:onLspAttached()
+
+  " Register some language servers (See https://github.com/yegappan/lsp/wiki)
+  call LspAddServer([#{
+        \ name: 'clangd',
+        \ filetype: [ 'c', 'cpp' ],
+        \ path: 'clangd',
+        \ args: [ '--background-index', '--clang-tidy' ]
+        \ }])
+
+  call LspAddServer([#{
+        \ name: 'jdtls',
+        \ filetype: 'java',
+        \ path: 'jdtls',
+        \ args: [],
+        \ initializationOptions: #{
+        \   settings: #{
+        \     java: #{
+        \       completion: #{
+        \         filteredTypes: [
+        \           "com.sun.*", "java.awt.*", "jdk.*",
+        \           "org.graalvm.*", "sun.*", "javax.awt.*",
+        \           "javax.swing.*"
+        \         ]
+        \       }
+        \     }
+        \   }
+        \ }
+        \ }])
+
+  call LspAddServer([#{
+        \ name: 'efm-langserver',
+        \ filetype: [ 'markdown', 'python' ],
+        \ path: 'efm-langserver',
+        \ args: [],
+        \ workspaceConfig: #{
+        \   languages: #{
+        \     markdown: [
+        \       #{
+        \         lintCommand: 'markdownlint -s',
+        \         lintStdin: v:true,
+        \         lintFormats: [ '%f:%l %m', '%f:%l:%c %m', '%f: %l: %m' ]
+        \       }
+        \     ],
+        \     python: [
+        \       #{
+        \         formatCommand: 'autopep8 -',
+        \         formatStdin: v:true
+        \       },
+        \       #{
+        \         lintCommand: 'flake8 --stdin-display-name ${INPUT} -',
+        \         lintStdin: v:true,
+        \         lintFormats: [ '%f:%l:%c: %m' ]
+        \       }
+        \     ]
+        \   }
+        \ }
+        \ }])
+
+  call LspAddServer([#{
+        \ name: 'pylsp',
+        \ filetype: 'python',
+        \ path: 'pylsp',
+        \ args: []
+        \ }])
+endif
 
 " ----------------------------------------------------------------------------
 
@@ -250,6 +346,14 @@ command! -nargs=? -complete=file SudoWrite  SudaWrite <args>
 
 " traces
 let g:traces_abolish_integration = 1
+
+" ----------------------------------------------------------------------------
+
+" vsnip
+imap <expr> <C-L>
+      \ vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-L>'
+smap <expr> <C-L>
+      \ vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-L>'
 
 " ----------------------------------------------------------------------------
 
