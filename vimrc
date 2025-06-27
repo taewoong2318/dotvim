@@ -306,21 +306,10 @@ if v:version >= 900
         \ }])
 
   call LspAddServer([#{
-        \ name: 'efm-langserver',
-        \ filetype: [ 'markdown' ],
-        \ path: 'efm-langserver',
-        \ args: [],
-        \ workspaceConfig: #{
-        \   languages: #{
-        \     markdown: [
-        \       #{
-        \         lintCommand: 'markdownlint -s',
-        \         lintStdin: v:true,
-        \         lintFormats: [ '%f:%l %m', '%f:%l:%c %m', '%f: %l: %m' ]
-        \       }
-        \     ]
-        \   }
-        \ }
+        \   name: 'tsserver',
+        \   filetype: [ 'javascript', 'typescript' ],
+        \   path: 'typescript-language-server',
+        \   args: [ '--stdio' ]
         \ }])
 
   " NOTE: python-lsp-server needs to be installed inside venv.
