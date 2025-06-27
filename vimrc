@@ -300,7 +300,7 @@ if v:version >= 900
 
   call LspAddServer([#{
         \ name: 'efm-langserver',
-        \ filetype: [ 'markdown', 'python' ],
+        \ filetype: [ 'markdown' ],
         \ path: 'efm-langserver',
         \ args: [],
         \ workspaceConfig: #{
@@ -310,17 +310,6 @@ if v:version >= 900
         \         lintCommand: 'markdownlint -s',
         \         lintStdin: v:true,
         \         lintFormats: [ '%f:%l %m', '%f:%l:%c %m', '%f: %l: %m' ]
-        \       }
-        \     ],
-        \     python: [
-        \       #{
-        \         formatCommand: 'autopep8 -',
-        \         formatStdin: v:true
-        \       },
-        \       #{
-        \         lintCommand: 'flake8 --stdin-display-name ${INPUT} -',
-        \         lintStdin: v:true,
-        \         lintFormats: [ '%f:%l:%c: %m' ]
         \       }
         \     ]
         \   }
