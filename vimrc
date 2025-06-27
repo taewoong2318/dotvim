@@ -327,6 +327,7 @@ endif
 " ----------------------------------------------------------------------------
 
 " suda
+"
 " Perform like sudo.vim (https://github.com/vim-scripts/sudo.vim)
 command! -nargs=? -complete=file SudoRead   SudaRead <args>
 command! -nargs=? -complete=file SudoWrite  SudaWrite <args>
