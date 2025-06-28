@@ -31,9 +31,6 @@
 [submodule "pack/default/start/better-whitespace"]
 	path = pack/default/start/better-whitespace
 	url = https://github.com/ntpeters/vim-better-whitespace
-[submodule "pack/default/start/winresizer"]
-	path = pack/default/start/winresizer
-	url = https://github.com/simeji/winresizer
 [submodule "pack/default/start/abolish"]
 	path = pack/default/start/abolish
 	url = https://github.com/tpope/vim-abolish
