@@ -49,7 +49,6 @@ set splitbelow
 set tabstop=4
 set title
 set wildmode=full
-set wildoptions=pum
 
 " NOTE: It is necessary to give priority to Shift_JIS (sjis) over CP932
 " (cp932) to avoid overwriting the Shift_JIS file with CP932 (See
@@ -78,6 +77,10 @@ endif
 
 if has('patch-9.1.1250')
   set pummaxwidth=40
+endif
+
+if has('patch-8.2.4325')
+  set wildoptions=pum
 endif
 
 " ----------------------------------------------------------------------------
