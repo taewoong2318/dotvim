@@ -52,7 +52,7 @@ set wildmode=full
 set wildoptions=pum
 
 " NOTE: It is necessary to give priority to Shift_JIS (sjis) over CP932
-" (cp932) to avoid saving the Shift_JIS file in CP932 (See
+" (cp932) to avoid overwriting the Shift_JIS file with CP932 (See
 " https://qiita.com/ke-suke-Soft/items/978365a9e63ba118fffc).
 set fileencodings=ucs-bom,utf-8,sjis,cp932,default,latin1
 
@@ -315,8 +315,8 @@ endif
 " suda
 "
 " Perform like sudo.vim (https://github.com/vim-scripts/sudo.vim)
-command! -nargs=? -complete=file SudoRead   SudaRead <args>
-command! -nargs=? -complete=file SudoWrite  SudaWrite <args>
+command! -nargs=? -complete=file SudoRead  SudaRead  <args>
+command! -nargs=? -complete=file SudoWrite SudaWrite <args>
 
 " ----------------------------------------------------------------------------
 
