@@ -117,14 +117,15 @@ endif
 
 " ----------------------------------------------------------------------------
 
-let g:mapleader = "\<Space>"
-
 " Switch buffers quickly
-nnoremap <C-J> <Cmd>bnext<CR>
-nnoremap <C-K> <Cmd>bprevious<CR>
+nnoremap <C-N> <Cmd>bnext<CR>
+nnoremap <C-P> <Cmd>bprevious<CR>
 
-" Clear highlighting and redraw
-nnoremap <C-L> <Cmd>nohlsearch<CR><C-L>
+" Resize windows quickly
+nnoremap <C-H> <C-W><
+nnoremap <C-J> <C-W>-
+nnoremap <C-K> <C-W>+
+nnoremap <C-L> <C-W>>
 
 " Yank from the cursor to the end of the line
 nnoremap Y y$
@@ -325,15 +326,10 @@ let g:traces_abolish_integration = 1
 " ----------------------------------------------------------------------------
 
 " vsnip
-imap <expr> <C-L>
-      \ vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-L>'
-smap <expr> <C-L>
-      \ vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-L>'
-
-" ----------------------------------------------------------------------------
-
-" winresizer
-let g:winresizer_start_key = '<Leader>e'
+imap <expr> <Tab>   vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)' : '<Tab>'
+smap <expr> <Tab>   vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)' : '<Tab>'
+imap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'
+smap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'
 
 " ----------------------------------------------------------------------------
 
