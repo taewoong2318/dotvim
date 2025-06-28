@@ -48,6 +48,8 @@ set spelloptions=camel
 set splitbelow
 set tabstop=4
 set title
+set wildmode=full
+set wildoptions=pum
 
 " NOTE: It is necessary to give priority to Shift_JIS (sjis) over CP932
 " (cp932) to avoid saving the Shift_JIS file in CP932 (See
@@ -61,9 +63,6 @@ set softtabstop=-1
 " Make <ESC> faster (See https://vi.stackexchange.com/a/24938)
 set ttimeout
 set ttimeoutlen=100
-
-" Perform Bash-like completion
-set wildmode=longest,list
 
 if has('patch-8.2.3780')
   set cdhome
@@ -195,18 +194,8 @@ let g:loaded_zipPlugin         = 1
 
 " ----------------------------------------------------------------------------
 
-" bbye
-command! -nargs=? -complete=buffer -bang Bclose Bdelete<bang> <args>
-
-" ----------------------------------------------------------------------------
-
 " better-whitespace
 highlight! link ExtraWhitespace Error
-
-" ----------------------------------------------------------------------------
-
-" cfilter
-packadd cfilter
 
 " ----------------------------------------------------------------------------
 
@@ -221,11 +210,6 @@ endif
 
 " dim
 colorscheme dim
-
-" ----------------------------------------------------------------------------
-
-" editexisting
-packadd editexisting
 
 " ----------------------------------------------------------------------------
 
@@ -258,6 +242,7 @@ if v:version >= 900
         \ ignoreMissingServer: v:true,
         \ showSignature: v:false,
         \ snippetSupport: v:true,
+        \ useQuickfixForLocations: v:true,
         \ vsnipSupport: v:true
         \ })
 
