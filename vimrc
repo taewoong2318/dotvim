@@ -283,11 +283,7 @@ if v:version >= 900
   let s:lombok = !empty(s:data_home)
         \ ? expand(s:data_home . '/jdtls/lombok.jar') : ''
   let s:jdtlsArgs = !empty(s:lombok) && filereadable(s:lombok)
-        \ ? [
-        \   '--jvm-arg=-javaagent:' . s:lombok,
-        \   '--jvm-arg=-Xbootclasspath/a:' . s:lombok
-        \ ]
-        \ : []
+        \ ? [ '--jvm-arg=-javaagent:' . s:lombok ] : []
   call LspAddServer([#{
         \   name: 'jdtls',
         \   filetype: 'java',
