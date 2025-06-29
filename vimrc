@@ -93,14 +93,23 @@ endif
 
 " ----------------------------------------------------------------------------
 
-" Store state files respecting the XDG Base Directory specification, just like
-" Neovim (See https://neovim.io/doc/user/starting.html#_standard-paths)
+" Respect the XDG Base Directory specification and store state files in the
+" same way as Neovim (See
+" https://neovim.io/doc/user/starting.html#_standard-paths)
+let s:data_home = ''
+let s:state_home = ''
 let s:state_dir = ''
+
 if has('unix')
-  let s:state_dir = !empty($XDG_STATE_HOME) ?
-        \ $XDG_STATE_HOME . '/vim' : expand('~/.local/state/vim')
+  let s:data_home = !empty($XDG_DATA_HOME)
+        \ ? $XDG_DATA_HOME : expand('~/.local/share')
+  let s:state_home = !empty($XDG_STATE_HOME)
+        \ ? $XDG_STATE_HOME : expand('~/.local/state')
+  let s:state_dir = expand(s:state_home . '/vim')
 elseif has('win32')
-  let s:state_dir = expand('~/AppData/Local/vim-data')
+  let s:data_home = expand('~/AppData/Local')
+  let s:state_home = expand('~/AppData/Local')
+  let s:state_dir = expand(s:state_home . '/vim-data')
 endif
 
 if !empty(s:state_dir)
@@ -172,8 +181,7 @@ filetype plugin indent on
 "
 " NOTE: This must be placed after `filetype plugin indent on`.
 autocmd vimrc FileType *
-      \ setlocal formatoptions-=r |
-      \ setlocal formatoptions-=o
+      \ setlocal formatoptions-=r | setlocal formatoptions-=o
 
 " Load the man filetype plugin to use :Man
 runtime! ftplugin/man.vim
@@ -246,7 +254,6 @@ if v:version >= 900
         \ ignoreMissingServer: v:true,
         \ showSignature: v:false,
         \ snippetSupport: v:true,
-        \ useQuickfixForLocations: v:true,
         \ vsnipSupport: v:true
         \ })
 
@@ -273,12 +280,19 @@ if v:version >= 900
         \   args: [ '--background-index', '--clang-tidy' ]
         \ }])
 
-  " TODO: Make it work with lombok
+  let s:lombok = !empty(s:data_home)
+        \ ? expand(s:data_home . '/jdtls/lombok.jar') : ''
+  let s:jdtlsArgs = !empty(s:lombok) && filereadable(s:lombok)
+        \ ? [
+        \   '--jvm-arg=-javaagent:' . s:lombok,
+        \   '--jvm-arg=-Xbootclasspath/a:' . s:lombok
+        \ ]
+        \ : []
   call LspAddServer([#{
         \   name: 'jdtls',
         \   filetype: 'java',
         \   path: 'jdtls',
-        \   args: [],
+        \   args: s:jdtlsArgs,
         \   initializationOptions: #{
         \     settings: #{
         \       java: #{
