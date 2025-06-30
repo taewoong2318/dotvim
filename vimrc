@@ -23,6 +23,7 @@ set ambiwidth=double
 set autoindent
 set autoread
 set completeopt=menuone,noinsert,popup
+set completepopup=height:20,width:80,align:menu,border:off
 set display=lastline
 set encoding=utf-8
 set expandtab
@@ -48,7 +49,7 @@ set spelloptions=camel
 set splitbelow
 set tabstop=4
 set title
-set wildmode=full
+set wildmode=longest,list
 
 " NOTE: It is necessary to give priority to Shift_JIS (sjis) over CP932
 " (cp932) to avoid overwriting the Shift_JIS file with CP932 (See
@@ -77,10 +78,6 @@ endif
 
 if has('patch-9.1.1250')
   set pummaxwidth=40
-endif
-
-if has('patch-8.2.4325')
-  set wildoptions=pum
 endif
 
 " ----------------------------------------------------------------------------
