@@ -131,10 +131,8 @@ nnoremap <C-N> <Cmd>bnext<CR>
 nnoremap <C-P> <Cmd>bprevious<CR>
 
 " Resize windows quickly
-nnoremap <C-H> <C-W><
-nnoremap <C-J> <C-W>-
-nnoremap <C-K> <C-W>+
-nnoremap <C-L> <C-W>>
+nnoremap + <C-W>+
+nnoremap - <C-W>-
 
 " Yank from the cursor to the end of the line
 nnoremap Y y$
