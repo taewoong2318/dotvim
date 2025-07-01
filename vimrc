@@ -59,7 +59,7 @@ set fileencodings=ucs-bom,utf-8,sjis,cp932,default,latin1
 set shiftwidth=0
 set softtabstop=-1
 
-" Make <ESC> faster (See https://vi.stackexchange.com/a/24938)
+" Make <Esc> faster (See https://vi.stackexchange.com/a/24938)
 set ttimeout
 set ttimeoutlen=100
 
@@ -96,30 +96,32 @@ endif
 " Respect the XDG Base Directory specification and store state files in the
 " same way as Neovim (See
 " https://neovim.io/doc/user/starting.html#_standard-paths)
-let s:data_home = ''
-let s:state_home = ''
-let s:state_dir = ''
+"
+" NOTE: These variables should be checked if empty or not before used.
+let s:xdg_data_home = ''
+let s:xdg_state_home = ''
+let s:vim_state_dir = ''
 
 if has('unix')
-  let s:data_home = !empty($XDG_DATA_HOME)
+  let s:xdg_data_home = !empty($XDG_DATA_HOME)
         \ ? $XDG_DATA_HOME : expand('~/.local/share')
-  let s:state_home = !empty($XDG_STATE_HOME)
+  let s:xdg_state_home = !empty($XDG_STATE_HOME)
         \ ? $XDG_STATE_HOME : expand('~/.local/state')
-  let s:state_dir = expand(s:state_home . '/vim')
+  let s:vim_state_dir = expand(s:xdg_state_home . '/vim')
 elseif has('win32')
-  let s:data_home = expand('~/AppData/Local')
-  let s:state_home = expand('~/AppData/Local')
-  let s:state_dir = expand(s:state_home . '/vim-data')
+  let s:xdg_data_home = expand('~/AppData/Local')
+  let s:xdg_state_home = expand('~/AppData/Local')
+  let s:vim_state_dir = expand(s:xdg_state_home . '/vim-data')
 endif
 
-if !empty(s:state_dir)
-  if !isdirectory(s:state_dir)
-    call mkdir(s:state_dir, 'p', 0o700)
+if !empty(s:vim_state_dir)
+  if !isdirectory(s:vim_state_dir)
+    call mkdir(s:vim_state_dir, 'p', 0o700)
   endif
 
-  let &viminfofile = s:state_dir . '/viminfo'
+  let &viminfofile = s:vim_state_dir . '/viminfo'
 
-  let s:swap_dir = s:state_dir . '/swap'
+  let s:swap_dir = s:vim_state_dir . '/swap'
   if !isdirectory(s:swap_dir)
     call mkdir(s:swap_dir, 'p', 0o700)
   endif
@@ -245,7 +247,7 @@ call lexima#add_rule(#{ at: '\%#\w', char: '{', input: '{' })
 if v:version >= 900
   packadd lsp
 
-  call LspOptionsSet(#{
+  call g:LspOptionsSet(#{
         \ autoComplete: v:false,
         \ autoHighlightDiags: v:false,
         \ completionMatcher: 'icase',
@@ -271,18 +273,18 @@ if v:version >= 900
   autocmd vimrc User LspAttached call s:onLspAttached()
 
   " Register some language servers (See https://github.com/yegappan/lsp/wiki)
-  call LspAddServer([#{
+  call g:LspAddServer([#{
         \   name: 'clangd',
         \   filetype: [ 'c', 'cpp' ],
         \   path: 'clangd',
         \   args: [ '--background-index', '--clang-tidy' ]
         \ }])
 
-  let s:lombok = !empty(s:data_home)
-        \ ? expand(s:data_home . '/jdtls/lombok.jar') : ''
+  let s:lombok = !empty(s:xdg_data_home)
+        \ ? expand(s:xdg_data_home . '/jdtls/lombok.jar') : ''
   let s:jdtlsArgs = !empty(s:lombok) && filereadable(s:lombok)
         \ ? [ '--jvm-arg=-javaagent:' . s:lombok ] : []
-  call LspAddServer([#{
+  call g:LspAddServer([#{
         \   name: 'jdtls',
         \   filetype: 'java',
         \   path: 'jdtls',
@@ -302,7 +304,7 @@ if v:version >= 900
         \   }
         \ }])
 
-  call LspAddServer([#{
+  call g:LspAddServer([#{
         \   name: 'tsserver',
         \   filetype: [ 'javascript', 'typescript' ],
         \   path: 'typescript-language-server',
@@ -311,9 +313,9 @@ if v:version >= 900
 
   " NOTE: python-lsp-server needs to be installed inside venv.
   "
-  " NOTE: Some other pip packages (e.g. pycodestyle, autopep8) are needed for
-  " extra features (See https://github.com/python-lsp/python-lsp-server)
-  call LspAddServer([#{
+  " NOTE: Some other pip packages (e.g. autopep8) are needed for extra
+  " features (See https://github.com/python-lsp/python-lsp-server)
+  call g:LspAddServer([#{
         \   name: 'pylsp',
         \   filetype: 'python',
         \   path: 'pylsp',
