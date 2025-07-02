@@ -37,9 +37,6 @@
 [submodule "pack/default/start/sleuth"]
 	path = pack/default/start/sleuth
 	url = https://github.com/tpope/vim-sleuth
-[submodule "pack/default/start/help_ja"]
-	path = pack/default/start/help_ja
-	url = https://github.com/vim-jp/vimdoc-ja
 [submodule "pack/default/opt/commentary"]
 	path = pack/default/opt/commentary
 	url = https://github.com/tpope/vim-commentary
