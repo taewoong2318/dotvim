@@ -1,7 +1,5 @@
 # Taewoong's Vim Configuration
 
-Vim configuration with portability in mind, for Linux, macOS, and Windows
-
 ![Viewing the Vim source code on Vim](screenshot.png)
 
 ## Requirements
@@ -25,7 +23,7 @@ Then move into the repository and update submodules to install plugins:
 
 ## Updating
 
-Pull new changes, update submodules, and clean unused submodules (if needed):
+Pull new changes, update submodules, and clean unused submodules:
 
     git pull
     git submodule update --init
