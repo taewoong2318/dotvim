@@ -1,9 +1,6 @@
 [submodule "pack/default/start/matchup"]
 	path = pack/default/start/matchup
 	url = https://github.com/andymass/vim-matchup.git
-[submodule "pack/default/start/lexima"]
-	path = pack/default/start/lexima
-	url = https://github.com/cohama/lexima.vim
 [submodule "pack/default/start/startuptime"]
 	path = pack/default/start/startuptime
 	url = https://github.com/dstein64/vim-startuptime
@@ -55,12 +52,6 @@
 [submodule "pack/default/opt/lsp"]
 	path = pack/default/opt/lsp
 	url = https://github.com/yegappan/lsp.git
-[submodule "pack/default/start/vsnip"]
-	path = pack/default/start/vsnip
-	url = https://github.com/hrsh7th/vim-vsnip.git
-[submodule "pack/default/start/vsnip_integ"]
-	path = pack/default/start/vsnip_integ
-	url = https://github.com/hrsh7th/vim-vsnip-integ.git
 [submodule "pack/default/start/dim"]
 	path = pack/default/start/dim
 	url = https://github.com/jeffkreeftmeijer/vim-dim.git

@@ -225,24 +225,6 @@ colorscheme dim
 
 " ----------------------------------------------------------------------------
 
-" lexima
-let g:lexima_ctrlh_as_backspace = 1
-
-" Load the plugin manually to call the autoload functions on start-up
-if !has('patch-8.2.4275')
-  packadd lexima
-endif
-
-" Disable the auto closing when the cursor is at the front of a word
-call lexima#add_rule(#{ at: '\%#\w', char: "'", input: "'" })
-call lexima#add_rule(#{ at: '\%#\w', char: '"', input: '"' })
-call lexima#add_rule(#{ at: '\%#\w', char: '(', input: '(' })
-call lexima#add_rule(#{ at: '\%#\w', char: '[', input: '[' })
-call lexima#add_rule(#{ at: '\%#\w', char: '`', input: '`' })
-call lexima#add_rule(#{ at: '\%#\w', char: '{', input: '{' })
-
-" ----------------------------------------------------------------------------
-
 " lsp
 if v:version >= 900
   packadd lsp
@@ -252,9 +234,7 @@ if v:version >= 900
         \ autoHighlightDiags: v:false,
         \ completionMatcher: 'icase',
         \ ignoreMissingServer: v:true,
-        \ showSignature: v:false,
-        \ snippetSupport: v:true,
-        \ vsnipSupport: v:true
+        \ showSignature: v:false
         \ })
 
   function! s:onLspAttached()
@@ -335,14 +315,6 @@ command! -nargs=? -complete=file SudoWrite SudaWrite <args>
 
 " traces
 let g:traces_abolish_integration = 1
-
-" ----------------------------------------------------------------------------
-
-" vsnip
-imap <expr> <Tab>   vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)' : '<Tab>'
-smap <expr> <Tab>   vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)' : '<Tab>'
-imap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'
-smap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'
 
 " ----------------------------------------------------------------------------
 
