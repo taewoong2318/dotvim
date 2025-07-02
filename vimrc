@@ -1,4 +1,4 @@
-" Vim configuration with portability in mind, for Linux, macOS, and Windows
+" Taewoong's Vim configuration
 "
 " Author: Taewoong Han <mail@taewoong.me>
 
@@ -12,7 +12,8 @@ endif
 
 " ============================================================================
 
-" Reset the autocommands defined in vimrc to avoid duplicate triggers
+" Reset the autocommands defined in vimrc to avoid duplicate triggers after
+" reloading
 augroup vimrc
   autocmd!
 augroup END
@@ -94,11 +95,10 @@ endif
 
 " ============================================================================
 
-" Respect the XDG Base Directory specification and store state files in the
-" same way as Neovim (See
-" https://neovim.io/doc/user/starting.html#_standard-paths)
-"
-" NOTE: These variables should be checked if empty or not before used.
+" Respect the XDG Base Directory specification and Neovim's standard paths
+" (See https://neovim.io/doc/user/starting.html#_standard-paths)
+
+" NOTE: Make sure that these variables are not empty before using them.
 let s:xdg_data_home = ''
 let s:xdg_state_home = ''
 let s:vim_state_dir = ''
@@ -208,11 +208,13 @@ let g:loaded_zipPlugin         = 1
 " ============================================================================
 
 " better-whitespace
+
 highlight! link ExtraWhitespace Error
 
 " ============================================================================
 
-" comment or commentary
+" comment (built-in) or commentary (third-party)
+
 if has('patch-9.1.375')
   packadd comment
 else
@@ -222,11 +224,13 @@ endif
 " ============================================================================
 
 " dim
+
 colorscheme dim
 
 " ============================================================================
 
 " lsp
+
 if v:version >= 900
   packadd lsp
 
@@ -254,6 +258,7 @@ if v:version >= 900
   autocmd vimrc User LspAttached call s:onLspAttached()
 
   " Register some language servers (See https://github.com/yegappan/lsp/wiki)
+
   call g:LspAddServer([#{
         \   name: 'clangd',
         \   filetype: [ 'c', 'cpp' ],
@@ -307,7 +312,7 @@ endif
 " ============================================================================
 
 " sandwich
-"
+
 " Load the plugin manually to call the autoload functions on start-up
 if !has('patch-8.2.4275')
   packadd sandwich
@@ -318,7 +323,7 @@ call operator#sandwich#set('all', 'all', 'highlight', 0)
 " ============================================================================
 
 " suda
-"
+
 " Perform like sudo.vim (https://github.com/vim-scripts/sudo.vim)
 command! -nargs=? -complete=file SudoRead  SudaRead  <args>
 command! -nargs=? -complete=file SudoWrite SudaWrite <args>
@@ -326,6 +331,7 @@ command! -nargs=? -complete=file SudoWrite SudaWrite <args>
 " ============================================================================
 
 " traces
+
 let g:traces_abolish_integration = 1
 
 " ============================================================================
