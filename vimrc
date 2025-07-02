@@ -49,6 +49,7 @@ set spelloptions=camel
 set splitbelow
 set tabstop=4
 set title
+set wildmenu
 
 " NOTE: It is necessary to give priority to Shift_JIS (sjis) over CP932
 " (cp932) to avoid overwriting the Shift_JIS file with CP932 (See
