@@ -307,6 +307,12 @@ endif
 " ============================================================================
 
 " sandwich
+"
+" Load the plugin manually to call the autoload functions on start-up
+if !has('patch-8.2.4275')
+  packadd sandwich
+endif
+
 call operator#sandwich#set('all', 'all', 'highlight', 0)
 
 " ============================================================================
