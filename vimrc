@@ -305,6 +305,11 @@ endif
 
 " ----------------------------------------------------------------------------
 
+" sandwich
+call operator#sandwich#set('all', 'all', 'highlight', 0)
+
+" ----------------------------------------------------------------------------
+
 " suda
 "
 " Perform like sudo.vim (https://github.com/vim-scripts/sudo.vim)
