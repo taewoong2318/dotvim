@@ -35,6 +35,7 @@ set hlsearch
 set ignorecase
 set incsearch
 set infercase
+set keywordprg=:Man
 set laststatus=0
 set nojoinspaces
 set nostartofline
