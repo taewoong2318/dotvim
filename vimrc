@@ -133,6 +133,9 @@ endif
 
 " ============================================================================
 
+" Stop highlighting on CTRL-L
+nnoremap <C-L> <Cmd>nohlsearch<CR><C-L>
+
 " Switch buffers quickly
 nnoremap <C-N> <Cmd>bnext<CR>
 nnoremap <C-P> <Cmd>bprevious<CR>
