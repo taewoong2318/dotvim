@@ -52,3 +52,6 @@
 [submodule "pack/default/start/BufOnly"]
 	path = pack/default/start/BufOnly
 	url = https://github.com/vim-scripts/BufOnly.vim.git
+[submodule "pack/default/start/grep"]
+	path = pack/default/start/grep
+	url = https://github.com/yegappan/grep.git
