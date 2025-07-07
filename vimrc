@@ -49,6 +49,7 @@ set signcolumn=no
 set smartcase
 set spelloptions=camel
 set splitbelow
+set splitright
 set tabstop=4
 set title
 set wildmenu
@@ -70,6 +71,14 @@ if has('patch-8.2.3780')
   set cdhome
 endif
 
+if has('patch-8.2.4325')
+  set wildoptions=pum
+endif
+
+if has('patch-9.0.640')
+  set smoothscroll
+endif
+
 if has('patch-9.1.1243')
   set diffopt=algorithm:histogram,closeoff,filler,indent-heuristic,
         \inline:word,internal,vertical
@@ -82,8 +91,9 @@ if has('patch-9.1.1250')
   set pummaxwidth=40
 endif
 
-if has('patch-8.2.4325')
-  set wildoptions=pum
+if has('patch-9.1.1283')
+  set chistory=100
+  set lhistory=100
 endif
 
 " ============================================================================
