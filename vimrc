@@ -307,7 +307,7 @@ if v:version >= 900
         \   args: [ '--stdio' ]
         \ }])
 
-  " NOTE: python-lsp-server needs to be installed inside venv.
+  " NOTE: In venv, python-lsp-server needs to be installed inside it.
   "
   " NOTE: Some other pip packages (e.g. autopep8) are needed for extra
   " features (See https://github.com/python-lsp/python-lsp-server)
