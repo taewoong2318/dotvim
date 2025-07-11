@@ -1,7 +1,5 @@
 # Taewoong's Vim Configuration
 
-![Viewing the Vim source code on Vim](screenshot.png)
-
 ## Requirements
 
 - Git
