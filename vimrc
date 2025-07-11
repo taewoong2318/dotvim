@@ -79,6 +79,10 @@ if has('patch-9.0.640')
   set smoothscroll
 endif
 
+if has('patch-9.1.537')
+  set nrformats+=blank
+endif
+
 if has('patch-9.1.1243')
   set diffopt=algorithm:histogram,closeoff,filler,indent-heuristic,
         \inline:word,internal,vertical
