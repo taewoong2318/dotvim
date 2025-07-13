@@ -1,4 +1,6 @@
-# Taewoong's Vim Configuration
+# dotvim
+
+Taewoong's Vim configuration
 
 ## Requirements
 
