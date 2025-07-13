@@ -279,6 +279,13 @@ if v:version >= 900
         \   args: [ '--background-index', '--clang-tidy' ]
         \ }])
 
+  call g:LspAddServer([#{
+        \   name: 'gopls',
+        \   filetype: 'go',
+        \   path: 'gopls',
+        \   args: [ 'serve' ]
+        \ }])
+
   let s:lombok = !empty(s:xdg_data_home)
         \ ? expand(s:xdg_data_home . '/jdtls/lombok.jar') : ''
   let s:jdtlsArgs = !empty(s:lombok) && filereadable(s:lombok)
