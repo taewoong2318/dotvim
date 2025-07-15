@@ -154,6 +154,21 @@ nnoremap <C-L> <Cmd>nohlsearch<CR><C-L>
 nnoremap <C-N> <Cmd>bnext<CR>
 nnoremap <C-P> <Cmd>bprevious<CR>
 
+" Move upward or downward visually
+nnoremap j gj
+nnoremap k gk
+nnoremap gj j
+nnoremap gk k
+
+" Paste adjusting the indent to the current line
+nnoremap p ]p
+nnoremap P ]P
+nnoremap ]p p
+nnoremap ]P P
+
+" Delete a character without yanking
+nnoremap x "_x
+
 " Yank from the cursor to the end of the line
 nnoremap Y y$
 
