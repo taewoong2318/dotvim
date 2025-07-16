@@ -147,12 +147,8 @@ endif
 
 " ============================================================================
 
-" Stop highlighting on CTRL-L
+" Stop highlighting with redrawing
 nnoremap <C-L> <Cmd>nohlsearch<CR><C-L>
-
-" Switch buffers quickly
-nnoremap <C-N> <Cmd>bnext<CR>
-nnoremap <C-P> <Cmd>bprevious<CR>
 
 " Move upward or downward visually
 nnoremap j gj
@@ -180,7 +176,7 @@ onoremap a" 2i"
 onoremap a' 2i'
 onoremap a` 2i`
 
-" Make a new undo chunk before CTRL-U and CTRL-W
+" Make a new undo chunk before deleting a lot
 inoremap <C-U> <C-G>u<C-U>
 inoremap <C-W> <C-G>u<C-W>
 
@@ -254,6 +250,13 @@ endif
 " dim
 
 colorscheme dim
+
+" ============================================================================
+
+" fugitive
+
+" NOTE: :GBrowse needs :Browse, which would be defined in Netrw.
+command! -nargs=1 Browse URLOpen <args>
 
 " ============================================================================
 
