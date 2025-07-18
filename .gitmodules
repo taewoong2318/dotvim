@@ -55,3 +55,6 @@
 [submodule "pack/default/start/grep"]
 	path = pack/default/start/grep
 	url = https://github.com/yegappan/grep.git
+[submodule "pack/default/start/badapple"]
+	path = pack/default/start/badapple
+	url = https://github.com/skanehira/badapple.vim.git
