@@ -4,7 +4,7 @@
 
 " ============================================================================
 
-" Restrict version for the <Cmd> mappings
+" Quit immediately if there is no support for the <Cmd> mappings
 if !has('patch-8.2.1978')
   echo 'Error: Version 8.2.1978 or later is required.'
   cquit
@@ -12,8 +12,7 @@ endif
 
 " ============================================================================
 
-" Reset the autocommands defined in vimrc to avoid duplicate triggers after
-" reloading
+" Clear all the autocommands defined in vimrc to avoid duplicate triggers
 augroup vimrc
   autocmd!
 augroup END
@@ -54,8 +53,8 @@ set tabstop=4
 set title
 set wildmenu
 
-" NOTE: It is necessary to give priority to Shift_JIS (sjis) over CP932
-" (cp932) to avoid overwriting the Shift_JIS file with CP932 (See
+" NOTE: We have to give priority to Shift_JIS (sjis) over CP932 (cp932) to
+" avoid overwriting the Shift_JIS file with CP932 (See
 " https://qiita.com/ke-suke-Soft/items/978365a9e63ba118fffc).
 set fileencodings=ucs-bom,utf-8,sjis,cp932,default,latin1
 
@@ -113,7 +112,6 @@ endif
 " Respect the XDG Base Directory specification and Neovim's standard paths
 " (See https://neovim.io/doc/user/starting.html#_standard-paths)
 
-" NOTE: Make sure that these variables are not empty before using them.
 let s:xdg_data_home = ''
 let s:xdg_state_home = ''
 let s:vim_state_dir = ''
@@ -147,10 +145,10 @@ endif
 
 " ============================================================================
 
-" Stop highlighting with redrawing
+" Clear highlighting simultaneously with redrawing
 nnoremap <C-L> <Cmd>nohlsearch<CR><C-L>
 
-" Move upward or downward visually
+" Move upward or downward by display line
 nnoremap j gj
 nnoremap k gk
 nnoremap gj j
@@ -164,6 +162,7 @@ nnoremap ]P P
 
 " Delete a character without yanking
 nnoremap x "_x
+xnoremap x "_x
 
 " Yank from the cursor to the end of the line
 nnoremap Y y$
@@ -176,7 +175,7 @@ onoremap a" 2i"
 onoremap a' 2i'
 onoremap a` 2i`
 
-" Make a new undo chunk before deleting a lot
+" Make a new undo chunk before a lot of deletion
 inoremap <C-U> <C-G>u<C-U>
 inoremap <C-W> <C-G>u<C-W>
 
@@ -254,7 +253,7 @@ colorscheme dim
 
 " fugitive
 
-" NOTE: :GBrowse needs :Browse, which would be defined in Netrw.
+" NOTE: :GBrowse needs :Browse, which would be defined in netrw.
 command! -nargs=1 Browse URLOpen <args>
 
 " ============================================================================
@@ -334,10 +333,10 @@ if v:version >= 900
         \   args: [ '--stdio' ]
         \ }])
 
-  " NOTE: In venv, python-lsp-server needs to be installed inside it.
-  "
-  " NOTE: Some other pip packages (e.g. autopep8) are needed for extra
-  " features (See https://github.com/python-lsp/python-lsp-server)
+  " NOTE:
+  " - In venv, python-lsp-server needs to be installed inside it.
+  " - Some other pip packages (e.g. autopep8) are needed for extra
+  "   functionalities (See https://github.com/python-lsp/python-lsp-server)
   call g:LspAddServer([#{
         \   name: 'pylsp',
         \   filetype: 'python',
