@@ -145,6 +145,8 @@ endif
 
 " ============================================================================
 
+let g:mapleader = "\<Space>"
+
 " Clear highlighting simultaneously with redrawing
 nnoremap <C-L> <Cmd>nohlsearch<CR><C-L>
 
@@ -178,6 +180,11 @@ onoremap a` 2i`
 " Make a new undo chunk before a lot of deletion
 inoremap <C-U> <C-G>u<C-U>
 inoremap <C-W> <C-G>u<C-W>
+
+nnoremap <Leader>bn <Cmd>bnext<CR>
+nnoremap <Leader>bp <Cmd>bprevious<CR>
+nnoremap <Leader>fc <Cmd>edit .<CR>
+nnoremap <Leader>fp <Cmd>edit %:h<CR>
 
 " ============================================================================
 
@@ -226,6 +233,12 @@ let g:loaded_tarPlugin         = 1
 let g:loaded_tutor_mode_plugin = 1
 let g:loaded_vimballPlugin     = 1
 let g:loaded_zipPlugin         = 1
+
+" ============================================================================
+
+" bbye
+
+nnoremap <Leader>bd <Cmd>Bdelete<CR>
 
 " ============================================================================
 
