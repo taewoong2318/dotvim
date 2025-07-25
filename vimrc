@@ -188,12 +188,6 @@ nnoremap <Leader>e, <Cmd>edit %:h<CR>
 
 " ============================================================================
 
-" Open the QuickFix window automatically
-autocmd vimrc QuickFixCmdPost [^l]* copen
-autocmd vimrc QuickFixCmdPost l*    lopen
-
-" ============================================================================
-
 syntax enable
 
 " Enable the syntax highlighting of fenced code blocks in Markdown
