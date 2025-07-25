@@ -199,6 +199,11 @@ cnoreabbrev e, edit %:h
 
 " ============================================================================
 
+" Tweak vimrc quickly
+command! Vimrc edit $MYVIMRC
+
+" ============================================================================
+
 syntax enable
 
 " Enable the syntax highlighting of fenced code blocks in Markdown
