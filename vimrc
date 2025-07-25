@@ -183,8 +183,8 @@ inoremap <C-W> <C-G>u<C-W>
 
 nnoremap <Leader>bn <Cmd>bnext<CR>
 nnoremap <Leader>bp <Cmd>bprevious<CR>
-nnoremap <Leader>fc <Cmd>edit .<CR>
-nnoremap <Leader>fp <Cmd>edit %:h<CR>
+nnoremap <Leader>e. <Cmd>edit .<CR>
+nnoremap <Leader>e, <Cmd>edit %:h<CR>
 
 " ============================================================================
 
