@@ -145,16 +145,27 @@ endif
 
 " ============================================================================
 
-let g:mapleader = "\<Space>"
-
 " Clear highlighting simultaneously with redrawing
 nnoremap <C-L> <Cmd>nohlsearch<CR><C-L>
 
-" Move upward or downward by display line
-nnoremap j gj
-nnoremap k gk
-nnoremap gj j
-nnoremap gk k
+" Move the cursor by display line with gjjj... (See
+" https://zenn.dev/mattn/articles/83c2d4c7645faa)
+nmap gj gj<SID>g
+nmap gk gk<SID>g
+nnoremap <script> <SID>gj gj<SID>g
+nnoremap <script> <SID>gk gk<SID>g
+nmap <SID>g <Nop>
+
+" Resize windows with <CTRL-w>+++...
+nmap <C-w>+ <C-w>+<SID>ws
+nmap <C-w>- <C-w>-<SID>ws
+nmap <C-w>< <C-w><<SID>ws
+nmap <C-w>> <C-w>><SID>ws
+nnoremap <script> <SID>ws+ <C-w>+<SID>ws
+nnoremap <script> <SID>ws- <C-w>-<SID>ws
+nnoremap <script> <SID>ws< <C-w><<SID>ws
+nnoremap <script> <SID>ws> <C-w>><SID>ws
+nmap <SID>ws <Nop>
 
 " Paste adjusting the indent to the current line
 nnoremap p ]p
@@ -181,10 +192,10 @@ onoremap a` 2i`
 inoremap <C-U> <C-G>u<C-U>
 inoremap <C-W> <C-G>u<C-W>
 
-nnoremap <Leader>bn <Cmd>bnext<CR>
-nnoremap <Leader>bp <Cmd>bprevious<CR>
-nnoremap <Leader>e. <Cmd>edit .<CR>
-nnoremap <Leader>e, <Cmd>edit %:h<CR>
+" ============================================================================
+
+" Open the parent directory of the current buffer
+cnoreabbrev e, edit %:h
 
 " ============================================================================
 
@@ -232,7 +243,7 @@ let g:loaded_zipPlugin         = 1
 
 " bbye
 
-nnoremap <Leader>bd <Cmd>Bdelete<CR>
+cnoreabbrev bd Bdelete
 
 " ============================================================================
 
