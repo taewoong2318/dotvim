@@ -52,6 +52,7 @@ set splitright
 set tabstop=4
 set title
 set wildmenu
+set wildmode=longest:full,full
 
 " NOTE: We have to give priority to Shift_JIS (sjis) over CP932 (cp932) to
 " avoid overwriting the Shift_JIS file with CP932 (See
@@ -175,10 +176,13 @@ nnoremap ]P P
 
 " Delete a character without yanking
 nnoremap x "_x
-xnoremap x "_x
 
 " Yank from the cursor to the end of the line
 nnoremap Y y$
+
+" Paste without changing the content of the unnamed register
+xnoremap p P
+xnoremap P p
 
 " Select without surrounding white spaces
 xnoremap a" 2i"
