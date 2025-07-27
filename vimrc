@@ -389,14 +389,6 @@ call operator#sandwich#set('all', 'all', 'highlight', 0)
 
 " ============================================================================
 
-" Configure plugin: suda
-
-" Perform like sudo.vim (https://github.com/vim-scripts/sudo.vim)
-command! -nargs=? -complete=file SudoRead  SudaRead  <args>
-command! -nargs=? -complete=file SudoWrite SudaWrite <args>
-
-" ============================================================================
-
 " Configure plugin: traces
 
 let g:traces_abolish_integration = 1
