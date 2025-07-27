@@ -146,9 +146,6 @@ endif
 
 " ============================================================================
 
-" Clear highlighting simultaneously with redrawing
-nnoremap <C-L> <Cmd>nohlsearch<CR><C-L>
-
 " Move the cursor by display line with gjjj... (See
 " https://zenn.dev/mattn/articles/83c2d4c7645faa)
 nmap gj gj<SID>g
@@ -198,8 +195,14 @@ inoremap <C-W> <C-G>u<C-W>
 
 " ============================================================================
 
+function! s:DefineCmdShort(short, cmd) abort
+  execute printf('cabbrev <expr> %1$s
+        \ (getcmdtype() ==# ":" && getcmdline() ==# "%1$s")
+        \ ? "%2$s" : "%1$s"', a:short, a:cmd)
+endfunction
+
 " Open the parent directory of the current buffer
-cnoreabbrev e, edit %:h
+call s:DefineCmdShort('e,', 'edit %:h')
 
 " ============================================================================
 
@@ -250,19 +253,19 @@ let g:loaded_zipPlugin         = 1
 
 " ============================================================================
 
-" bbye
+" Configure plugin: bbye
 
-cnoreabbrev bd Bdelete
+call s:DefineCmdShort('bd', 'Bdelete')
 
 " ============================================================================
 
-" better-whitespace
+" Configure plugin: better-whitespace
 
 highlight! link ExtraWhitespace Error
 
 " ============================================================================
 
-" comment (built-in) or commentary (third-party)
+" Configure plugin: comment (built-in) or commentary (third-party)
 
 if has('patch-9.1.375')
   packadd comment
@@ -272,20 +275,20 @@ endif
 
 " ============================================================================
 
-" dim
+" Configure plugin: dim
 
 colorscheme dim
 
 " ============================================================================
 
-" fugitive
+" Configure plugin: fugitive
 
 " NOTE: :GBrowse needs :Browse, which would be defined in netrw.
 command! -nargs=1 Browse URLOpen <args>
 
 " ============================================================================
 
-" lsp
+" Configure plugin: lsp
 
 if v:version >= 900
   packadd lsp
@@ -298,7 +301,7 @@ if v:version >= 900
         \ showSignature: v:false
         \ })
 
-  function! s:onLspAttached()
+  function! s:OnLspAttached()
     setlocal formatexpr=lsp#lsp#FormatExpr()
     setlocal keywordprg=:LspHover
     setlocal tagfunc=lsp#lsp#TagFunc
@@ -311,7 +314,7 @@ if v:version >= 900
     nnoremap <buffer> gy <Cmd>LspGotoTypeDef<CR>
   endfunction
 
-  autocmd vimrc User LspAttached call s:onLspAttached()
+  autocmd vimrc User LspAttached call s:OnLspAttached()
 
   " Register some language servers (See https://github.com/yegappan/lsp/wiki)
 
@@ -374,18 +377,19 @@ endif
 
 " ============================================================================
 
-" sandwich
+" Configure plugin: sandwich
 
 " Load the plugin manually to call the autoload functions on start-up
 if !has('patch-8.2.4275')
   packadd sandwich
 endif
 
+" Disable all highlighting
 call operator#sandwich#set('all', 'all', 'highlight', 0)
 
 " ============================================================================
 
-" suda
+" Configure plugin: suda
 
 " Perform like sudo.vim (https://github.com/vim-scripts/sudo.vim)
 command! -nargs=? -complete=file SudoRead  SudaRead  <args>
@@ -393,7 +397,7 @@ command! -nargs=? -complete=file SudoWrite SudaWrite <args>
 
 " ============================================================================
 
-" traces
+" Configure plugin: traces
 
 let g:traces_abolish_integration = 1
 
