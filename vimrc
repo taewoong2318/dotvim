@@ -237,6 +237,34 @@ runtime! ftplugin/man.vim
 
 " ============================================================================
 
+" Apply corresponding omni completion functions
+
+autocmd vimrc FileType ada     setlocal omnifunc=adacomplete#Complete
+autocmd vimrc FileType c       setlocal omnifunc=ccomplete#Complete
+autocmd vimrc FileType clojure setlocal omnifunc=clojurecomplete#Complete
+autocmd vimrc FileType css     setlocal omnifunc=csscomplete#CompleteCSS
+autocmd vimrc FileType haskell setlocal omnifunc=haskellcomplete#Complete
+autocmd vimrc FileType x?html  setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd vimrc FileType php     setlocal omnifunc=phpcomplete#CompletePHP
+autocmd vimrc FileType sql     setlocal omnifunc=sqlcomplete#Complete
+autocmd vimrc FileType xml     setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd vimrc FileType javascript
+      \ setlocal omnifunc=javascriptcomplete#CompleteJS
+
+if has('python3')
+  autocmd vimrc FileType python setlocal omnifunc=python3complete#Complete
+endif
+
+if has('python')
+  autocmd vimrc FileType python2 setlocal omnifunc=pythoncomplete#Complete
+endif
+
+if has('ruby')
+  autocmd vimrc FileType ruby setlocal omnifunc=rubycomplete#Complete
+endif
+
+" ============================================================================
+
 " Disable unnecessary built-in plugins (under $VIMRUNTIME/plugin)
 let g:loaded_2html_plugin      = 1
 let g:loaded_getscriptPlugin   = 1
@@ -262,6 +290,12 @@ call s:DefineCmdShort('bd', 'Bdelete')
 " Configure plugin: better-whitespace
 
 highlight! link ExtraWhitespace Error
+
+" ============================================================================
+
+" Configure plugin: cfilter
+
+packadd cfilter
 
 " ============================================================================
 
@@ -366,7 +400,7 @@ if v:version >= 900
   " NOTE:
   " - In venv, python-lsp-server needs to be installed inside it.
   " - Some other pip packages (e.g. autopep8) are needed for extra
-  "   functionalities (See https://github.com/python-lsp/python-lsp-server)
+  "   functionalities (See https://github.com/python-lsp/python-lsp-server).
   call g:LspAddServer([#{
         \   name: 'pylsp',
         \   filetype: 'python',
