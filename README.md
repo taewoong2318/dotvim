@@ -35,6 +35,11 @@ in the local repository. To check what will be removed, run `git clean -dffn`.
 ## Help Tags
 
 Run the following command inside Vim to generate the help tags for the plugin
-documentations
+documentations:
 
     :helptags ALL
+
+## LSP Support
+
+It is optional to install language servers but offers useful functionalities
+for programming. See [vimrc](vimrc) for details.
