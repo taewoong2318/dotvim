@@ -34,6 +34,7 @@ in the local repository. To check what will be removed, run `git clean -dffn`.
 
 ## Help Tags
 
-Run the following command inside Vim to generate the help tags:
+Run the following command inside Vim to generate the help tags for the plugin
+documentations
 
     :helptags ALL
