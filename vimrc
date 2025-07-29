@@ -39,7 +39,6 @@ set laststatus=0
 set nojoinspaces
 set nostartofline
 set nrformats-=octal
-set omnifunc=syntaxcomplete#Complete
 set pumheight=10
 set pumwidth=40
 set ruler
@@ -237,7 +236,7 @@ runtime! ftplugin/man.vim
 
 " ============================================================================
 
-" Apply corresponding omni completion functions
+" Enable corresponding omni completion functions
 
 autocmd vimrc FileType ada     setlocal omnifunc=adacomplete#Complete
 autocmd vimrc FileType c       setlocal omnifunc=ccomplete#Complete
@@ -262,6 +261,11 @@ endif
 if has('ruby')
   autocmd vimrc FileType ruby setlocal omnifunc=rubycomplete#Complete
 endif
+
+autocmd vimrc FileType *
+      \   if empty(&omnifunc)
+      \ |   setlocal omnifunc=syntaxcomplete#Complete
+      \ | endif
 
 " ============================================================================
 
