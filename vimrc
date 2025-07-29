@@ -196,9 +196,9 @@ inoremap <C-W> <C-G>u<C-W>
 " ============================================================================
 
 function! s:DefineCmdShort(short, cmd) abort
-  execute printf('cabbrev <expr> %1$s
-        \ (getcmdtype() ==# ":" && getcmdline() ==# "%1$s")
-        \ ? "%2$s" : "%1$s"', a:short, a:cmd)
+  execute printf('cabbrev <expr> %s
+        \ (getcmdtype() ==# ":" && getcmdline() ==# "%s")
+        \ ? "%s" : "%s"', a:short, a:short, a:cmd, a:short)
 endfunction
 
 " Open the parent directory of the current buffer
