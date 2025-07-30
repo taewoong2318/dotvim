@@ -388,14 +388,17 @@ if v:version >= 900
         \   args: [ 'serve' ]
         \ }])
 
-  let s:lombok = !empty(s:xdg_data_home)
+  let s:jdtlsPath = has('win32') ? 'jdtls.bat' : 'jdtls'
+
+  let s:lombokPath = !empty(s:xdg_data_home)
         \ ? expand(s:xdg_data_home . '/jdtls/lombok.jar') : ''
-  let s:jdtlsArgs = !empty(s:lombok) && filereadable(s:lombok)
-        \ ? [ '--jvm-arg=-javaagent:' . s:lombok ] : []
+  let s:jdtlsArgs = !empty(s:lombokPath) && filereadable(s:lombokPath)
+        \ ? [ '--jvm-arg=-javaagent:' . s:lombokPath ] : []
+
   call g:LspAddServer([#{
         \   name: 'jdtls',
         \   filetype: 'java',
-        \   path: 'jdtls',
+        \   path: s:jdtlsPath,
         \   args: s:jdtlsArgs,
         \   initializationOptions: #{
         \     settings: #{
