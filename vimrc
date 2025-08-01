@@ -315,7 +315,9 @@ endif
 
 " Configure plugin: dim
 
-colorscheme dim
+if !has('gui_running')
+  colorscheme dim
+endif
 
 " ============================================================================
 
