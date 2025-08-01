@@ -200,13 +200,21 @@ function! s:DefineCmdShort(short, cmd) abort
         \ ? "%s" : "%s"', a:short, a:short, a:cmd, a:short)
 endfunction
 
-" Open the parent directory of the current buffer
+" Open the directory of the current file
 call s:DefineCmdShort('e,', 'edit %:h')
+
+" Change the current directory to the directory of the current file
+call s:DefineCmdShort('cd,', 'cd %:h')
 
 " ============================================================================
 
 " Tweak vimrc quickly
-command! Vimrc edit $MYVIMRC
+command! Vimrc  edit $MYVIMRC
+command! GVimrc edit $MYGVIMRC
+
+" Write today's diary
+command! Diary
+      \ execute 'edit ~/Documents/diaries/' . strftime('%Y-%m-%d') . '.txt'
 
 " ============================================================================
 
