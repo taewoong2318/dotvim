@@ -46,8 +46,8 @@
 [submodule "pack/default/opt/lsp"]
 	path = pack/default/opt/lsp
 	url = https://github.com/yegappan/lsp.git
-[submodule "pack/default/start/dim"]
-	path = pack/default/start/dim
+[submodule "pack/default/opt/dim"]
+	path = pack/default/opt/dim
 	url = https://github.com/jeffkreeftmeijer/vim-dim.git
 [submodule "pack/default/start/BufOnly"]
 	path = pack/default/start/BufOnly
