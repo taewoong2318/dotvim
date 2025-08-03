@@ -354,6 +354,7 @@ if v:version >= 900
     setlocal keywordprg=:LspHover
     setlocal tagfunc=lsp#lsp#TagFunc
 
+    nnoremap <buffer> gA <Cmd>LspCodeAction<CR>
     nnoremap <buffer> gD <Cmd>LspGotoDeclaration<CR>
     nnoremap <buffer> gd <Cmd>LspGotoDefinition<CR>
     nnoremap <buffer> gi <Cmd>LspGotoImpl<CR>
