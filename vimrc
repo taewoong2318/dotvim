@@ -321,14 +321,6 @@ endif
 
 " ============================================================================
 
-" Configure plugin: dim
-
-if !has('gui_running')
-  colorscheme dim
-endif
-
-" ============================================================================
-
 " Configure plugin: fugitive
 
 " NOTE: :GBrowse needs :Browse, which would be defined in netrw.
