@@ -24,6 +24,7 @@ set autoindent
 set autoread
 set completeopt=menuone,noinsert,popup
 set completepopup=height:20,width:80,align:menu,border:off
+set diffopt+=algorithm:histogram,indent-heuristic,vertical
 set display=lastline
 set encoding=utf-8
 set expandtab
@@ -83,11 +84,8 @@ if has('patch-9.1.537')
 endif
 
 if has('patch-9.1.1243')
-  set diffopt=algorithm:histogram,closeoff,filler,indent-heuristic,
-        \inline:word,internal,vertical
-else
-  set diffopt=algorithm:histogram,closeoff,filler,indent-heuristic,internal,
-        \vertical
+  set diffopt-=inline:simple
+  set diffopt+=inline:char
 endif
 
 if has('patch-9.1.1250')
