@@ -367,24 +367,6 @@ if v:version >= 900
         \ }])
 
   call g:LspAddServer([#{
-        \   name: 'efm-langserver',
-        \   filetype: [ 'markdown' ],
-        \   path: 'efm-langserver',
-        \   args: [],
-        \   workspaceConfig: #{
-        \     languages: #{
-        \       markdown: [
-        \         #{
-        \           lintCommand: 'markdownlint -s',
-        \           lintStdin: v:true,
-        \           lintFormats: [ '%f:%l:%c %m', '%f:%l %m' ]
-        \         }
-        \       ]
-        \     }
-        \   }
-        \ }])
-
-  call g:LspAddServer([#{
         \   name: 'gopls',
         \   filetype: 'go',
         \   path: 'gopls',
