@@ -233,11 +233,11 @@ let g:markdown_fenced_languages = [
 
 filetype plugin indent on
 
-" Disable the automatic insertion of comment leaders on every file type
-"
-" NOTE: This must be placed after `filetype plugin indent on`.
+" Disable the automatic insertion of a comment leader when adding a new line
+" on every file type
 autocmd vimrc FileType *
-      \ setlocal formatoptions-=r | setlocal formatoptions-=o
+      \   setlocal formatoptions-=r
+      \ | setlocal formatoptions-=o
 
 " Load the man filetype plugin to use :Man
 runtime! ftplugin/man.vim
