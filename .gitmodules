@@ -1,57 +1,57 @@
-[submodule "pack/default/start/startuptime"]
-	path = pack/default/start/startuptime
+[submodule "pack/taewoong/start/startuptime"]
+	path = pack/taewoong/start/startuptime
 	url = https://github.com/dstein64/vim-startuptime
-[submodule "pack/default/start/tabular"]
-	path = pack/default/start/tabular
+[submodule "pack/taewoong/start/tabular"]
+	path = pack/taewoong/start/tabular
 	url = https://github.com/godlygeek/tabular
-[submodule "pack/default/start/goyo"]
-	path = pack/default/start/goyo
+[submodule "pack/taewoong/start/goyo"]
+	path = pack/taewoong/start/goyo
 	url = https://github.com/junegunn/goyo.vim
-[submodule "pack/default/start/gv"]
-	path = pack/default/start/gv
+[submodule "pack/taewoong/start/gv"]
+	path = pack/taewoong/start/gv
 	url = https://github.com/junegunn/gv.vim
-[submodule "pack/default/start/suda"]
-	path = pack/default/start/suda
+[submodule "pack/taewoong/start/suda"]
+	path = pack/taewoong/start/suda
 	url = https://github.com/lambdalisue/vim-suda
-[submodule "pack/default/start/sandwich"]
-	path = pack/default/start/sandwich
+[submodule "pack/taewoong/start/sandwich"]
+	path = pack/taewoong/start/sandwich
 	url = https://github.com/machakann/vim-sandwich
-[submodule "pack/default/start/traces"]
-	path = pack/default/start/traces
+[submodule "pack/taewoong/start/traces"]
+	path = pack/taewoong/start/traces
 	url = https://github.com/markonm/traces.vim
-[submodule "pack/default/start/bbye"]
-	path = pack/default/start/bbye
+[submodule "pack/taewoong/start/bbye"]
+	path = pack/taewoong/start/bbye
 	url = https://github.com/moll/vim-bbye
-[submodule "pack/default/start/better-whitespace"]
-	path = pack/default/start/better-whitespace
+[submodule "pack/taewoong/start/better-whitespace"]
+	path = pack/taewoong/start/better-whitespace
 	url = https://github.com/ntpeters/vim-better-whitespace
-[submodule "pack/default/start/abolish"]
-	path = pack/default/start/abolish
+[submodule "pack/taewoong/start/abolish"]
+	path = pack/taewoong/start/abolish
 	url = https://github.com/tpope/vim-abolish
-[submodule "pack/default/start/fugitive"]
-	path = pack/default/start/fugitive
+[submodule "pack/taewoong/start/fugitive"]
+	path = pack/taewoong/start/fugitive
 	url = https://github.com/tpope/vim-fugitive
-[submodule "pack/default/start/rhubarb"]
-	path = pack/default/start/rhubarb
+[submodule "pack/taewoong/start/rhubarb"]
+	path = pack/taewoong/start/rhubarb
 	url = https://github.com/tpope/vim-rhubarb
-[submodule "pack/default/start/sleuth"]
-	path = pack/default/start/sleuth
+[submodule "pack/taewoong/start/sleuth"]
+	path = pack/taewoong/start/sleuth
 	url = https://github.com/tpope/vim-sleuth
-[submodule "pack/default/opt/commentary"]
-	path = pack/default/opt/commentary
+[submodule "pack/taewoong/opt/commentary"]
+	path = pack/taewoong/opt/commentary
 	url = https://github.com/tpope/vim-commentary
-[submodule "pack/default/start/molder"]
-	path = pack/default/start/molder
+[submodule "pack/taewoong/start/molder"]
+	path = pack/taewoong/start/molder
 	url = https://github.com/mattn/vim-molder.git
-[submodule "pack/default/opt/lsp"]
-	path = pack/default/opt/lsp
+[submodule "pack/taewoong/opt/lsp"]
+	path = pack/taewoong/opt/lsp
 	url = https://github.com/yegappan/lsp.git
-[submodule "pack/default/start/BufOnly"]
-	path = pack/default/start/BufOnly
+[submodule "pack/taewoong/start/BufOnly"]
+	path = pack/taewoong/start/BufOnly
 	url = https://github.com/vim-scripts/BufOnly.vim.git
-[submodule "pack/default/start/grep"]
-	path = pack/default/start/grep
+[submodule "pack/taewoong/start/grep"]
+	path = pack/taewoong/start/grep
 	url = https://github.com/yegappan/grep.git
-[submodule "pack/default/start/badapple"]
-	path = pack/default/start/badapple
+[submodule "pack/taewoong/start/badapple"]
+	path = pack/taewoong/start/badapple
 	url = https://github.com/skanehira/badapple.vim.git
