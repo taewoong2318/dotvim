@@ -217,7 +217,9 @@ command! Diary
 " ============================================================================
 
 " Load my colorscheme in $MYVIMDIR/colors
-colorscheme taewoong
+if !has('gui_running')
+  colorscheme taewoong
+endif
 
 " ============================================================================
 
