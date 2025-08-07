@@ -186,7 +186,7 @@ onoremap a" 2i"
 onoremap a' 2i'
 onoremap a` 2i`
 
-" Make a new undo chunk before a lot of deletion
+" Make a new undo chunk before deleting a lot
 inoremap <C-U> <C-G>u<C-U>
 inoremap <C-W> <C-G>u<C-W>
 
@@ -216,6 +216,11 @@ command! Diary
 
 " ============================================================================
 
+" Load my colorscheme in $MYVIMDIR/colors
+colorscheme taewoong
+
+" ============================================================================
+
 syntax enable
 
 " Enable the syntax highlighting of fenced code blocks in Markdown
@@ -242,7 +247,7 @@ runtime! ftplugin/man.vim
 
 " ============================================================================
 
-" Enable corresponding omni completion functions
+" Apply corresponding omni completion functions
 
 autocmd vimrc FileType ada     setlocal omnifunc=adacomplete#Complete
 autocmd vimrc FileType c       setlocal omnifunc=ccomplete#Complete
@@ -275,7 +280,7 @@ autocmd vimrc FileType *
 
 " ============================================================================
 
-" Disable unnecessary built-in plugins (under $VIMRUNTIME/plugin)
+" Disable unnecessary built-in plugins (in $VIMRUNTIME/plugin)
 let g:loaded_2html_plugin      = 1
 let g:loaded_getscriptPlugin   = 1
 let g:loaded_gzip              = 1
