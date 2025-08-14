@@ -1,6 +1,6 @@
 " Taewoong's Vim configuration
 "
-" Author: Taewoong Han <mail@taewoong.me>
+" Author: Taewoong Han <taewoong@taewoong.me>
 
 " ============================================================================
 
