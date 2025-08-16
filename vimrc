@@ -328,7 +328,8 @@ endif
 
 " Configure plugin: fugitive
 
-" NOTE: :GBrowse needs :Browse, which would be defined in netrw.
+" NOTE: :GBrowse needs :Browse to be available. :Browse will be defined in the
+" netrw plugin, but it is disabled in this vimrc.
 command! -nargs=1 Browse URLOpen <args>
 
 " ============================================================================
@@ -362,7 +363,7 @@ if v:version >= 900
 
   autocmd vimrc User LspAttached call s:OnLspAttached()
 
-  " Register some language servers (See https://github.com/yegappan/lsp/wiki)
+  " Register language servers (See https://github.com/yegappan/lsp/wiki)
 
   call g:LspAddServer([#{
         \   name: 'clangd',
@@ -412,10 +413,6 @@ if v:version >= 900
         \   args: [ '--stdio' ]
         \ }])
 
-  " NOTE:
-  " - In venv, python-lsp-server needs to be installed inside it.
-  " - Some other pip packages (e.g. autopep8) are needed for extra
-  "   functionalities (See https://github.com/python-lsp/python-lsp-server).
   call g:LspAddServer([#{
         \   name: 'pylsp',
         \   filetype: 'python',
@@ -428,7 +425,7 @@ endif
 
 " Configure plugin: sandwich
 
-" Load the plugin manually to call the autoload functions on start-up
+" Load the plugin manually to make operator#sandwich#set available
 if !has('patch-8.2.4275')
   packadd sandwich
 endif
