@@ -55,3 +55,6 @@
 [submodule "pack/taewoong/start/badapple"]
 	path = pack/taewoong/start/badapple
 	url = https://github.com/skanehira/badapple.vim.git
+[submodule "pack/taewoong/start/indent-object"]
+	path = pack/taewoong/start/indent-object
+	url = https://github.com/michaeljsmith/vim-indent-object.git
