@@ -13,4 +13,6 @@ if has('gui_macvim')
   set noimdisable
 endif
 
+colorscheme nord
+
 " vim: et:ts=2:tw=78

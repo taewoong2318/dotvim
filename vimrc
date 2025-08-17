@@ -216,13 +216,6 @@ command! Diary
 
 " ============================================================================
 
-" Load my colorscheme in $MYVIMDIR/colors
-if !has('gui_running')
-  colorscheme taewoong
-endif
-
-" ============================================================================
-
 syntax enable
 
 " Enable the syntax highlighting of fenced code blocks in Markdown
@@ -322,6 +315,14 @@ if has('patch-9.1.375')
   packadd comment
 else
   packadd commentary
+endif
+
+" ============================================================================
+
+" Configure plugin: copilot
+
+if has('patch-9.0.185') && executable('node')
+  packadd copilot
 endif
 
 " ============================================================================

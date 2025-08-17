@@ -61,3 +61,6 @@
 [submodule "pack/taewoong/opt/copilot"]
 	path = pack/taewoong/opt/copilot
 	url = https://github.com/github/copilot.vim.git
+[submodule "pack/taewoong/opt/nord"]
+	path = pack/taewoong/opt/nord
+	url = https://github.com/nordtheme/vim.git
