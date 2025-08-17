@@ -58,3 +58,6 @@
 [submodule "pack/taewoong/start/indent-object"]
 	path = pack/taewoong/start/indent-object
 	url = https://github.com/michaeljsmith/vim-indent-object.git
+[submodule "pack/taewoong/opt/copilot"]
+	path = pack/taewoong/opt/copilot
+	url = https://github.com/github/copilot.vim.git
