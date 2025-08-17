@@ -335,7 +335,8 @@ endif
 " Configure plugin: fugitive
 
 " NOTE: :GBrowse needs :Browse to be available. :Browse will be defined in the
-" netrw plugin, but it is disabled in this vimrc.
+" netrw plugin, but the plugin is disabled in this vimrc. Therefore, we define
+" it manually using :URLOpen from openPlugin (built-in).
 command! -nargs=1 Browse URLOpen <args>
 
 " ============================================================================
