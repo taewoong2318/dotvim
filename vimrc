@@ -299,7 +299,7 @@ call s:DefineCmdShort('bd', 'Bdelete')
 
 " Configure plugin: better-whitespace
 
-highlight! link ExtraWhitespace Error
+autocmd vimrc ColorScheme * highlight! link ExtraWhitespace Error
 
 " ============================================================================
 
