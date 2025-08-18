@@ -403,9 +403,8 @@ if v:version >= 900
         \       java: #{
         \         completion: #{
         \           filteredTypes: [
-        \             "com.sun.*", "java.awt.*", "jdk.*",
-        \             "org.graalvm.*", "sun.*", "javax.awt.*",
-        \             "javax.swing.*"
+        \             'com.sun.*', 'java.awt.*', 'jdk.*', 'org.graalvm.*',
+        \             'sun.*', 'javax.awt.*', 'javax.swing.*'
         \           ]
         \         }
         \       }
