@@ -220,11 +220,11 @@ syntax enable
 
 " Enable the syntax highlighting of fenced code blocks in Markdown
 let g:markdown_fenced_languages = [
-      \ 'c', 'cpp', 'c++=cpp', 'cs', 'c#=cs', 'css', 'html', 'go',
-      \ 'golang=go', 'javascript', 'js=javascript', 'json', 'php', 'python',
-      \ 'ruby', 'rb=ruby', 'rust', 'rs=rust', 'sh', 'bash=sh', 'shell=sh',
-      \ 'zsh=sh', 'typescript', 'ts=typescript', 'vim', 'viml=vim',
-      \ 'vimscript=vim', 'yaml', 'yml=yaml'
+      \   'c', 'cpp', 'c++=cpp', 'cs', 'c#=cs', 'css', 'html', 'go',
+      \   'golang=go', 'javascript', 'js=javascript', 'json', 'php', 'python',
+      \   'ruby', 'rb=ruby', 'rust', 'rs=rust', 'sh', 'bash=sh', 'shell=sh',
+      \   'zsh=sh', 'typescript', 'ts=typescript', 'vim', 'viml=vim',
+      \   'vimscript=vim', 'yaml', 'yml=yaml'
       \ ]
 
 " ============================================================================
@@ -325,8 +325,8 @@ if has('patch-9.0.185') && executable('node')
   packadd copilot
 
   let g:copilot_filetypes = #{
-        \ markdown: v:false,
-        \ text: v:false
+        \   markdown: v:false,
+        \   text: v:false
         \ }
 endif
 
@@ -347,11 +347,11 @@ if v:version >= 900
   packadd lsp
 
   call g:LspOptionsSet(#{
-        \ autoComplete: v:false,
-        \ autoHighlightDiags: v:false,
-        \ completionMatcher: 'icase',
-        \ ignoreMissingServer: v:true,
-        \ showSignature: v:false
+        \   autoComplete: v:false,
+        \   autoHighlightDiags: v:false,
+        \   completionMatcher: 'icase',
+        \   ignoreMissingServer: v:true,
+        \   showSignature: v:false
         \ })
 
   function! s:OnLspAttached()
