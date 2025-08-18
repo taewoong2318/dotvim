@@ -64,3 +64,6 @@
 [submodule "pack/taewoong/opt/nord"]
 	path = pack/taewoong/opt/nord
 	url = https://github.com/nordtheme/vim.git
+[submodule "pack/taewoong/opt/sonokai"]
+	path = pack/taewoong/opt/sonokai
+	url = https://github.com/sainnhe/sonokai.git

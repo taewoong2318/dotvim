@@ -15,6 +15,7 @@ if has('gui_macvim')
   set noimdisable
 endif
 
-colorscheme nord
+packadd sonokai
+colorscheme sonokai
 
 " vim: et:ts=2:tw=78
