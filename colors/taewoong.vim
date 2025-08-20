@@ -71,3 +71,5 @@ if &background ==# 'dark'
   hi CopilotSuggestion ctermfg=8    ctermbg=NONE cterm=italic
   hi ExtraWhitespace   ctermfg=NONE ctermbg=9    cterm=NONE
 endif
+
+" vim: et:ts=2:tw=78
