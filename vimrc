@@ -162,12 +162,6 @@ nnoremap <script> <SID>ws< <C-w><<SID>ws
 nnoremap <script> <SID>ws> <C-w>><SID>ws
 nmap <SID>ws <Nop>
 
-" Paste adjusting the indent to the current line
-nnoremap p ]p
-nnoremap P ]P
-nnoremap ]p p
-nnoremap ]P P
-
 " Delete a character without yanking
 nnoremap x "_x
 
@@ -208,7 +202,6 @@ call s:DefineCmdShort('cd,', 'cd %:h')
 
 " Tweak vimrc quickly
 command! Vimrc  edit $MYVIMRC
-command! GVimrc edit $MYGVIMRC
 
 " Write today's diary
 command! Diary
@@ -275,6 +268,11 @@ autocmd vimrc FileType *
 
 " ============================================================================
 
+" Set my colorscheme
+colorscheme taewoong
+
+" ============================================================================
+
 " Disable unnecessary built-in plugins (in $VIMRUNTIME/plugin)
 let g:loaded_2html_plugin      = 1
 let g:loaded_getscriptPlugin   = 1
@@ -294,12 +292,6 @@ let g:loaded_zipPlugin         = 1
 " Configure plugin: bbye
 
 call s:DefineCmdShort('bd', 'Bdelete')
-
-" ============================================================================
-
-" Configure plugin: better-whitespace
-
-autocmd vimrc ColorScheme * highlight! link ExtraWhitespace Error
 
 " ============================================================================
 
@@ -438,12 +430,6 @@ endif
 
 " Disable all highlighting
 call operator#sandwich#set('all', 'all', 'highlight', 0)
-
-" ============================================================================
-
-" Configure plugin: traces
-
-let g:traces_abolish_integration = 1
 
 " ============================================================================
 

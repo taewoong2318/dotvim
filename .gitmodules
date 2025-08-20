@@ -4,9 +4,6 @@
 [submodule "pack/taewoong/start/tabular"]
 	path = pack/taewoong/start/tabular
 	url = https://github.com/godlygeek/tabular.git
-[submodule "pack/taewoong/start/goyo"]
-	path = pack/taewoong/start/goyo
-	url = https://github.com/junegunn/goyo.vim.git
 [submodule "pack/taewoong/start/gv"]
 	path = pack/taewoong/start/gv
 	url = https://github.com/junegunn/gv.vim.git
@@ -16,18 +13,12 @@
 [submodule "pack/taewoong/start/sandwich"]
 	path = pack/taewoong/start/sandwich
 	url = https://github.com/machakann/vim-sandwich.git
-[submodule "pack/taewoong/start/traces"]
-	path = pack/taewoong/start/traces
-	url = https://github.com/markonm/traces.vim.git
 [submodule "pack/taewoong/start/bbye"]
 	path = pack/taewoong/start/bbye
 	url = https://github.com/moll/vim-bbye.git
 [submodule "pack/taewoong/start/better-whitespace"]
 	path = pack/taewoong/start/better-whitespace
 	url = https://github.com/ntpeters/vim-better-whitespace.git
-[submodule "pack/taewoong/start/abolish"]
-	path = pack/taewoong/start/abolish
-	url = https://github.com/tpope/vim-abolish.git
 [submodule "pack/taewoong/start/fugitive"]
 	path = pack/taewoong/start/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
@@ -52,18 +43,6 @@
 [submodule "pack/taewoong/start/grep"]
 	path = pack/taewoong/start/grep
 	url = https://github.com/yegappan/grep.git
-[submodule "pack/taewoong/start/badapple"]
-	path = pack/taewoong/start/badapple
-	url = https://github.com/skanehira/badapple.vim.git
-[submodule "pack/taewoong/start/indent-object"]
-	path = pack/taewoong/start/indent-object
-	url = https://github.com/michaeljsmith/vim-indent-object.git
 [submodule "pack/taewoong/opt/copilot"]
 	path = pack/taewoong/opt/copilot
 	url = https://github.com/github/copilot.vim.git
-[submodule "pack/taewoong/opt/nord"]
-	path = pack/taewoong/opt/nord
-	url = https://github.com/nordtheme/vim.git
-[submodule "pack/taewoong/opt/sonokai"]
-	path = pack/taewoong/opt/sonokai
-	url = https://github.com/sainnhe/sonokai.git
