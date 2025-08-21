@@ -211,17 +211,6 @@ command! Diary
 
 syntax enable
 
-" Enable the syntax highlighting of fenced code blocks in Markdown
-let g:markdown_fenced_languages = [
-      \   'c', 'cpp', 'c++=cpp', 'cs', 'c#=cs', 'css', 'html', 'go',
-      \   'golang=go', 'javascript', 'js=javascript', 'json', 'php', 'python',
-      \   'ruby', 'rb=ruby', 'rust', 'rs=rust', 'sh', 'bash=sh', 'shell=sh',
-      \   'zsh=sh', 'typescript', 'ts=typescript', 'vim', 'viml=vim',
-      \   'vimscript=vim', 'yaml', 'yml=yaml'
-      \ ]
-
-" ============================================================================
-
 filetype plugin indent on
 
 " Disable the automatic insertion of a comment leader when adding a new line
@@ -232,39 +221,6 @@ autocmd vimrc FileType *
 
 " Load the man filetype plugin to use :Man
 runtime! ftplugin/man.vim
-
-" ============================================================================
-
-" Apply corresponding omni completion functions
-
-autocmd vimrc FileType ada     setlocal omnifunc=adacomplete#Complete
-autocmd vimrc FileType c       setlocal omnifunc=ccomplete#Complete
-autocmd vimrc FileType clojure setlocal omnifunc=clojurecomplete#Complete
-autocmd vimrc FileType css     setlocal omnifunc=csscomplete#CompleteCSS
-autocmd vimrc FileType haskell setlocal omnifunc=haskellcomplete#Complete
-autocmd vimrc FileType x?html  setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd vimrc FileType php     setlocal omnifunc=phpcomplete#CompletePHP
-autocmd vimrc FileType sql     setlocal omnifunc=sqlcomplete#Complete
-autocmd vimrc FileType xml     setlocal omnifunc=xmlcomplete#CompleteTags
-autocmd vimrc FileType javascript
-      \ setlocal omnifunc=javascriptcomplete#CompleteJS
-
-if has('python3')
-  autocmd vimrc FileType python setlocal omnifunc=python3complete#Complete
-endif
-
-if has('python')
-  autocmd vimrc FileType python2 setlocal omnifunc=pythoncomplete#Complete
-endif
-
-if has('ruby')
-  autocmd vimrc FileType ruby setlocal omnifunc=rubycomplete#Complete
-endif
-
-autocmd vimrc FileType *
-      \   if empty(&omnifunc)
-      \ |   setlocal omnifunc=syntaxcomplete#Complete
-      \ | endif
 
 " ============================================================================
 
@@ -289,19 +245,19 @@ let g:loaded_zipPlugin         = 1
 
 " ============================================================================
 
-" Configure plugin: bbye
+" bbye
 
 call s:DefineCmdShort('bd', 'Bdelete')
 
 " ============================================================================
 
-" Configure plugin: cfilter
+" cfilter
 
 packadd cfilter
 
 " ============================================================================
 
-" Configure plugin: comment (built-in) or commentary (third-party)
+" comment (built-in) or commentary (third-party)
 
 if has('patch-9.1.375')
   packadd comment
@@ -311,7 +267,7 @@ endif
 
 " ============================================================================
 
-" Configure plugin: copilot
+" copilot
 
 if has('patch-9.0.185') && executable('node')
   packadd copilot
@@ -324,7 +280,7 @@ endif
 
 " ============================================================================
 
-" Configure plugin: fugitive
+" fugitive
 
 " NOTE: :GBrowse needs :Browse to be available. :Browse will be defined in the
 " netrw plugin, but the plugin is disabled in this vimrc. Therefore, we define
@@ -333,7 +289,7 @@ command! -nargs=1 Browse URLOpen <args>
 
 " ============================================================================
 
-" Configure plugin: lsp
+" lsp
 
 if v:version >= 900
   packadd lsp
@@ -421,7 +377,7 @@ endif
 
 " ============================================================================
 
-" Configure plugin: sandwich
+" sandwich
 
 " Load the plugin manually to make operator#sandwich#set available
 if !has('patch-8.2.4275')
