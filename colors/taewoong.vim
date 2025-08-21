@@ -30,10 +30,10 @@ if &background ==# 'dark'
   hi ModeMsg           ctermfg=NONE ctermbg=NONE cterm=bold
   hi MoreMsg           ctermfg=10   ctermbg=NONE cterm=NONE
   hi NonText           ctermfg=8    ctermbg=NONE cterm=NONE
-  hi Pmenu             ctermfg=0    ctermbg=7    cterm=NONE
-  hi PmenuSel          ctermfg=7    ctermbg=8    cterm=NONE
-  hi PmenuSbar         ctermfg=NONE ctermbg=7    cterm=NONE
-  hi PmenuThumb        ctermfg=NONE ctermbg=15   cterm=NONE
+  hi Pmenu             ctermfg=15   ctermbg=8    cterm=NONE
+  hi PmenuSel          ctermfg=0    ctermbg=7    cterm=NONE
+  hi PmenuSbar         ctermfg=NONE ctermbg=8    cterm=NONE
+  hi PmenuThumb        ctermfg=NONE ctermbg=7    cterm=NONE
   hi Question          ctermfg=10   ctermbg=NONE cterm=NONE
   hi Search            ctermfg=0    ctermbg=11   cterm=NONE
   hi SpecialKey        ctermfg=14   ctermbg=NONE cterm=NONE
