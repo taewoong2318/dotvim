@@ -56,7 +56,7 @@ if &background ==# 'dark'
   hi Identifier        ctermfg=10   ctermbg=NONE cterm=NONE
   hi Statement         ctermfg=13   ctermbg=NONE cterm=NONE
   hi PreProc           ctermfg=14   ctermbg=NONE cterm=NONE
-  hi Type              ctermfg=10   ctermbg=NONE cterm=NONE
+  hi Type              ctermfg=4    ctermbg=NONE cterm=NONE
   hi Underlined        ctermfg=NONE ctermbg=NONE cterm=underline
   hi Ignore            ctermfg=NONE ctermbg=NONE cterm=NONE
   hi Added             ctermfg=10   ctermbg=NONE cterm=NONE
