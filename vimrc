@@ -361,6 +361,13 @@ if v:version >= 900
         \ }])
 
   call g:LspAddServer([#{
+        \   name: 'tinymist',
+        \   filetype: 'typst',
+        \   path: 'tinymist',
+        \   args: [],
+        \ }])
+
+  call g:LspAddServer([#{
         \   name: 'tsserver',
         \   filetype: [ 'javascript', 'typescript' ],
         \   path: 'typescript-language-server',
