@@ -201,7 +201,7 @@ call s:DefineCmdShort('cd,', 'cd %:h')
 " ============================================================================
 
 " Tweak vimrc quickly
-command! Vimrc  edit $MYVIMRC
+command! Vimrc edit $MYVIMRC
 
 " Write today's diary
 command! Diary
@@ -364,7 +364,7 @@ if v:version >= 900
         \   name: 'tinymist',
         \   filetype: 'typst',
         \   path: 'tinymist',
-        \   args: [],
+        \   args: []
         \ }])
 
   call g:LspAddServer([#{
