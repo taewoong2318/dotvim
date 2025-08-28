@@ -184,6 +184,16 @@ onoremap a` 2i`
 inoremap <C-U> <C-G>u<C-U>
 inoremap <C-W> <C-G>u<C-W>
 
+" Search on DuckDuckGo
+if has('patch-9.1.1669')
+  nnoremap gz <Cmd>execute 'URLOpen https://duckduckgo.com/?q='
+        \ . uri_encode(expand('<cword>'))<CR>
+  xnoremap gz <Cmd>execute 'URLOpen https://duckduckgo.com/?q='
+        \ . getregion(getpos('v'), getpos('.'), #{ type: mode() })
+        \     ->join(' ')
+        \     ->uri_encode()<CR>
+endif
+
 " ============================================================================
 
 function! s:DefineCmdShort(short, cmd) abort
