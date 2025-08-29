@@ -321,7 +321,7 @@ if v:version >= 900
     nnoremap <buffer> gD <Cmd>LspGotoDeclaration<CR>
     nnoremap <buffer> gd <Cmd>LspGotoDefinition<CR>
     nnoremap <buffer> gi <Cmd>LspGotoImpl<CR>
-    nnoremap <buffer> gl <Cmd>LspDiag show<CR>
+    nnoremap <buffer> gl <Cmd>LspDiagShow<CR>
     nnoremap <buffer> gr <Cmd>LspShowReferences<CR>
     nnoremap <buffer> gy <Cmd>LspGotoTypeDef<CR>
   endfunction
