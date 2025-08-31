@@ -214,8 +214,11 @@ call s:DefineCmdShort('cd,', 'cd %:h')
 command! Vimrc edit $MYVIMRC
 
 " Write today's diary
-command! Diary
+command! DiaryToday
       \ execute 'edit ~/Documents/diaries/' . strftime('%Y-%m-%d') . '.txt'
+
+" Open the diary directory
+command! DiaryAll edit ~/Documents/diaries/
 
 " ============================================================================
 
@@ -252,12 +255,6 @@ let g:loaded_tarPlugin         = 1
 let g:loaded_tutor_mode_plugin = 1
 let g:loaded_vimballPlugin     = 1
 let g:loaded_zipPlugin         = 1
-
-" ============================================================================
-
-" bbye
-
-call s:DefineCmdShort('bd', 'Bdelete')
 
 " ============================================================================
 
