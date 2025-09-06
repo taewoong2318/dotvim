@@ -15,7 +15,7 @@ Clone this repository to the following directory:
 | -------- | ---------- | ----------------------------------------- |
 | Unix     | >= 9.1.327 | `$XDG_CONFIG_HOME/vim` or `~/.config/vim` |
 | Unix     | < 9.1.327  | `~/.vim`                                  |
-| Windows  |            | `~\vimfiles`                              |
+| Windows  |            | `%USERPROFILE%\vimfiles`                  |
 
 Then move into the repository and update submodules to install plugins:
 
