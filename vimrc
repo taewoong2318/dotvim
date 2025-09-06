@@ -331,6 +331,13 @@ if v:version >= 900
   " Register language servers (See https://github.com/yegappan/lsp/wiki)
 
   call g:LspAddServer([#{
+        \   name: 'bashls',
+        \   filetype: 'sh',
+        \   path: 'bash-language-server',
+        \   args: [ 'start' ]
+        \ }])
+
+  call g:LspAddServer([#{
         \   name: 'clangd',
         \   filetype: [ 'c', 'cpp' ],
         \   path: 'clangd',
