@@ -214,11 +214,8 @@ call s:DefineCmdShort('cd,', 'cd %:h')
 command! Vimrc edit $MYVIMRC
 
 " Write today's diary
-command! DiaryToday
+command! Diary
       \ execute 'edit ~/Documents/diaries/' . strftime('%Y-%m-%d') . '.txt'
-
-" Open the diary directory
-command! DiaryAll edit ~/Documents/diaries/
 
 " ============================================================================
 
