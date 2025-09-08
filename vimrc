@@ -210,15 +210,6 @@ call s:DefineCmdShort('cd,', 'cd %:h')
 
 " ============================================================================
 
-" Tweak vimrc quickly
-command! Vimrc edit $MYVIMRC
-
-" Write today's diary
-command! Diary
-      \ execute 'edit ~/Documents/diaries/' . strftime('%Y-%m-%d') . '.txt'
-
-" ============================================================================
-
 syntax enable
 
 filetype plugin indent on
