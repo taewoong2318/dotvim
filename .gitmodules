@@ -7,9 +7,6 @@
 [submodule "pack/taewoong/start/gv"]
 	path = pack/taewoong/start/gv
 	url = https://github.com/junegunn/gv.vim.git
-[submodule "pack/taewoong/start/suda"]
-	path = pack/taewoong/start/suda
-	url = https://github.com/lambdalisue/vim-suda.git
 [submodule "pack/taewoong/start/sandwich"]
 	path = pack/taewoong/start/sandwich
 	url = https://github.com/machakann/vim-sandwich.git
@@ -34,9 +31,6 @@
 [submodule "pack/taewoong/opt/lsp"]
 	path = pack/taewoong/opt/lsp
 	url = https://github.com/yegappan/lsp.git
-[submodule "pack/taewoong/start/grep"]
-	path = pack/taewoong/start/grep
-	url = https://github.com/yegappan/grep.git
 [submodule "pack/taewoong/opt/copilot"]
 	path = pack/taewoong/opt/copilot
 	url = https://github.com/github/copilot.vim.git
