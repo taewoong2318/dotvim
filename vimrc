@@ -280,9 +280,6 @@ if has('patch-9.0.185') && executable('node')
         \   markdown: v:false,
         \   text: v:false
         \ }
-
-  imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
-  let g:copilot_no_tab_map = v:true
 endif
 
 " ============================================================================
@@ -302,7 +299,6 @@ if v:version >= 900
   packadd lsp
 
   call g:LspOptionsSet(#{
-        \   autoComplete: v:false,
         \   autoHighlightDiags: v:false,
         \   completionMatcher: 'icase',
         \   ignoreMissingServer: v:true,
