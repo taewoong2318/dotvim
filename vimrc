@@ -19,7 +19,6 @@ augroup END
 
 " ============================================================================
 
-set ambiwidth=double
 set autoindent
 set autoread
 set completeopt=menuone,noinsert,popup

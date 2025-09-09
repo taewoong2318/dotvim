@@ -34,3 +34,6 @@
 [submodule "pack/taewoong/opt/copilot"]
 	path = pack/taewoong/opt/copilot
 	url = https://github.com/github/copilot.vim.git
+[submodule "pack/taewoong/start/ambiwidth"]
+	path = pack/taewoong/start/ambiwidth
+	url = https://github.com/rbtnn/vim-ambiwidth.git
