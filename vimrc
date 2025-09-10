@@ -283,6 +283,17 @@ command! -nargs=1 Browse URLOpen <args>
 
 " ============================================================================
 
+" fuzzbox
+
+if v:version >= 900
+  packadd fuzzbox
+
+  let g:fuzzbox_dropdown = 1
+  let g:fuzzbox_preview = 0
+endif
+
+" ============================================================================
+
 " lsp
 
 if v:version >= 900

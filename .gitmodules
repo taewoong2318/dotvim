@@ -37,3 +37,6 @@
 [submodule "pack/taewoong/start/ambiwidth"]
 	path = pack/taewoong/start/ambiwidth
 	url = https://github.com/rbtnn/vim-ambiwidth.git
+[submodule "pack/taewoong/opt/fuzzbox"]
+	path = pack/taewoong/opt/fuzzbox
+	url = https://github.com/vim-fuzzbox/fuzzbox.vim.git
