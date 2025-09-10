@@ -12,10 +12,10 @@ if &background ==# 'dark'
   hi CursorColumn      ctermfg=NONE ctermbg=8    cterm=NONE
   hi CursorLine        ctermfg=NONE ctermbg=NONE cterm=underline
   hi Directory         ctermfg=4    ctermbg=NONE cterm=NONE
-  hi DiffAdd           ctermfg=NONE ctermbg=2    cterm=NONE
-  hi DiffChange        ctermfg=NONE ctermbg=3    cterm=NONE
-  hi DiffDelete        ctermfg=NONE ctermbg=1    cterm=NONE
-  hi DiffText          ctermfg=NONE ctermbg=11   cterm=bold
+  hi DiffAdd           ctermfg=0    ctermbg=2    cterm=NONE
+  hi DiffChange        ctermfg=0    ctermbg=3    cterm=NONE
+  hi DiffDelete        ctermfg=0    ctermbg=1    cterm=NONE
+  hi DiffText          ctermfg=0    ctermbg=11   cterm=bold
   hi ErrorMsg          ctermfg=15   ctermbg=1    cterm=NONE
   hi VertSplit         ctermfg=8    ctermbg=NONE cterm=NONE
   hi Folded            ctermfg=7    ctermbg=8    cterm=NONE
