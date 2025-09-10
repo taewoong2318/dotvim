@@ -142,6 +142,8 @@ endif
 
 " ============================================================================
 
+let g:mapleader = "\<Space>"
+
 " Move the cursor by display line with gjjj... (See
 " https://zenn.dev/mattn/articles/83c2d4c7645faa)
 nmap gj gj<SID>g
@@ -290,6 +292,17 @@ if v:version >= 900
 
   let g:fuzzbox_dropdown = 1
   let g:fuzzbox_preview = 0
+
+  command! FB FuzzyBuffers
+  command! FC FuzzyCommands
+  command! FF FuzzyFiles
+  command! FG FuzzyGrep
+  command! FH FuzzyHelp
+  command! FI FuzzyInBuffer
+  command! FM FuzzyMru
+  command! FP FuzzyPrevious
+  command! FQ FuzzyQuickfix
+  command! FR FuzzyMruCwd
 endif
 
 " ============================================================================
