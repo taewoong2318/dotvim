@@ -285,28 +285,6 @@ command! -nargs=1 Browse URLOpen <args>
 
 " ============================================================================
 
-" fuzzbox
-
-if v:version >= 900
-  packadd fuzzbox
-
-  let g:fuzzbox_dropdown = 1
-  let g:fuzzbox_preview = 0
-
-  command! FB FuzzyBuffers
-  command! FC FuzzyCommands
-  command! FF FuzzyFiles
-  command! FG FuzzyGrep
-  command! FH FuzzyHelp
-  command! FI FuzzyInBuffer
-  command! FM FuzzyMru
-  command! FP FuzzyPrevious
-  command! FQ FuzzyQuickfix
-  command! FR FuzzyMruCwd
-endif
-
-" ============================================================================
-
 " lsp
 
 if v:version >= 900
