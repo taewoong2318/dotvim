@@ -226,8 +226,10 @@ runtime! ftplugin/man.vim
 
 " ============================================================================
 
-" Set my colorscheme
-colorscheme taewoong
+" Enable my colorscheme only in terminal Vim
+if !has('gui_running')
+  colorscheme taewoong
+endif
 
 " ============================================================================
 
@@ -278,9 +280,7 @@ endif
 
 " fugitive
 
-" NOTE: :GBrowse needs :Browse to be available. :Browse will be defined in the
-" netrw plugin, but the plugin is disabled in this vimrc. Therefore, we define
-" it manually using :URLOpen from openPlugin (built-in).
+" Enable :Browse even if netrw is disabled
 command! -nargs=1 Browse URLOpen <args>
 
 " ============================================================================
@@ -388,8 +388,8 @@ endif
 
 " sandwich
 
-" Load the plugin manually to make operator#sandwich#set available
 if !has('patch-8.2.4275')
+  " Load manually to make the autoload functions available
   packadd sandwich
 endif
 
