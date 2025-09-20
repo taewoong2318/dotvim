@@ -271,7 +271,7 @@ if has('patch-9.0.185') && executable('node')
   packadd copilot
 
   let g:copilot_filetypes = #{
-        \		csv: v:false,
+        \   csv: v:false,
         \   json: v:false,
         \   markdown: v:false,
         \   text: v:false,
