@@ -46,7 +46,7 @@ if &background ==# 'dark'
   hi StatusLineTerm    ctermfg=0    ctermbg=7    cterm=bold
   hi StatusLineTermNC  ctermfg=8    ctermbg=7    cterm=NONE
   hi Title             ctermfg=5    ctermbg=NONE cterm=NONE
-  hi Visual            ctermfg=NONE ctermbg=8    cterm=NONE
+  hi Visual            ctermfg=15   ctermbg=8    cterm=NONE
   hi WarningMsg        ctermfg=1    ctermbg=NONE cterm=NONE
   hi WildMenu          ctermfg=0    ctermbg=11   cterm=NONE
 
