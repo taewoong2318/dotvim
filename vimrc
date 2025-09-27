@@ -117,11 +117,11 @@ if has('unix')
         \ ? $XDG_DATA_HOME : expand('~/.local/share')
   let s:xdg_state_home = !empty($XDG_STATE_HOME)
         \ ? $XDG_STATE_HOME : expand('~/.local/state')
-  let s:vim_state_dir = expand(s:xdg_state_home . '/vim')
+  let s:vim_state_dir = expand(s:xdg_state_home .. '/vim')
 elseif has('win32')
   let s:xdg_data_home = expand('~/AppData/Local')
   let s:xdg_state_home = expand('~/AppData/Local')
-  let s:vim_state_dir = expand(s:xdg_state_home . '/vim-data')
+  let s:vim_state_dir = expand(s:xdg_state_home .. '/vim-data')
 endif
 
 if !empty(s:vim_state_dir)
@@ -129,14 +129,14 @@ if !empty(s:vim_state_dir)
     call mkdir(s:vim_state_dir, 'p', 0o700)
   endif
 
-  let &viminfofile = s:vim_state_dir . '/viminfo'
+  let &viminfofile = s:vim_state_dir .. '/viminfo'
 
-  let s:swap_dir = s:vim_state_dir . '/swap'
+  let s:swap_dir = s:vim_state_dir .. '/swap'
   if !isdirectory(s:swap_dir)
     call mkdir(s:swap_dir, 'p', 0o700)
   endif
 
-  let &directory = s:swap_dir . '//'
+  let &directory = s:swap_dir .. '//'
 endif
 
 " ============================================================================
@@ -187,9 +187,9 @@ inoremap <C-W> <C-G>u<C-W>
 " Search on DuckDuckGo
 if has('patch-9.1.1669')
   nnoremap gz <Cmd>execute 'URLOpen https://duckduckgo.com/?q='
-        \ . uri_encode(expand('<cword>'))<CR>
+        \ .. uri_encode(expand('<cword>'))<CR>
   xnoremap gz <Cmd>execute 'URLOpen https://duckduckgo.com/?q='
-        \ . getregion(getpos('v'), getpos('.'), #{ type: mode() })
+        \ .. getregion(getpos('v'), getpos('.'), #{ type: mode() })
         \     ->join(' ')
         \     ->uri_encode()<CR>
 endif
@@ -341,9 +341,9 @@ if v:version >= 900
   let s:jdtlsPath = has('win32') ? 'jdtls.bat' : 'jdtls'
 
   let s:lombokPath = !empty(s:xdg_data_home)
-        \ ? expand(s:xdg_data_home . '/jdtls/lombok.jar') : ''
+        \ ? expand(s:xdg_data_home .. '/jdtls/lombok.jar') : ''
   let s:jdtlsArgs = !empty(s:lombokPath) && filereadable(s:lombokPath)
-        \ ? [ '--jvm-arg=-javaagent:' . s:lombokPath ] : []
+        \ ? [ '--jvm-arg=-javaagent:' .. s:lombokPath ] : []
 
   call g:LspAddServer([#{
         \   name: 'jdtls',
