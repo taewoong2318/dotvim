@@ -151,15 +151,15 @@ nnoremap <script> <SID>gj gj<SID>g
 nnoremap <script> <SID>gk gk<SID>g
 nmap <SID>g <Nop>
 
-" Resize windows with <CTRL-w>+++...
-nmap <C-w>+ <C-w>+<SID>ws
-nmap <C-w>- <C-w>-<SID>ws
-nmap <C-w>< <C-w><<SID>ws
-nmap <C-w>> <C-w>><SID>ws
-nnoremap <script> <SID>ws+ <C-w>+<SID>ws
-nnoremap <script> <SID>ws- <C-w>-<SID>ws
-nnoremap <script> <SID>ws< <C-w><<SID>ws
-nnoremap <script> <SID>ws> <C-w>><SID>ws
+" Resize windows with <C-W>+++...
+nmap <C-W>+ <C-W>+<SID>ws
+nmap <C-W>- <C-W>-<SID>ws
+nmap <C-W>< <C-W><<SID>ws
+nmap <C-W>> <C-W>><SID>ws
+nnoremap <script> <SID>ws+ <C-W>+<SID>ws
+nnoremap <script> <SID>ws- <C-W>-<SID>ws
+nnoremap <script> <SID>ws< <C-W><<SID>ws
+nnoremap <script> <SID>ws> <C-W>><SID>ws
 nmap <SID>ws <Nop>
 
 " Delete a character without yanking
@@ -167,10 +167,6 @@ nnoremap x "_x
 
 " Yank from the cursor to the end of the line
 nnoremap Y y$
-
-" Paste without changing the content of the unnamed register
-xnoremap p P
-xnoremap P p
 
 " Select without surrounding white spaces
 xnoremap a" 2i"
