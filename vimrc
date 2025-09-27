@@ -4,7 +4,7 @@
 
 " ============================================================================
 
-" Quit immediately if there is no support for the <Cmd> mappings
+" Quit if old Vim to ensure <Cmd> works
 if !has('patch-8.2.1978')
   echo 'Error: Version 8.2.1978 or later is required.'
   cquit
@@ -12,7 +12,7 @@ endif
 
 " ============================================================================
 
-" Clear all the autocommands defined in vimrc to avoid duplicate triggers
+" Define an augroup for this vimrc and clear existing autocommands
 augroup vimrc
   autocmd!
 augroup END
@@ -53,9 +53,8 @@ set title
 set wildmenu
 set wildmode=longest:full,full
 
-" NOTE: We have to give priority to Shift_JIS (sjis) over CP932 (cp932) to
-" avoid overwriting the Shift_JIS file with CP932 (See
-" https://qiita.com/ke-suke-Soft/items/978365a9e63ba118fffc).
+" NOTE: Need to give priority to Shift_JIS over CP932 to avoid overwriting
+" (See https://qiita.com/ke-suke-Soft/items/978365a9e63ba118fffc)
 set fileencodings=ucs-bom,utf-8,sjis,cp932,default,latin1
 
 " Mirror the value of 'tabstop'
@@ -106,8 +105,8 @@ endif
 
 " ============================================================================
 
-" Respect the XDG Base Directory specification and Neovim's standard paths
-" (See https://neovim.io/doc/user/starting.html#_standard-paths)
+" Place state files respecting Neovim's Standard Paths (See
+" https://neovim.io/doc/user/starting.html#_standard-paths)
 
 let s:xdg_data_home = ''
 let s:xdg_state_home = ''
@@ -215,18 +214,17 @@ syntax enable
 
 filetype plugin indent on
 
-" Disable the automatic insertion of a comment leader when adding a new line
-" on every file type
+" Disable automatic insertion of comment leaders on every file type
 autocmd vimrc FileType *
       \   setlocal formatoptions-=r
       \ | setlocal formatoptions-=o
 
-" Load the man filetype plugin to use :Man
+" Load the man filetype plugin for :Man
 runtime! ftplugin/man.vim
 
 " ============================================================================
 
-" Enable my colorscheme only in terminal Vim
+" Set my colorscheme for terminal Vim
 if !has('gui_running')
   colorscheme taewoong
 endif
@@ -284,7 +282,7 @@ endif
 
 " fugitive
 
-" Enable :Browse even if netrw is disabled
+" Make :Browse available for :GBrowse even if netrw is disabled
 command! -nargs=1 Browse URLOpen <args>
 
 " ============================================================================
@@ -397,7 +395,7 @@ if !has('patch-8.2.4275')
   packadd sandwich
 endif
 
-" Disable all highlighting
+" Disable all the highlighting
 call operator#sandwich#set('all', 'all', 'highlight', 0)
 
 " ============================================================================
