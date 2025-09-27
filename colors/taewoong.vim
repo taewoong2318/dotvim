@@ -19,13 +19,13 @@ if &background ==# 'dark'
   hi ErrorMsg          ctermfg=15   ctermbg=1    cterm=NONE
   hi VertSplit         ctermfg=8    ctermbg=NONE cterm=NONE
   hi Folded            ctermfg=7    ctermbg=8    cterm=NONE
-  hi FoldColumn        ctermfg=NONE ctermbg=7    cterm=NONE
-  hi SignColumn        ctermfg=NONE ctermbg=7    cterm=NONE
+  hi FoldColumn        ctermfg=8    ctermbg=NONE cterm=NONE
+  hi SignColumn        ctermfg=8    ctermbg=NONE cterm=NONE
   hi IncSearch         ctermfg=NONE ctermbg=NONE cterm=reverse
-  hi LineNr            ctermfg=7    ctermbg=NONE cterm=NONE
-  hi CursorLineNr      ctermfg=7    ctermbg=NONE cterm=underline
-  hi CursorLineFold    ctermfg=NONE ctermbg=7    cterm=NONE
-  hi CursorLineSign    ctermfg=NONE ctermbg=7    cterm=NONE
+  hi LineNr            ctermfg=8    ctermbg=NONE cterm=NONE
+  hi CursorLineNr      ctermfg=8    ctermbg=NONE cterm=underline
+  hi CursorLineFold    ctermfg=8    ctermbg=NONE cterm=NONE
+  hi CursorLineSign    ctermfg=8    ctermbg=NONE cterm=NONE
   hi MatchParen        ctermfg=NONE ctermbg=8    cterm=NONE
   hi ModeMsg           ctermfg=NONE ctermbg=NONE cterm=bold
   hi MoreMsg           ctermfg=10   ctermbg=NONE cterm=NONE
