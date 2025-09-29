@@ -358,6 +358,16 @@ if v:version >= 900
         \             'com.sun.*', 'java.awt.*', 'jdk.*', 'org.graalvm.*',
         \             'sun.*', 'javax.awt.*', 'javax.swing.*'
         \           ]
+        \         },
+        \         signatureHelp: #{
+        \           enabled: v:true,
+        \           description: #{ enabled: v:true }
+        \         },
+        \         sources: #{
+        \           organizeImports: #{
+        \             starThreshold: 9999,
+        \             staticStarThreshold: 9999
+        \           }
         \         }
         \       }
         \     }
