@@ -4,7 +4,7 @@
 
 " ============================================================================
 
-" Quit if old Vim to ensure <Cmd> works
+" Quit if there is no support for <Cmd>
 if !has('patch-8.2.1978')
   echo 'Error: Version 8.2.1978 or later is required.'
   cquit
@@ -12,7 +12,7 @@ endif
 
 " ============================================================================
 
-" Define an augroup for this vimrc and clear existing autocommands
+" Initialize the autocmd group for this vimrc
 augroup vimrc
   autocmd!
 augroup END
