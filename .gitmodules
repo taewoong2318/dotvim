@@ -37,3 +37,6 @@
 [submodule "pack/taewoong/start/ambiwidth"]
 	path = pack/taewoong/start/ambiwidth
 	url = https://github.com/rbtnn/vim-ambiwidth.git
+[submodule "pack/taewoong/start/prettier"]
+	path = pack/taewoong/start/prettier
+	url = https://github.com/prettier/vim-prettier.git
