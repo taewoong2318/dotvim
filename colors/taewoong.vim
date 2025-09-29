@@ -23,7 +23,7 @@ if &background ==# 'dark'
   hi SignColumn        ctermfg=8    ctermbg=NONE cterm=NONE
   hi IncSearch         ctermfg=NONE ctermbg=NONE cterm=reverse
   hi LineNr            ctermfg=8    ctermbg=NONE cterm=NONE
-  hi CursorLineNr      ctermfg=8    ctermbg=NONE cterm=underline
+  hi CursorLineNr      ctermfg=15   ctermbg=NONE cterm=NONE
   hi CursorLineFold    ctermfg=8    ctermbg=NONE cterm=NONE
   hi CursorLineSign    ctermfg=8    ctermbg=NONE cterm=NONE
   hi MatchParen        ctermfg=NONE ctermbg=8    cterm=NONE
