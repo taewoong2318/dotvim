@@ -143,8 +143,6 @@ endif
 
 " ============================================================================
 
-let g:mapleader = "\<Space>"
-
 " Move the cursor by display line with gjjj... (See
 " https://zenn.dev/mattn/articles/83c2d4c7645faa)
 nmap gj gj<SID>g
