@@ -24,6 +24,7 @@ set autoread
 set completeopt=menuone,noinsert,popup
 set completepopup=height:20,width:80,align:menu,border:off
 set cursorline
+set cursorlineopt=number
 set diffopt+=algorithm:histogram,indent-heuristic,vertical
 set display=lastline
 set encoding=utf-8
