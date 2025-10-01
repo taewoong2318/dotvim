@@ -55,7 +55,7 @@ set title
 set wildmenu
 set wildmode=longest:full,full
 
-" NOTE: Need to give priority to Shift_JIS over CP932 to avoid overwriting
+" NOTE: Give priority to Shift_JIS over CP932
 " (See https://qiita.com/ke-suke-Soft/items/978365a9e63ba118fffc)
 set fileencodings=ucs-bom,utf-8,sjis,cp932,default,latin1
 
