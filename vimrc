@@ -23,8 +23,6 @@ set autoindent
 set autoread
 set completeopt=menuone,noinsert,popup
 set completepopup=height:20,width:80,align:menu,border:off
-set cursorline
-set cursorlineopt=number
 set diffopt+=algorithm:histogram,indent-heuristic,vertical
 set display=lastline
 set encoding=utf-8
@@ -41,12 +39,11 @@ set laststatus=0
 set nojoinspaces
 set nostartofline
 set nrformats-=octal
-set number
 set pumheight=10
 set pumwidth=40
 set ruler
 set showcmd
-set signcolumn=yes
+set signcolumn=no
 set smartcase
 set spelloptions=camel
 set splitbelow
@@ -294,6 +291,7 @@ if v:version >= 900
 
   call g:LspOptionsSet(#{
         \   completionMatcher: 'icase',
+        \   diagVirtualTextAlign: 'after',
         \   ignoreMissingServer: v:true,
         \   showDiagWithVirtualText: has('patch-9.0.1157')
         \ })
