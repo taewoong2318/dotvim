@@ -369,6 +369,13 @@ if v:version >= 900
         \ }])
 
   call g:LspAddServer([#{
+        \   name: 'omnisharp',
+        \   filetype: 'cs',
+        \   path: 'omnisharp',
+        \   args: [ '-z', '--languageserver', '--encoding', 'utf-8' ]
+        \ }])
+
+  call g:LspAddServer([#{
         \   name: 'tinymist',
         \   filetype: 'typst',
         \   path: 'tinymist',
