@@ -188,9 +188,6 @@ if has('patch-9.1.1669')
         \     ->uri_encode()<CR>
 endif
 
-" Accept the selected completion item with <Tab>
-inoremap <expr> <Tab> pumvisible() ? '<C-Y>' : '<Tab>'
-
 " ============================================================================
 
 function! s:DefineCmdShort(short, cmd) abort
