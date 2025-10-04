@@ -371,7 +371,7 @@ if v:version >= 900
   call g:LspAddServer([#{
         \   name: 'omnisharp',
         \   filetype: 'cs',
-        \   path: 'omnisharp',
+        \   path: 'OmniSharp',
         \   args: [ '-z', '--languageserver', '--encoding', 'utf-8' ]
         \ }])
 
