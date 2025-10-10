@@ -317,14 +317,6 @@ if v:version >= 900
     setlocal formatexpr=lsp#lsp#FormatExpr()
     setlocal keywordprg=:LspHover
     setlocal tagfunc=lsp#lsp#TagFunc
-
-    nnoremap <buffer> gA <Cmd>LspCodeAction<CR>
-    nnoremap <buffer> gD <Cmd>LspGotoDeclaration<CR>
-    nnoremap <buffer> gd <Cmd>LspGotoDefinition<CR>
-    nnoremap <buffer> gi <Cmd>LspGotoImpl<CR>
-    nnoremap <buffer> gl <Cmd>LspDiagShow<CR>
-    nnoremap <buffer> gr <Cmd>LspShowReferences<CR>
-    nnoremap <buffer> gy <Cmd>LspGotoTypeDef<CR>
   endfunction
 
   autocmd vimrc User LspAttached call s:OnLspAttached()
