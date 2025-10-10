@@ -289,7 +289,7 @@ if has('patch-9.0.185') && executable('node')
         \   yaml: v:false
         \ }
 
-  imap <C-L> <Plug>(copilot-accept-word)
+  imap <C-L> <Plug>(copilot-accept-line)
 endif
 
 " ============================================================================
