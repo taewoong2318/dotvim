@@ -141,24 +141,42 @@ endif
 
 " ============================================================================
 
-" Move the cursor by display line with gjjj... (See
+" Do nothing but is used for the recursive mappings below (See
 " https://zenn.dev/mattn/articles/83c2d4c7645faa)
-nmap gj gj<SID>g
-nmap gk gk<SID>g
-nnoremap <script> <SID>gj gj<SID>g
-nnoremap <script> <SID>gk gk<SID>g
 nmap <SID>g <Nop>
+nmap <SID><C-W> <Nop>
 
-" Resize windows with <C-W>+++...
-nmap <C-W>+ <C-W>+<SID>ws
-nmap <C-W>- <C-W>-<SID>ws
-nmap <C-W>< <C-W><<SID>ws
-nmap <C-W>> <C-W>><SID>ws
-nnoremap <script> <SID>ws+ <C-W>+<SID>ws
-nnoremap <script> <SID>ws- <C-W>-<SID>ws
-nnoremap <script> <SID>ws< <C-W><<SID>ws
-nnoremap <script> <SID>ws> <C-W>><SID>ws
-nmap <SID>ws <Nop>
+" Do gjgjgj... with gjjj...
+nmap gj gj<SID>g
+nnoremap <script> <SID>gj gj<SID>g
+
+" Do gkgkgk... with gkkk...
+nmap gk gk<SID>g
+nnoremap <script> <SID>gk gk<SID>g
+
+" Do gtgtgt... with gttt...
+nmap gt gt<SID>g
+nnoremap <script> <SID>gt gt<SID>g
+
+" Do gTgTgT... with gTTT...
+nmap gT gT<SID>g
+nnoremap <script> <SID>gT gT<SID>g
+
+" Do <C-W>+<C-W>+<C-W>+... with <C-W>+++...
+nmap <C-W>+ <C-W>+<SID><C-W>
+nnoremap <script> <SID><C-W>+ <C-W>+<SID><C-W>
+
+" Do <C-W>-<C-W>-<C-W>-... with <C-W>---...
+nmap <C-W>- <C-W>-<SID><C-W>
+nnoremap <script> <SID><C-W>- <C-W>-<SID><C-W>
+
+" Do <C-W><<C-W><<C-W><... with <C-W><<<...
+nmap <C-W>< <C-W><SID><C-W>
+nnoremap <script> <SID><C-W>< <C-W><<SID><C-W>
+
+" Do <C-W>><C-W>><C-W>>... with <C-W>>>>...
+nmap <C-W>> <C-W>><SID><C-W>
+nnoremap <script> <SID><C-W>> <C-W>><SID><C-W>
 
 " Delete a character without yanking
 nnoremap x "_x
