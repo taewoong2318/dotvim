@@ -313,100 +313,91 @@ if v:version >= 900
         \   showDiagWithVirtualText: has('patch-9.0.1157')
         \ })
 
-  function! s:OnLspAttached()
-    setlocal formatexpr=lsp#lsp#FormatExpr()
-    setlocal keywordprg=:LspHover
-    setlocal tagfunc=lsp#lsp#TagFunc
+  autocmd vimrc User LspAttached
+        \   setlocal formatexpr=lsp#lsp#FormatExpr()
+        \ | setlocal keywordprg=:LspHover
+        \ | setlocal tagfunc=lsp#lsp#TagFunc
+
+  function! s:getJdtlsArgs() abort
+    let l:lombokPath = !empty(s:xdg_data_home)
+          \ ? expand(s:xdg_data_home .. '/jdtls/lombok.jar') : ''
+    return !empty(l:lombokPath) && filereadable(l:lombokPath)
+          \ ? [ '--jvm-arg=-javaagent:' .. l:lombokPath ] : []
   endfunction
 
-  autocmd vimrc User LspAttached call s:OnLspAttached()
-
   " Register language servers (See https://github.com/yegappan/lsp/wiki)
-
-  call g:LspAddServer([#{
-        \   name: 'bashls',
-        \   filetype: 'sh',
-        \   path: 'bash-language-server',
-        \   args: [ 'start' ]
-        \ }])
-
-  call g:LspAddServer([#{
-        \   name: 'clangd',
-        \   filetype: [ 'c', 'cpp' ],
-        \   path: 'clangd',
-        \   args: [ '--background-index', '--clang-tidy' ]
-        \ }])
-
-  call g:LspAddServer([#{
-        \   name: 'gopls',
-        \   filetype: 'go',
-        \   path: 'gopls',
-        \   args: [ 'serve' ]
-        \ }])
-
-  let s:jdtlsPath = has('win32') ? 'jdtls.bat' : 'jdtls'
-
-  let s:lombokPath = !empty(s:xdg_data_home)
-        \ ? expand(s:xdg_data_home .. '/jdtls/lombok.jar') : ''
-  let s:jdtlsArgs = !empty(s:lombokPath) && filereadable(s:lombokPath)
-        \ ? [ '--jvm-arg=-javaagent:' .. s:lombokPath ] : []
-
-  call g:LspAddServer([#{
-        \   name: 'jdtls',
-        \   filetype: 'java',
-        \   path: s:jdtlsPath,
-        \   args: s:jdtlsArgs,
-        \   initializationOptions: #{
-        \     settings: #{
-        \       java: #{
-        \         completion: #{
-        \           filteredTypes: [
-        \             'com.sun.*', 'java.awt.*', 'jdk.*', 'org.graalvm.*',
-        \             'sun.*', 'javax.awt.*', 'javax.swing.*'
-        \           ]
-        \         },
-        \         signatureHelp: #{
-        \           enabled: v:true,
-        \           description: #{ enabled: v:true }
-        \         },
-        \         sources: #{
-        \           organizeImports: #{
-        \             starThreshold: 9999,
-        \             staticStarThreshold: 9999
+  call g:LspAddServer([
+        \   #{
+        \     name: 'bashls',
+        \     filetype: 'sh',
+        \     path: 'bash-language-server',
+        \     args: [ 'start' ]
+        \   },
+        \   #{
+        \     name: 'clangd',
+        \     filetype: [ 'c', 'cpp' ],
+        \     path: 'clangd',
+        \     args: [ '--background-index', '--clang-tidy' ]
+        \   },
+        \   #{
+        \     name: 'gopls',
+        \     filetype: 'go',
+        \     path: 'gopls',
+        \     args: [ 'serve' ]
+        \   },
+        \   #{
+        \     name: 'jdtls',
+        \     filetype: 'java',
+        \     path: has('win32') ? 'jdtls.bat' : 'jdtls',
+        \     args: s:getJdtlsArgs(),
+        \     initializationOptions: #{
+        \       settings: #{
+        \         java: #{
+        \           completion: #{
+        \             filteredTypes: [
+        \               'com.sun.*', 'java.awt.*', 'jdk.*', 'org.graalvm.*',
+        \               'sun.*', 'javax.awt.*', 'javax.swing.*'
+        \             ]
+        \           },
+        \           signatureHelp: #{
+        \             enabled: v:true,
+        \             description: #{ enabled: v:true }
+        \           },
+        \           sources: #{
+        \             organizeImports: #{
+        \               starThreshold: 9999,
+        \               staticStarThreshold: 9999
+        \             }
         \           }
         \         }
         \       }
         \     }
+        \   },
+        \   #{
+        \     name: 'omnisharp',
+        \     filetype: 'cs',
+        \     path: 'OmniSharp',
+        \     args: [ '-z', '--languageserver', '--encoding', 'utf-8' ]
+        \   },
+        \   #{
+        \     name: 'tinymist',
+        \     filetype: 'typst',
+        \     path: 'tinymist',
+        \     args: []
+        \   },
+        \   #{
+        \     name: 'tsserver',
+        \     filetype: [ 'javascript', 'typescript' ],
+        \     path: 'typescript-language-server',
+        \     args: [ '--stdio' ]
+        \   },
+        \   #{
+        \     name: 'pylsp',
+        \     filetype: 'python',
+        \     path: 'pylsp',
+        \     args: []
         \   }
-        \ }])
-
-  call g:LspAddServer([#{
-        \   name: 'omnisharp',
-        \   filetype: 'cs',
-        \   path: 'OmniSharp',
-        \   args: [ '-z', '--languageserver', '--encoding', 'utf-8' ]
-        \ }])
-
-  call g:LspAddServer([#{
-        \   name: 'tinymist',
-        \   filetype: 'typst',
-        \   path: 'tinymist',
-        \   args: []
-        \ }])
-
-  call g:LspAddServer([#{
-        \   name: 'tsserver',
-        \   filetype: [ 'javascript', 'typescript' ],
-        \   path: 'typescript-language-server',
-        \   args: [ '--stdio' ]
-        \ }])
-
-  call g:LspAddServer([#{
-        \   name: 'pylsp',
-        \   filetype: 'python',
-        \   path: 'pylsp',
-        \   args: []
-        \ }])
+        \ ])
 endif
 
 " ============================================================================
