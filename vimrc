@@ -154,14 +154,6 @@ nnoremap <script> <SID>gj gj<SID>g
 nmap gk gk<SID>g
 nnoremap <script> <SID>gk gk<SID>g
 
-" Do gtgtgt... with gttt...
-nmap gt gt<SID>g
-nnoremap <script> <SID>gt gt<SID>g
-
-" Do gTgTgT... with gTTT...
-nmap gT gT<SID>g
-nnoremap <script> <SID>gT gT<SID>g
-
 " Do <C-W>+<C-W>+<C-W>+... with <C-W>+++...
 nmap <C-W>+ <C-W>+<SID><C-W>
 nnoremap <script> <SID><C-W>+ <C-W>+<SID><C-W>
@@ -205,6 +197,10 @@ if has('patch-9.1.1669')
         \     ->join(' ')
         \     ->uri_encode()<CR>
 endif
+
+" Switch buffers quickly
+nnoremap <C-N> <Cmd>bnext<CR>
+nnoremap <C-P> <Cmd>bprevious<CR>
 
 " ============================================================================
 
