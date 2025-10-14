@@ -286,6 +286,7 @@ if has('patch-9.0.185') && executable('node')
         \   markdown: v:false,
         \   text: v:false,
         \   toml: v:false,
+        \   typst: v:false,
         \   yaml: v:false
         \ }
 
