@@ -202,6 +202,9 @@ endif
 nnoremap <C-N> <Cmd>bnext<CR>
 nnoremap <C-P> <Cmd>bprevious<CR>
 
+" Clear search highlighting
+nnoremap <C-L> <Cmd>nohlsearch<CR>
+
 " ============================================================================
 
 function! s:DefineCmdShort(short, cmd) abort
