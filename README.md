@@ -38,8 +38,3 @@ Run the following command inside Vim to generate the help tags for the plugin
 documentations:
 
     :helptags ALL
-
-## LSP Support
-
-It is optional to install language servers but offers useful functionalities
-for programming. See [vimrc](vimrc) for details.
