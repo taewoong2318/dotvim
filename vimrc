@@ -383,7 +383,16 @@ if v:version >= 900
         \     name: 'tinymist',
         \     filetype: 'typst',
         \     path: 'tinymist',
-        \     args: []
+        \     args: [],
+        \     initializationOptions: #{
+        \       tinymist: #{
+        \         preview: #{
+        \           background: #{
+        \             enabled: v:true
+        \           }
+        \         }
+        \       }
+        \     }
         \   },
         \   #{
         \     name: 'tsserver',
