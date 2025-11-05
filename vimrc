@@ -361,7 +361,9 @@ if v:version >= 900
         \           },
         \           signatureHelp: #{
         \             enabled: v:true,
-        \             description: #{ enabled: v:true }
+        \             description: #{
+        \               enabled: v:true
+        \             }
         \           },
         \           sources: #{
         \             organizeImports: #{
