@@ -77,6 +77,10 @@ if has('patch-9.0.640')
   set smoothscroll
 endif
 
+if has('patch-9.0.1921')
+  set jumpoptions=stack
+endif
+
 if has('patch-9.1.537')
   set nrformats+=blank
 endif
@@ -204,6 +208,10 @@ nnoremap <C-P> <Cmd>bprevious<CR>
 
 " Clear search highlighting
 nnoremap <C-L> <Cmd>nohlsearch<CR>
+
+" Reselect visual selection after indenting
+xnoremap < <gv
+xnoremap > >gv
 
 " ============================================================================
 
