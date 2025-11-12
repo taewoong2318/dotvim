@@ -31,21 +31,21 @@ if &background ==# 'dark'
   hi CursorLineNr      ctermfg=15   ctermbg=NONE cterm=NONE
   hi CursorLineFold    ctermfg=8    ctermbg=NONE cterm=NONE
   hi CursorLineSign    ctermfg=8    ctermbg=NONE cterm=NONE
-  hi MatchParen        ctermfg=NONE ctermbg=8    cterm=NONE
+  hi MatchParen        ctermfg=15   ctermbg=8    cterm=NONE
   hi ModeMsg           ctermfg=NONE ctermbg=NONE cterm=bold
   hi MoreMsg           ctermfg=2    ctermbg=NONE cterm=NONE
   hi NonText           ctermfg=8    ctermbg=NONE cterm=NONE
   hi Pmenu             ctermfg=15   ctermbg=8    cterm=NONE
-  hi PmenuSel          ctermfg=0    ctermbg=15   cterm=NONE
+  hi PmenuSel          ctermfg=15   ctermbg=3    cterm=NONE
   hi PmenuSbar         ctermfg=NONE ctermbg=8    cterm=NONE
   hi PmenuThumb        ctermfg=NONE ctermbg=15   cterm=NONE
   hi Question          ctermfg=2    ctermbg=NONE cterm=NONE
   hi Search            ctermfg=15   ctermbg=3    cterm=NONE
   hi SpecialKey        ctermfg=6    ctermbg=NONE cterm=NONE
-  hi SpellBad          ctermfg=NONE ctermbg=1    cterm=NONE
-  hi SpellCap          ctermfg=NONE ctermbg=4    cterm=NONE
-  hi SpellLocal        ctermfg=NONE ctermbg=6    cterm=NONE
-  hi SpellRare         ctermfg=NONE ctermbg=5    cterm=NONE
+  hi SpellBad          ctermfg=15   ctermbg=1    cterm=NONE
+  hi SpellCap          ctermfg=15   ctermbg=4    cterm=NONE
+  hi SpellLocal        ctermfg=15   ctermbg=6    cterm=NONE
+  hi SpellRare         ctermfg=15   ctermbg=5    cterm=NONE
   hi StatusLine        ctermfg=15   ctermbg=8    cterm=bold
   hi StatusLineNC      ctermfg=15   ctermbg=8    cterm=NONE
   hi StatusLineTerm    ctermfg=15   ctermbg=8    cterm=bold
