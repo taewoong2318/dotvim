@@ -345,7 +345,10 @@ if v:version >= 900
         \     name: 'clangd',
         \     filetype: [ 'c', 'cpp' ],
         \     path: 'clangd',
-        \     args: [ '--background-index', '--clang-tidy' ]
+        \     args: [
+        \       '--background-index', '--clang-tidy',
+        \       '--fallback-style=Microsoft'
+        \     ]
         \   },
         \   #{
         \     name: 'gopls',
