@@ -4,7 +4,7 @@
 
 " ============================================================================
 
-" Quit if there is no support for <Cmd>
+" Quit Vim if there is no support for <Cmd>
 if !has('patch-8.2.1978')
   echo 'Error: Version 8.2.1978 or later is required.'
   cquit
@@ -145,7 +145,7 @@ endif
 
 " ============================================================================
 
-" Do nothing but is used for the recursive mappings below (See
+" Do nothing but for the recursive mappings below (See
 " https://zenn.dev/mattn/articles/83c2d4c7645faa)
 nmap <SID>g <Nop>
 nmap <SID><C-W> <Nop>
@@ -304,7 +304,7 @@ endif
 
 " fugitive
 
-" Make :Browse available for :GBrowse even if netrw is disabled
+" Make :Browse available for :GBrowse even when netrw is disabled
 command! -nargs=1 Browse URLOpen <args>
 
 " ============================================================================
@@ -327,6 +327,9 @@ if v:version >= 900
         \ | setlocal tagfunc=lsp#lsp#TagFunc
 
   function! s:getJdtlsArgs() abort
+    " NOTE: The lombok jar is expected to be placed at:
+    " - ~/.local/share/jdtls/lombok.jar (Unix)
+    " - ~/AppData/Local/jdtls/lombok.jar (Windows)
     let l:lombokPath = !empty(s:xdg_data_home)
           \ ? expand(s:xdg_data_home .. '/jdtls/lombok.jar') : ''
     return !empty(l:lombokPath) && filereadable(l:lombokPath)
