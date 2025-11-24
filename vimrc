@@ -174,9 +174,6 @@ nnoremap <script> <SID><C-W>< <C-W><<SID><C-W>
 nmap <C-W>> <C-W>><SID><C-W>
 nnoremap <script> <SID><C-W>> <C-W>><SID><C-W>
 
-" Delete a character without yanking
-nnoremap x "_x
-
 " Yank from the cursor to the end of the line
 nnoremap Y y$
 
@@ -202,30 +199,9 @@ if has('patch-9.1.1669')
         \     ->uri_encode()<CR>
 endif
 
-" Switch buffers quickly
-nnoremap <C-N> <Cmd>bnext<CR>
-nnoremap <C-P> <Cmd>bprevious<CR>
-
-" Clear search highlighting
-nnoremap <C-L> <Cmd>nohlsearch<CR>
-
 " Reselect visual selection after indenting
 xnoremap < <gv
 xnoremap > >gv
-
-" ============================================================================
-
-function! s:DefineCmdShort(short, cmd) abort
-  execute printf('cabbrev <expr> %s
-        \ (getcmdtype() ==# ":" && getcmdline() ==# "%s")
-        \ ? "%s" : "%s"', a:short, a:short, a:cmd, a:short)
-endfunction
-
-" Open the directory of the current file
-call s:DefineCmdShort('e,', 'edit %:h')
-
-" Change the current directory to the directory of the current file
-call s:DefineCmdShort('cd,', 'cd %:h')
 
 " ============================================================================
 
@@ -297,7 +273,7 @@ if has('patch-9.0.185') && executable('node')
         \   yaml: v:false
         \ }
 
-  imap <C-L> <Plug>(copilot-accept-line)
+  imap <C-L> <Plug>(copilot-accept-word)
 endif
 
 " ============================================================================
@@ -315,6 +291,7 @@ if v:version >= 900
   packadd lsp
 
   call g:LspOptionsSet(#{
+        \   autoHighlight: v:true,
         \   completionMatcher: 'icase',
         \   diagVirtualTextAlign: 'after',
         \   ignoreMissingServer: v:true,
@@ -325,6 +302,16 @@ if v:version >= 900
         \   setlocal formatexpr=lsp#lsp#FormatExpr()
         \ | setlocal keywordprg=:LspHover
         \ | setlocal tagfunc=lsp#lsp#TagFunc
+        \
+        \ | nnoremap <buffer> gd <Cmd>LspGotoDefinition<CR>
+        \ | nnoremap <buffer> gD <Cmd>LspGotoDeclaration<CR>
+        \ | nnoremap <buffer> gi <Cmd>LspGotoImpl<CR>
+        \ | nnoremap <buffer> gy <Cmd>LspGotoTypeDef<CR>
+        \ | nnoremap <buffer> gr <Cmd>LspShowReferences<CR>
+        \ | nnoremap <buffer> [g <Cmd>LspDiagPrev<CR>
+        \ | nnoremap <buffer> ]g <Cmd>LspDiagNext<CR>
+        \ | nnoremap <buffer> [G <Cmd>LspDiagFirst<CR>
+        \ | nnoremap <buffer> ]G <Cmd>LspDiagLast<CR>
 
   function! s:getJdtlsArgs() abort
     " NOTE: The lombok jar is expected to be placed at:
@@ -424,18 +411,6 @@ if v:version >= 900
         \   }
         \ ])
 endif
-
-" ============================================================================
-
-" sandwich
-
-if !has('patch-8.2.4275')
-  " Load manually to make the autoload functions available
-  packadd sandwich
-endif
-
-" Disable all the highlighting
-call operator#sandwich#set('all', 'all', 'highlight', 0)
 
 " ============================================================================
 

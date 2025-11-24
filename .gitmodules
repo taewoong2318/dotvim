@@ -4,12 +4,6 @@
 [submodule "pack/taewoong/start/tabular"]
 	path = pack/taewoong/start/tabular
 	url = https://github.com/godlygeek/tabular.git
-[submodule "pack/taewoong/start/gv"]
-	path = pack/taewoong/start/gv
-	url = https://github.com/junegunn/gv.vim.git
-[submodule "pack/taewoong/start/sandwich"]
-	path = pack/taewoong/start/sandwich
-	url = https://github.com/machakann/vim-sandwich.git
 [submodule "pack/taewoong/start/better-whitespace"]
 	path = pack/taewoong/start/better-whitespace
 	url = https://github.com/ntpeters/vim-better-whitespace.git
@@ -40,3 +34,12 @@
 [submodule "pack/taewoong/start/prettier"]
 	path = pack/taewoong/start/prettier
 	url = https://github.com/prettier/vim-prettier.git
+[submodule "pack/taewoong/start/unimpaired"]
+	path = pack/taewoong/start/unimpaired
+	url = https://github.com/tpope/vim-unimpaired.git
+[submodule "pack/taewoong/start/surround"]
+	path = pack/taewoong/start/surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "pack/taewoong/start/repeat"]
+	path = pack/taewoong/start/repeat
+	url = https://github.com/tpope/vim-repeat.git
