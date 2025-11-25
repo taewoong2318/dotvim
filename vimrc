@@ -298,20 +298,23 @@ if v:version >= 900
         \   showDiagWithVirtualText: has('patch-9.0.1157')
         \ })
 
-  autocmd vimrc User LspAttached
-        \   setlocal formatexpr=lsp#lsp#FormatExpr()
-        \ | setlocal keywordprg=:LspHover
-        \ | setlocal tagfunc=lsp#lsp#TagFunc
-        \
-        \ | nnoremap <buffer> gd <Cmd>LspGotoDefinition<CR>
-        \ | nnoremap <buffer> gD <Cmd>LspGotoDeclaration<CR>
-        \ | nnoremap <buffer> gi <Cmd>LspGotoImpl<CR>
-        \ | nnoremap <buffer> gy <Cmd>LspGotoTypeDef<CR>
-        \ | nnoremap <buffer> gr <Cmd>LspShowReferences<CR>
-        \ | nnoremap <buffer> [g <Cmd>LspDiagPrev<CR>
-        \ | nnoremap <buffer> ]g <Cmd>LspDiagNext<CR>
-        \ | nnoremap <buffer> [G <Cmd>LspDiagFirst<CR>
-        \ | nnoremap <buffer> ]G <Cmd>LspDiagLast<CR>
+  function! OnLspAttached() abort
+    setlocal formatexpr=lsp#lsp#FormatExpr()
+    setlocal keywordprg=:LspHover
+    setlocal tagfunc=lsp#lsp#TagFunc
+
+    nnoremap <buffer> gd <Cmd>LspGotoDefinition<CR>
+    nnoremap <buffer> gD <Cmd>LspGotoDeclaration<CR>
+    nnoremap <buffer> gi <Cmd>LspGotoImpl<CR>
+    nnoremap <buffer> gy <Cmd>LspGotoTypeDef<CR>
+    nnoremap <buffer> gr <Cmd>LspShowReferences<CR>
+    nnoremap <buffer> [g <Cmd>LspDiagPrev<CR>
+    nnoremap <buffer> ]g <Cmd>LspDiagNext<CR>
+    nnoremap <buffer> [G <Cmd>LspDiagFirst<CR>
+    nnoremap <buffer> ]G <Cmd>LspDiagLast<CR>
+  endfunction
+
+  autocmd vimrc User LspAttached call OnLspAttached()
 
   function! s:getJdtlsArgs() abort
     " NOTE: The lombok jar is expected to be placed at:
