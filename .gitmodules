@@ -43,3 +43,6 @@
 [submodule "pack/taewoong/start/repeat"]
 	path = pack/taewoong/start/repeat
 	url = https://github.com/tpope/vim-repeat.git
+[submodule "pack/taewoong/start/abolish"]
+	path = pack/taewoong/start/abolish
+	url = https://github.com/tpope/vim-abolish.git
