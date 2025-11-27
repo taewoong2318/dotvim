@@ -145,6 +145,8 @@ endif
 
 " ============================================================================
 
+let g:mapleader = "\<Space>"
+
 " Do nothing but for the recursive mappings below (See
 " https://zenn.dev/mattn/articles/83c2d4c7645faa)
 nmap <SID>g <Nop>
@@ -291,7 +293,6 @@ if v:version >= 900
   packadd lsp
 
   call g:LspOptionsSet(#{
-        \   autoHighlight: v:true,
         \   completionMatcher: 'icase',
         \   diagVirtualTextAlign: 'after',
         \   ignoreMissingServer: v:true,
@@ -312,6 +313,9 @@ if v:version >= 900
     nnoremap <buffer> ]g <Cmd>LspDiagNext<CR>
     nnoremap <buffer> [G <Cmd>LspDiagFirst<CR>
     nnoremap <buffer> ]G <Cmd>LspDiagLast<CR>
+    nnoremap <buffer> <Leader>rn <Cmd>LspRename<CR>
+    nnoremap <buffer> <Leader>ca <Cmd>LspCodeAction<CR>
+    nnoremap <buffer> <Leader>f <Cmd>LspFormat<CR>
   endfunction
 
   autocmd vimrc User LspAttached call OnLspAttached()
