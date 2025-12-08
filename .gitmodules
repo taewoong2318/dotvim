@@ -19,9 +19,6 @@
 [submodule "pack/taewoong/opt/commentary"]
 	path = pack/taewoong/opt/commentary
 	url = https://github.com/tpope/vim-commentary.git
-[submodule "pack/taewoong/start/molder"]
-	path = pack/taewoong/start/molder
-	url = https://github.com/mattn/vim-molder.git
 [submodule "pack/taewoong/opt/lsp"]
 	path = pack/taewoong/opt/lsp
 	url = https://github.com/yegappan/lsp.git
@@ -46,3 +43,6 @@
 [submodule "pack/taewoong/start/abolish"]
 	path = pack/taewoong/start/abolish
 	url = https://github.com/tpope/vim-abolish.git
+[submodule "pack/taewoong/start/vinegar"]
+	path = pack/taewoong/start/vinegar
+	url = https://github.com/tpope/vim-vinegar.git

@@ -233,8 +233,6 @@ let g:loaded_2html_plugin      = 1
 let g:loaded_getscriptPlugin   = 1
 let g:loaded_gzip              = 1
 let g:loaded_logiPat           = 1
-let g:loaded_netrw             = 1
-let g:loaded_netrwPlugin       = 1
 let g:loaded_rrhelper          = 1
 let g:loaded_spellfile_plugin  = 1
 let g:loaded_tarPlugin         = 1
@@ -277,13 +275,6 @@ if has('patch-9.0.185') && executable('node')
 
   imap <C-L> <Plug>(copilot-accept-word)
 endif
-
-" ============================================================================
-
-" fugitive
-
-" Make :Browse available for :GBrowse even when netrw is disabled
-command! -nargs=1 Browse URLOpen <args>
 
 " ============================================================================
 
@@ -417,6 +408,14 @@ if v:version >= 900
         \     args: []
         \   }
         \ ])
+endif
+
+" ============================================================================
+
+" netrw
+
+if !empty(s:vim_state_dir)
+  let g:netrw_home = s:vim_state_dir
 endif
 
 " ============================================================================
