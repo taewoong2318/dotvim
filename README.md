@@ -5,7 +5,7 @@ Taewoong's Vim configuration
 ## Requirements
 
 - Git
-- Vim 8.2.1978 or later
+- Vim 9.0 or later
 
 ## Installation
 

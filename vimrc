@@ -4,9 +4,9 @@
 
 " ============================================================================
 
-" Quit Vim if there is no support for <Cmd>
-if !has('patch-8.2.1978')
-  echo 'Error: Version 8.2.1978 or later is required.'
+" Quit Vim if the version is lower than 9.0
+if v:version < 900
+  echo 'Error: Version 9.0 or later is required.'
   cquit
 endif
 
@@ -21,6 +21,7 @@ augroup END
 
 set autoindent
 set autoread
+set cdhome
 set completeopt=menuone,noinsert,popup
 set completepopup=height:20,width:80,align:menu,border:off
 set diffopt+=algorithm:histogram,indent-heuristic,vertical
@@ -52,6 +53,7 @@ set tabstop=4
 set title
 set wildmenu
 set wildmode=longest:full,full
+set wildoptions=pum
 
 " NOTE: Give priority to Shift_JIS over CP932
 " (See https://qiita.com/ke-suke-Soft/items/978365a9e63ba118fffc)
@@ -64,14 +66,6 @@ set softtabstop=-1
 " Make <Esc> faster (See https://vi.stackexchange.com/a/24938)
 set ttimeout
 set ttimeoutlen=100
-
-if has('patch-8.2.3780')
-  set cdhome
-endif
-
-if has('patch-8.2.4325')
-  set wildoptions=pum
-endif
 
 if has('patch-9.0.640')
   set smoothscroll
@@ -280,135 +274,133 @@ endif
 
 " lsp
 
-if v:version >= 900
-  packadd lsp
+packadd lsp
 
-  call g:LspOptionsSet(#{
-        \   completionMatcher: 'icase',
-        \   diagVirtualTextAlign: 'after',
-        \   ignoreMissingServer: v:true,
-        \   showDiagWithVirtualText: has('patch-9.0.1157')
-        \ })
+call g:LspOptionsSet(#{
+      \   completionMatcher: 'icase',
+      \   diagVirtualTextAlign: 'after',
+      \   ignoreMissingServer: v:true,
+      \   showDiagWithVirtualText: has('patch-9.0.1157')
+      \ })
 
-  function! OnLspAttached() abort
-    setlocal formatexpr=lsp#lsp#FormatExpr()
-    setlocal keywordprg=:LspHover
-    setlocal tagfunc=lsp#lsp#TagFunc
+function! OnLspAttached() abort
+  setlocal formatexpr=lsp#lsp#FormatExpr()
+  setlocal keywordprg=:LspHover
+  setlocal tagfunc=lsp#lsp#TagFunc
 
-    nnoremap <buffer> gd <Cmd>LspGotoDefinition<CR>
-    nnoremap <buffer> gD <Cmd>LspGotoDeclaration<CR>
-    nnoremap <buffer> gi <Cmd>LspGotoImpl<CR>
-    nnoremap <buffer> gy <Cmd>LspGotoTypeDef<CR>
-    nnoremap <buffer> gr <Cmd>LspShowReferences<CR>
-    nnoremap <buffer> [g <Cmd>LspDiagPrev<CR>
-    nnoremap <buffer> ]g <Cmd>LspDiagNext<CR>
-    nnoremap <buffer> [G <Cmd>LspDiagFirst<CR>
-    nnoremap <buffer> ]G <Cmd>LspDiagLast<CR>
-    nnoremap <buffer> <Leader>rn <Cmd>LspRename<CR>
-    nnoremap <buffer> <Leader>ca <Cmd>LspCodeAction<CR>
-    nnoremap <buffer> <Leader>f <Cmd>LspFormat<CR>
-  endfunction
+  nnoremap <buffer> gd <Cmd>LspGotoDefinition<CR>
+  nnoremap <buffer> gD <Cmd>LspGotoDeclaration<CR>
+  nnoremap <buffer> gi <Cmd>LspGotoImpl<CR>
+  nnoremap <buffer> gy <Cmd>LspGotoTypeDef<CR>
+  nnoremap <buffer> gr <Cmd>LspShowReferences<CR>
+  nnoremap <buffer> [g <Cmd>LspDiagPrev<CR>
+  nnoremap <buffer> ]g <Cmd>LspDiagNext<CR>
+  nnoremap <buffer> [G <Cmd>LspDiagFirst<CR>
+  nnoremap <buffer> ]G <Cmd>LspDiagLast<CR>
+  nnoremap <buffer> <Leader>rn <Cmd>LspRename<CR>
+  nnoremap <buffer> <Leader>ca <Cmd>LspCodeAction<CR>
+  nnoremap <buffer> <Leader>f <Cmd>LspFormat<CR>
+endfunction
 
-  autocmd vimrc User LspAttached call OnLspAttached()
+autocmd vimrc User LspAttached call OnLspAttached()
 
-  function! s:getJdtlsArgs() abort
-    " NOTE: The lombok jar is expected to be placed at:
-    " - ~/.local/share/jdtls/lombok.jar (Unix)
-    " - ~/AppData/Local/jdtls/lombok.jar (Windows)
-    let l:lombokPath = !empty(s:xdg_data_home)
-          \ ? expand(s:xdg_data_home .. '/jdtls/lombok.jar') : ''
-    return !empty(l:lombokPath) && filereadable(l:lombokPath)
-          \ ? [ '--jvm-arg=-javaagent:' .. l:lombokPath ] : []
-  endfunction
+function! s:getJdtlsArgs() abort
+  " NOTE: The lombok jar is expected to be placed at:
+  " - ~/.local/share/jdtls/lombok.jar (Unix)
+  " - ~/AppData/Local/jdtls/lombok.jar (Windows)
+  let l:lombokPath = !empty(s:xdg_data_home)
+        \ ? expand(s:xdg_data_home .. '/jdtls/lombok.jar') : ''
+  return !empty(l:lombokPath) && filereadable(l:lombokPath)
+        \ ? [ '--jvm-arg=-javaagent:' .. l:lombokPath ] : []
+endfunction
 
-  " Register language servers (See https://github.com/yegappan/lsp/wiki)
-  call g:LspAddServer([
-        \   #{
-        \     name: 'bashls',
-        \     filetype: 'sh',
-        \     path: 'bash-language-server',
-        \     args: [ 'start' ]
-        \   },
-        \   #{
-        \     name: 'clangd',
-        \     filetype: [ 'c', 'cpp' ],
-        \     path: 'clangd',
-        \     args: [
-        \       '--background-index', '--clang-tidy',
-        \       '--fallback-style=Microsoft'
-        \     ]
-        \   },
-        \   #{
-        \     name: 'gopls',
-        \     filetype: 'go',
-        \     path: 'gopls',
-        \     args: [ 'serve' ]
-        \   },
-        \   #{
-        \     name: 'jdtls',
-        \     filetype: 'java',
-        \     path: has('win32') ? 'jdtls.bat' : 'jdtls',
-        \     args: s:getJdtlsArgs(),
-        \     initializationOptions: #{
-        \       settings: #{
-        \         java: #{
-        \           completion: #{
-        \             filteredTypes: [
-        \               'com.sun.*', 'java.awt.*', 'jdk.*', 'org.graalvm.*',
-        \               'sun.*', 'javax.awt.*', 'javax.swing.*'
-        \             ]
-        \           },
-        \           signatureHelp: #{
-        \             enabled: v:true,
-        \             description: #{
-        \               enabled: v:true
-        \             }
-        \           },
-        \           sources: #{
-        \             organizeImports: #{
-        \               starThreshold: 9999,
-        \               staticStarThreshold: 9999
-        \             }
-        \           }
-        \         }
-        \       }
-        \     }
-        \   },
-        \   #{
-        \     name: 'omnisharp',
-        \     filetype: 'cs',
-        \     path: 'OmniSharp',
-        \     args: [ '-z', '--languageserver', '--encoding', 'utf-8' ]
-        \   },
-        \   #{
-        \     name: 'tinymist',
-        \     filetype: 'typst',
-        \     path: 'tinymist',
-        \     args: [],
-        \     initializationOptions: #{
-        \       tinymist: #{
-        \         preview: #{
-        \           background: #{
-        \             enabled: v:true
-        \           }
-        \         }
-        \       }
-        \     }
-        \   },
-        \   #{
-        \     name: 'tsserver',
-        \     filetype: [ 'javascript', 'typescript' ],
-        \     path: 'typescript-language-server',
-        \     args: [ '--stdio' ]
-        \   },
-        \   #{
-        \     name: 'pylsp',
-        \     filetype: 'python',
-        \     path: 'pylsp',
-        \     args: []
-        \   }
-        \ ])
-endif
+" Register language servers (See https://github.com/yegappan/lsp/wiki)
+call g:LspAddServer([
+      \   #{
+      \     name: 'bashls',
+      \     filetype: 'sh',
+      \     path: 'bash-language-server',
+      \     args: [ 'start' ]
+      \   },
+      \   #{
+      \     name: 'clangd',
+      \     filetype: [ 'c', 'cpp' ],
+      \     path: 'clangd',
+      \     args: [
+      \       '--background-index', '--clang-tidy',
+      \       '--fallback-style=Microsoft'
+      \     ]
+      \   },
+      \   #{
+      \     name: 'gopls',
+      \     filetype: 'go',
+      \     path: 'gopls',
+      \     args: [ 'serve' ]
+      \   },
+      \   #{
+      \     name: 'jdtls',
+      \     filetype: 'java',
+      \     path: has('win32') ? 'jdtls.bat' : 'jdtls',
+      \     args: s:getJdtlsArgs(),
+      \     initializationOptions: #{
+      \       settings: #{
+      \         java: #{
+      \           completion: #{
+      \             filteredTypes: [
+      \               'com.sun.*', 'java.awt.*', 'jdk.*', 'org.graalvm.*',
+      \               'sun.*', 'javax.awt.*', 'javax.swing.*'
+      \             ]
+      \           },
+      \           signatureHelp: #{
+      \             enabled: v:true,
+      \             description: #{
+      \               enabled: v:true
+      \             }
+      \           },
+      \           sources: #{
+      \             organizeImports: #{
+      \               starThreshold: 9999,
+      \               staticStarThreshold: 9999
+      \             }
+      \           }
+      \         }
+      \       }
+      \     }
+      \   },
+      \   #{
+      \     name: 'omnisharp',
+      \     filetype: 'cs',
+      \     path: 'OmniSharp',
+      \     args: [ '-z', '--languageserver', '--encoding', 'utf-8' ]
+      \   },
+      \   #{
+      \     name: 'tinymist',
+      \     filetype: 'typst',
+      \     path: 'tinymist',
+      \     args: [],
+      \     initializationOptions: #{
+      \       tinymist: #{
+      \         preview: #{
+      \           background: #{
+      \             enabled: v:true
+      \           }
+      \         }
+      \       }
+      \     }
+      \   },
+      \   #{
+      \     name: 'tsserver',
+      \     filetype: [ 'javascript', 'typescript' ],
+      \     path: 'typescript-language-server',
+      \     args: [ '--stdio' ]
+      \   },
+      \   #{
+      \     name: 'pylsp',
+      \     filetype: 'python',
+      \     path: 'pylsp',
+      \     args: []
+      \   }
+      \ ])
 
 " ============================================================================
 
