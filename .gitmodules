@@ -46,3 +46,6 @@
 [submodule "pack/taewoong/start/vinegar"]
 	path = pack/taewoong/start/vinegar
 	url = https://github.com/tpope/vim-vinegar.git
+[submodule "pack/taewoong/start/eunuch"]
+	path = pack/taewoong/start/eunuch
+	url = https://github.com/tpope/vim-eunuch.git
