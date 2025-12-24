@@ -43,6 +43,7 @@ set nrformats-=octal
 set pumheight=10
 set pumwidth=40
 set ruler
+set scrolloff=0
 set showcmd
 set signcolumn=no
 set smartcase
