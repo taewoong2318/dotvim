@@ -42,9 +42,6 @@ set nostartofline
 set nrformats-=octal
 set pumheight=10
 set pumwidth=40
-set ruler
-set scrolloff=0
-set showcmd
 set signcolumn=no
 set smartcase
 set spelloptions=camel
@@ -52,21 +49,36 @@ set splitbelow
 set splitright
 set tabstop=4
 set title
-set wildmenu
 set wildmode=longest:full,full
 set wildoptions=pum
 
-" NOTE: Give priority to Shift_JIS over CP932
-" (See https://qiita.com/ke-suke-Soft/items/978365a9e63ba118fffc)
+" NOTE: Try Shift_JIS first then CP932 (superset of Shift_JIS) so that:
+" - Shift_JIS files are detected as Shift_JIS
+" - CP932 files with extended characters are detected as CP932
+" - CP932 files without extended characters are detected as Shift_JIS (no
+"   compatibility issue here)
 set fileencodings=ucs-bom,utf-8,sjis,cp932,default,latin1
+
+" NOTE: Enabled by default since patch 9.1.1761
+set ruler
 
 " Mirror the value of 'tabstop'
 set shiftwidth=0
 set softtabstop=-1
 
+" NOTE: Enabled by default since patch 9.1.1550
+set showcmd
+
 " Make <Esc> faster (See https://vi.stackexchange.com/a/24938)
 set ttimeout
 set ttimeoutlen=100
+
+" Reset to the default in case the system vimrc changed them
+set scrolloff&
+set viminfo&
+
+" NOTE: Enabled by default since patch 9.1.862
+set wildmenu
 
 if has('patch-9.0.640')
   set smoothscroll
