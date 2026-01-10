@@ -9,7 +9,7 @@ Taewoong's Vim configuration
 
 ## Installation
 
-Clone this repository to the following directory:
+Clone this repository to either of the following directories:
 
 | Platform | Vim        | Location                           |
 | -------- | ---------- | ---------------------------------- |
