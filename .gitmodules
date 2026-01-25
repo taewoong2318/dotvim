@@ -49,3 +49,6 @@
 [submodule "pack/taewoong/start/eunuch"]
 	path = pack/taewoong/start/eunuch
 	url = https://github.com/tpope/vim-eunuch.git
+[submodule "pack/taewoong/start/xterm-color-table"]
+	path = pack/taewoong/start/xterm-color-table
+	url = https://github.com/guns/xterm-color-table.vim.git
