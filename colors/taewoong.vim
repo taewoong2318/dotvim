@@ -18,7 +18,7 @@ if &background ==# 'dark'
   hi CursorLine        ctermfg=NONE ctermbg=NONE cterm=underline
   hi Directory         ctermfg=4    ctermbg=NONE cterm=NONE
   hi DiffAdd           ctermfg=15   ctermbg=2    cterm=NONE
-  hi DiffChange        ctermfg=15   ctermbg=3    cterm=NONE
+  hi DiffChange        ctermfg=15   ctermbg=4    cterm=NONE
   hi DiffDelete        ctermfg=15   ctermbg=1    cterm=NONE
   hi DiffText          ctermfg=15   ctermbg=6    cterm=NONE
   hi ErrorMsg          ctermfg=15   ctermbg=1    cterm=NONE
@@ -36,11 +36,11 @@ if &background ==# 'dark'
   hi MoreMsg           ctermfg=2    ctermbg=NONE cterm=NONE
   hi NonText           ctermfg=8    ctermbg=NONE cterm=NONE
   hi Pmenu             ctermfg=15   ctermbg=8    cterm=NONE
-  hi PmenuSel          ctermfg=15   ctermbg=3    cterm=NONE
+  hi PmenuSel          ctermfg=15   ctermbg=4    cterm=NONE
   hi PmenuSbar         ctermfg=NONE ctermbg=8    cterm=NONE
   hi PmenuThumb        ctermfg=NONE ctermbg=15   cterm=NONE
   hi Question          ctermfg=2    ctermbg=NONE cterm=NONE
-  hi Search            ctermfg=15   ctermbg=3    cterm=NONE
+  hi Search            ctermfg=15   ctermbg=4    cterm=NONE
   hi SpecialKey        ctermfg=6    ctermbg=NONE cterm=NONE
   hi SpellBad          ctermfg=15   ctermbg=1    cterm=NONE
   hi SpellCap          ctermfg=15   ctermbg=4    cterm=NONE
@@ -53,7 +53,7 @@ if &background ==# 'dark'
   hi Title             ctermfg=5    ctermbg=NONE cterm=NONE
   hi Visual            ctermfg=15   ctermbg=8    cterm=NONE
   hi WarningMsg        ctermfg=1    ctermbg=NONE cterm=NONE
-  hi WildMenu          ctermfg=15   ctermbg=3    cterm=NONE
+  hi WildMenu          ctermfg=15   ctermbg=4    cterm=NONE
 
   hi Comment           ctermfg=8    ctermbg=NONE cterm=NONE
   hi Constant          ctermfg=3    ctermbg=NONE cterm=NONE
