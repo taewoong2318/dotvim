@@ -285,6 +285,19 @@ endif
 
 " ============================================================================
 
+" fugitive
+
+function! s:GgrepPrompt() abort
+  let l:pattern = input('Ggrep for: ')
+  if !empty(l:pattern)
+    execute 'Ggrep! -q -r ' . shellescape(l:pattern)
+  endif
+endfunction
+
+nnoremap <C-P> <Cmd>call <SID>GgrepPrompt()<CR>
+
+" ============================================================================
+
 " lsp
 
 packadd lsp
