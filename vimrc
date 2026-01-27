@@ -290,7 +290,7 @@ endif
 function! s:GgrepPrompt() abort
   let l:pattern = input('Ggrep for: ')
   if !empty(l:pattern)
-    execute 'Ggrep! -q -r ' . shellescape(l:pattern)
+    execute 'Ggrep! -q -r ' .. shellescape(l:pattern)
   endif
 endfunction
 
