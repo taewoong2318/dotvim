@@ -212,6 +212,13 @@ endif
 xnoremap < <gv
 xnoremap > >gv
 
+" Do something evil
+cnoremap <C-A> <Home>
+cnoremap <C-B> <Left>
+cnoremap <C-D> <Del>
+cnoremap <C-E> <End>
+cnoremap <C-F> <Right>
+
 " ============================================================================
 
 syntax enable
@@ -280,7 +287,11 @@ if has('patch-9.0.185') && executable('node')
         \   yaml: v:false
         \ }
 
-  imap <C-L> <Plug>(copilot-accept-word)
+  let g:copilot_no_tab_map = v:true
+
+  imap <C-J> <Plug>(copilot-accept-word)
+  imap <C-K> <Plug>(copilot-accept-line)
+  imap <silent><script><expr> <C-L> copilot#Accept("\<CR>")
 endif
 
 " ============================================================================
