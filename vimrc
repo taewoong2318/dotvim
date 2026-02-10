@@ -212,12 +212,7 @@ endif
 xnoremap < <gv
 xnoremap > >gv
 
-" Do something evil
-cnoremap <C-A> <Home>
-cnoremap <C-B> <Left>
-cnoremap <C-D> <Del>
-cnoremap <C-E> <End>
-cnoremap <C-F> <Right>
+nnoremap <Leader>b :ls<CR>:b<Space>
 
 " ============================================================================
 
