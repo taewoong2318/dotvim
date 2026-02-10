@@ -212,7 +212,7 @@ endif
 xnoremap < <gv
 xnoremap > >gv
 
-nnoremap <Leader>b :ls<CR>:b<Space>
+nnoremap <Leader>b :ls<CR>:b
 
 " ============================================================================
 
@@ -293,6 +293,12 @@ endif
 
 " fugitive
 
+nnoremap <Leader>l <Cmd>Git log --oneline --graph --decorate<CR>
+nnoremap <Leader>d <Cmd>Gdiffsplit<CR>
+nnoremap <Leader>m <Cmd>Git blame<CR>
+
+" Show a prompt for recursive search using :Ggrep
+
 let s:last_recursive_search_pattern = ''
 
 function! s:RecursiveSearchPrompt() abort
@@ -352,8 +358,8 @@ function! OnLspAttached() abort
   nnoremap <buffer> ]g <Cmd>LspDiagNext<CR>
   nnoremap <buffer> [G <Cmd>LspDiagFirst<CR>
   nnoremap <buffer> ]G <Cmd>LspDiagLast<CR>
-  nnoremap <buffer> <Leader>rn <Cmd>LspRename<CR>
-  nnoremap <buffer> <Leader>ca <Cmd>LspCodeAction<CR>
+  nnoremap <buffer> <Leader>r <Cmd>LspRename<CR>
+  nnoremap <buffer> <Leader>c <Cmd>LspCodeAction<CR>
   nnoremap <buffer> <Leader>f <Cmd>LspFormat<CR>
 endfunction
 
