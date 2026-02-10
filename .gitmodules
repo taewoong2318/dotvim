@@ -52,3 +52,6 @@
 [submodule "pack/taewoong/start/xterm-color-table"]
 	path = pack/taewoong/start/xterm-color-table
 	url = https://github.com/guns/xterm-color-table.vim.git
+[submodule "pack/taewoong/start/bufonly"]
+	path = pack/taewoong/start/bufonly
+	url = https://github.com/schickling/vim-bufonly.git
