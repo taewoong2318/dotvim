@@ -298,14 +298,37 @@ endif
 
 " fugitive
 
-function! s:GgrepPrompt() abort
-  let l:pattern = input('Ggrep for: ')
+let s:last_recursive_search_pattern = ''
+
+function! s:RecursiveSearchPrompt() abort
+  let l:pattern = input('Recursive search: ', s:last_recursive_search_pattern)
+  let s:last_recursive_search_pattern = l:pattern
   if !empty(l:pattern)
-    execute 'Ggrep! -q -r ' .. shellescape(l:pattern)
+    let l:flags = [ '--quiet', '--recursive', '-I' ]
+
+    " Handle /PATTERN/ as regex, otherwise as literal string
+    let l:_pattern = substitute(l:pattern, '\v^/(.*)/$', '\1', '')
+    if l:_pattern !=# l:pattern
+      let l:pattern = l:_pattern
+      call add(l:flags, '--perl-regexp')
+    else
+      call add(l:flags, '--fixed-strings')
+    endif
+
+    " Convert \/PATTERN\/ to /PATTERN/ for literal search
+    let l:pattern = substitute(l:pattern, '\v^\\/(.*)\\/$', '/\1/', '')
+
+    " Apply smartcase behavior
+    if l:pattern !~# '\u'
+      call add(l:flags, '--ignore-case')
+    endif
+
+    execute 'Ggrep! ' .. join(l:flags, ' ') .. ' -- '
+          \ .. shellescape(l:pattern)
   endif
 endfunction
 
-nnoremap <C-P> <Cmd>call <SID>GgrepPrompt()<CR>
+nnoremap <C-P> <Cmd>call <SID>RecursiveSearchPrompt()<CR>
 
 " ============================================================================
 
