@@ -49,8 +49,6 @@ set splitbelow
 set splitright
 set tabstop=4
 set title
-set wildmode=longest:full,full
-set wildoptions=pum
 
 " NOTE: Try Shift_JIS first then CP932 (superset of Shift_JIS) so that:
 " - Shift_JIS files are detected as Shift_JIS
@@ -209,6 +207,31 @@ endif
 xnoremap < <gv
 xnoremap > >gv
 
+" ============================================================================
+
+" Enable command-line auto-completion (See |cmdline-autocompletion|)
+
+autocmd vimrc CmdlineChanged : call wildtrigger()
+
+set wildmode=noselect:lastused,full
+set wildoptions=pum
+
+" Make :find a fuzzy file picker (See |fuzzy-file-picker|)
+
+let s:files_cache = []
+
+autocmd vimrc CmdlineEnter : let s:files_cache = []
+
+function! Find(arg, _) abort
+  if empty(s:files_cache)
+    let s:files_cache = globpath('.', '**', 1, 1)
+          \ ->filter({ _, v -> !isdirectory(v) })
+          \ ->map({ _, v -> fnamemodify(v, ':.') })
+  endif
+  return a:arg == '' ? s:files_cache : matchfuzzy(s:files_cache, a:arg)
+endfunc
+
+set findfunc=Find
 
 " ============================================================================
 
@@ -216,7 +239,7 @@ syntax enable
 
 filetype plugin indent on
 
-" Disable automatic insertion of comment leaders on every file type
+" Disable auto-insertion of comment leaders on every file type
 autocmd vimrc FileType *
       \   setlocal formatoptions-=r
       \ | setlocal formatoptions-=o
