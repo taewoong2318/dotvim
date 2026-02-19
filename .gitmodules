@@ -43,9 +43,6 @@
 [submodule "pack/taewoong/start/abolish"]
 	path = pack/taewoong/start/abolish
 	url = https://github.com/tpope/vim-abolish.git
-[submodule "pack/taewoong/start/vinegar"]
-	path = pack/taewoong/start/vinegar
-	url = https://github.com/tpope/vim-vinegar.git
 [submodule "pack/taewoong/start/eunuch"]
 	path = pack/taewoong/start/eunuch
 	url = https://github.com/tpope/vim-eunuch.git
@@ -55,3 +52,6 @@
 [submodule "pack/taewoong/start/bufonly"]
 	path = pack/taewoong/start/bufonly
 	url = https://github.com/schickling/vim-bufonly.git
+[submodule "pack/taewoong/start/molder"]
+	path = pack/taewoong/start/molder
+	url = https://github.com/mattn/vim-molder.git
