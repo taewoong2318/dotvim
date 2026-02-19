@@ -183,9 +183,6 @@ nnoremap <script> <SID><C-W>< <C-W><<SID><C-W>
 nmap <C-W>> <C-W>><SID><C-W>
 nnoremap <script> <SID><C-W>> <C-W>><SID><C-W>
 
-" Yank from the cursor to the end of the line
-nnoremap Y y$
-
 " Select without surrounding white spaces
 xnoremap a" 2i"
 xnoremap a' 2i'
@@ -212,7 +209,6 @@ endif
 xnoremap < <gv
 xnoremap > >gv
 
-nnoremap <Leader>b :ls<CR>:b
 
 " ============================================================================
 
