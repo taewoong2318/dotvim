@@ -52,3 +52,6 @@
 [submodule "pack/taewoong/start/molder"]
 	path = pack/taewoong/start/molder
 	url = https://github.com/mattn/vim-molder.git
+[submodule "pack/taewoong/start/ripgrep"]
+	path = pack/taewoong/start/ripgrep
+	url = https://github.com/jremmen/vim-ripgrep.git
