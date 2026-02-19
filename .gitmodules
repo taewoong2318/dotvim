@@ -31,9 +31,6 @@
 [submodule "pack/taewoong/start/prettier"]
 	path = pack/taewoong/start/prettier
 	url = https://github.com/prettier/vim-prettier.git
-[submodule "pack/taewoong/start/unimpaired"]
-	path = pack/taewoong/start/unimpaired
-	url = https://github.com/tpope/vim-unimpaired.git
 [submodule "pack/taewoong/start/surround"]
 	path = pack/taewoong/start/surround
 	url = https://github.com/tpope/vim-surround.git

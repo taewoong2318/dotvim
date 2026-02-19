@@ -356,10 +356,6 @@ function! OnLspAttached() abort
   nnoremap <buffer> gi <Cmd>LspGotoImpl<CR>
   nnoremap <buffer> gy <Cmd>LspGotoTypeDef<CR>
   nnoremap <buffer> gr <Cmd>LspShowReferences<CR>
-  nnoremap <buffer> [g <Cmd>LspDiagPrev<CR>
-  nnoremap <buffer> ]g <Cmd>LspDiagNext<CR>
-  nnoremap <buffer> [G <Cmd>LspDiagFirst<CR>
-  nnoremap <buffer> ]G <Cmd>LspDiagLast<CR>
   nnoremap <buffer> <Leader>r <Cmd>LspRename<CR>
   nnoremap <buffer> <Leader>c <Cmd>LspCodeAction<CR>
   nnoremap <buffer> <Leader>f <Cmd>LspFormat<CR>
