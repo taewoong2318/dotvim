@@ -207,6 +207,10 @@ endif
 xnoremap < <gv
 xnoremap > >gv
 
+" Navigate buffers quickly
+nnoremap <CR>   <Cmd>bnext<CR>
+nnoremap <S-CR> <Cmd>bprevious<CR>
+
 " ============================================================================
 
 " Enable command-line auto-completion (See |cmdline-autocompletion|)
@@ -314,10 +318,9 @@ endif
 
 " fugitive
 
-nnoremap <Leader>g <Cmd>Git<CR>
 nnoremap <Leader>l <Cmd>Git log --oneline --graph --decorate<CR>
 nnoremap <Leader>d <Cmd>Gdiffsplit<CR>
-nnoremap <Leader>m <Cmd>Git blame<CR>
+nnoremap <Leader>b <Cmd>Git blame<CR>
 
 " ============================================================================
 
