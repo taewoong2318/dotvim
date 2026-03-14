@@ -208,8 +208,8 @@ xnoremap < <gv
 xnoremap > >gv
 
 " Navigate buffers quickly
-nnoremap <CR>   <Cmd>bnext<CR>
-nnoremap <S-CR> <Cmd>bprevious<CR>
+nnoremap <C-N> <Cmd>bnext<CR>
+nnoremap <C-P> <Cmd>bprevious<CR>
 
 " ============================================================================
 
