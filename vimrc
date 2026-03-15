@@ -211,6 +211,10 @@ xnoremap > >gv
 nnoremap <C-N> <Cmd>bnext<CR>
 nnoremap <C-P> <Cmd>bprevious<CR>
 
+" Navigate quickfix list quickly
+nnoremap <C-J> <Cmd>cnext<CR>
+nnoremap <C-K> <Cmd>cprevious<CR>
+
 " ============================================================================
 
 " Enable command-line auto-completion (See |cmdline-autocompletion|)
