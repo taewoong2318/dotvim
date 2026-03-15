@@ -54,7 +54,7 @@ set title
 " - Shift_JIS files are detected as Shift_JIS
 " - CP932 files with extended characters are detected as CP932
 " - CP932 files without extended characters are detected as Shift_JIS (no
-"   compatibility issue here)
+"   compatibility issue in this case)
 set fileencodings=ucs-bom,utf-8,sjis,cp932,default,latin1
 
 " NOTE: Enabled by default since patch 9.1.1761
@@ -152,7 +152,7 @@ endif
 
 let g:mapleader = "\<Space>"
 
-" Do nothing but for the recursive mappings below (See
+" Act as recursive keymapping units (See
 " https://zenn.dev/mattn/articles/83c2d4c7645faa)
 nmap <SID>g <Nop>
 nmap <SID><C-W> <Nop>
@@ -252,12 +252,16 @@ autocmd vimrc FileType *
       \   setlocal formatoptions-=r
       \ | setlocal formatoptions-=o
 
-" Load the man filetype plugin for :Man
+" Load the man filetype plugin to enable :Man
 runtime! ftplugin/man.vim
+
+" NOTE: Add the following to .bashrc to use Vim as a manpager:
+"
+" export MANPAGER="vim +MANPAGER --not-a-term -"
 
 " ============================================================================
 
-" Set my colorscheme for terminal Vim
+" Load colorscheme for terminal Vim
 if !has('gui_running')
   colorscheme taewoong
 endif
@@ -351,7 +355,7 @@ endfunction
 autocmd vimrc User LspAttached call OnLspAttached()
 
 function! s:getJdtlsArgs() abort
-  " NOTE: The lombok jar is expected to be placed at:
+  " NOTE: The Lombok JAR file is expected to be placed at either of:
   " - ~/.local/share/jdtls/lombok.jar (Unix)
   " - ~/AppData/Local/jdtls/lombok.jar (Windows)
   let l:lombok_path = !empty(s:stdpath_data)
@@ -452,6 +456,8 @@ call g:LspAddServer([
 
 " molder
 
+" Hop up to the directory listing from any buffer, inspired by vinegar.vim
+" (See https://github.com/tpope/vim-vinegar)
 nnoremap - <Cmd>edit %:p:h<CR>
 
 " ============================================================================
