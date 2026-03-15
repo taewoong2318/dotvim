@@ -117,30 +117,30 @@ endif
 " Place state files respecting Neovim's Standard Paths (See
 " https://neovim.io/doc/user/starting.html#_standard-paths)
 
-let s:xdg_data_home = ''
-let s:xdg_state_home = ''
-let s:vim_state_dir = ''
+let s:stdpath_data = ''
+let s:stdpath_state = ''
+let s:stdpath_state_vim = ''
 
 if has('unix')
-  let s:xdg_data_home = !empty($XDG_DATA_HOME)
+  let s:stdpath_data = !empty($XDG_DATA_HOME)
         \ ? $XDG_DATA_HOME : expand('~/.local/share')
-  let s:xdg_state_home = !empty($XDG_STATE_HOME)
+  let s:stdpath_state = !empty($XDG_STATE_HOME)
         \ ? $XDG_STATE_HOME : expand('~/.local/state')
-  let s:vim_state_dir = expand(s:xdg_state_home .. '/vim')
+  let s:stdpath_state_vim = expand(s:stdpath_state .. '/vim')
 elseif has('win32')
-  let s:xdg_data_home = expand('~/AppData/Local')
-  let s:xdg_state_home = expand('~/AppData/Local')
-  let s:vim_state_dir = expand(s:xdg_state_home .. '/vim-data')
+  let s:stdpath_data = expand('~/AppData/Local')
+  let s:stdpath_state = expand('~/AppData/Local')
+  let s:stdpath_state_vim = expand(s:stdpath_state .. '/vim-data')
 endif
 
-if !empty(s:vim_state_dir)
-  if !isdirectory(s:vim_state_dir)
-    call mkdir(s:vim_state_dir, 'p', 0o700)
+if !empty(s:stdpath_state_vim)
+  if !isdirectory(s:stdpath_state_vim)
+    call mkdir(s:stdpath_state_vim, 'p', 0o700)
   endif
 
-  let &viminfofile = s:vim_state_dir .. '/viminfo'
+  let &viminfofile = s:stdpath_state_vim .. '/viminfo'
 
-  let s:swap_dir = s:vim_state_dir .. '/swap'
+  let s:swap_dir = s:stdpath_state_vim .. '/swap'
   if !isdirectory(s:swap_dir)
     call mkdir(s:swap_dir, 'p', 0o700)
   endif
@@ -350,10 +350,10 @@ function! s:getJdtlsArgs() abort
   " NOTE: The lombok jar is expected to be placed at:
   " - ~/.local/share/jdtls/lombok.jar (Unix)
   " - ~/AppData/Local/jdtls/lombok.jar (Windows)
-  let l:lombokPath = !empty(s:xdg_data_home)
-        \ ? expand(s:xdg_data_home .. '/jdtls/lombok.jar') : ''
-  return !empty(l:lombokPath) && filereadable(l:lombokPath)
-        \ ? [ '--jvm-arg=-javaagent:' .. l:lombokPath ] : []
+  let l:lombok_path = !empty(s:stdpath_data)
+        \ ? expand(s:stdpath_data .. '/jdtls/lombok.jar') : ''
+  return !empty(l:lombok_path) && filereadable(l:lombok_path)
+        \ ? [ '--jvm-arg=-javaagent:' .. l:lombok_path ] : []
 endfunction
 
 " Register language servers (See https://github.com/yegappan/lsp/wiki)
