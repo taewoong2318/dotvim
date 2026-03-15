@@ -22,7 +22,7 @@ augroup END
 set autoindent
 set autoread
 set cdhome
-set completeopt=menuone,noinsert,popup
+set completeopt=fuzzy,menuone,noinsert,popup
 set completepopup=height:20,width:80,align:menu,border:off
 set diffopt+=algorithm:histogram,indent-heuristic,vertical
 set display=lastline
@@ -222,7 +222,7 @@ nnoremap <C-K> <Cmd>cprevious<CR>
 autocmd vimrc CmdlineChanged : call wildtrigger()
 
 set wildmode=noselect:lastused,full
-set wildoptions=pum
+set wildoptions=fuzzy,pum
 
 " Make :find a fuzzy file picker (See |fuzzy-file-picker|)
 
@@ -327,7 +327,7 @@ nnoremap <Leader>b <Cmd>Git blame<CR>
 packadd lsp
 
 call g:LspOptionsSet(#{
-      \   completionMatcher: 'icase',
+      \   completionMatcher: 'fuzzy',
       \   diagVirtualTextAlign: 'after',
       \   ignoreMissingServer: v:true,
       \   showDiagWithVirtualText: has('patch-9.0.1157')
