@@ -49,6 +49,7 @@ set splitbelow
 set splitright
 set tabstop=4
 set title
+set wildoptions=fuzzy,pum
 
 " NOTE: Try Shift_JIS first then CP932 (superset of Shift_JIS) so that:
 " - Shift_JIS files are detected as Shift_JIS
@@ -219,27 +220,31 @@ nnoremap <C-K> <Cmd>cprevious<CR>
 
 " Enable command-line auto-completion (See |cmdline-autocompletion|)
 
-autocmd vimrc CmdlineChanged : call wildtrigger()
+" Check if wildtrigger() is supported
+if !has('patch-9.1.1576')
+  set wildmode=longest:full:lastused,full
+else
+  set wildmode=noselect:lastused,full
 
-set wildmode=noselect:lastused,full
-set wildoptions=fuzzy,pum
+  autocmd vimrc CmdlineChanged : call wildtrigger()
 
-" Make :find a fuzzy file picker (See |fuzzy-file-picker|)
+  " Make :find a fuzzy file picker (See |fuzzy-file-picker|)
 
-let s:files_cache = []
+  let s:files_cache = []
 
-autocmd vimrc CmdlineEnter : let s:files_cache = []
+  autocmd vimrc CmdlineEnter : let s:files_cache = []
 
-function! Find(arg, _) abort
-  if empty(s:files_cache)
-    let s:files_cache = globpath('.', '**', 1, 1)
-          \ ->filter({ _, v -> !isdirectory(v) })
-          \ ->map({ _, v -> fnamemodify(v, ':.') })
-  endif
-  return a:arg == '' ? s:files_cache : matchfuzzy(s:files_cache, a:arg)
-endfunc
+  function! Find(arg, _) abort
+    if empty(s:files_cache)
+      let s:files_cache = globpath('.', '**', 1, 1)
+            \ ->filter({ _, v -> !isdirectory(v) })
+            \ ->map({ _, v -> fnamemodify(v, ':.') })
+    endif
+    return a:arg == '' ? s:files_cache : matchfuzzy(s:files_cache, a:arg)
+  endfunc
 
-set findfunc=Find
+  set findfunc=Find
+endif
 
 " ============================================================================
 
