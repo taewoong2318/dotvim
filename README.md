@@ -11,11 +11,11 @@ Taewoong's Vim configuration
 
 Clone this repository to either of the following directories:
 
-| Platform | Vim        | Location                           |
-| -------- | ---------- | ---------------------------------- |
-| Unix     | >= 9.1.327 | `~/.vim` or `$XDG_CONFIG_HOME/vim` |
-| Unix     | < 9.1.327  | `~/.vim`                           |
-| Windows  |            | `%USERPROFILE%\vimfiles`           |
+| Platform    | Vim        | Location                           |
+| ----------- | ---------- | ---------------------------------- |
+| macOS/Linux | >= 9.1.327 | `~/.vim` or `$XDG_CONFIG_HOME/vim` |
+| macOS/Linux | < 9.1.327  | `~/.vim`                           |
+| Windows     |            | `%USERPROFILE%\vimfiles`           |
 
 Then move into the repository and update submodules to install plugins:
 
