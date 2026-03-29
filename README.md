@@ -11,7 +11,7 @@ Taewoong's Vim configuration
 
 Clone this repository to either of the following directories:
 
-| Platform    | Vim        | Location                           |
+| OS          | Vim        | Location                           |
 | ----------- | ---------- | ---------------------------------- |
 | macOS/Linux | >= 9.1.327 | `~/.vim` or `$XDG_CONFIG_HOME/vim` |
 | macOS/Linux | < 9.1.327  | `~/.vim`                           |
@@ -34,7 +34,7 @@ in the local repository. To check what will be removed, run `git clean -dffn`.
 
 ## Help Tags
 
-Run the following command inside Vim to generate the help tags for the plugin
+Run the following command inside Vim to generate tags for the plugin
 documentations:
 
     :helptags ALL

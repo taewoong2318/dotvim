@@ -195,6 +195,8 @@ inoremap <C-U> <C-G>u<C-U>
 inoremap <C-W> <C-G>u<C-W>
 
 " Search on DuckDuckGo
+
+" Check if uri_encode() is supported
 if has('patch-9.1.1669')
   nnoremap gz <Cmd>execute 'URLOpen https://duckduckgo.com/?q='
         \ .. uri_encode(expand('<cword>'))<CR>
@@ -204,7 +206,7 @@ if has('patch-9.1.1669')
         \     ->uri_encode()<CR>
 endif
 
-" Reselect visual selection after indenting
+" Keep the visual selection after indenting
 xnoremap < <gv
 xnoremap > >gv
 
@@ -262,7 +264,7 @@ runtime! ftplugin/man.vim
 
 " NOTE: Add the following to .bashrc to use Vim as a manpager:
 "
-" export MANPAGER="vim +MANPAGER --not-a-term -"
+"   export MANPAGER="vim +MANPAGER --not-a-term -"
 
 " ============================================================================
 
