@@ -22,7 +22,7 @@ augroup END
 set autoindent
 set autoread
 set cdhome
-set completeopt=fuzzy,menuone,noinsert,popup
+set completeopt=menuone,noinsert,popup
 set completepopup=height:20,width:80,align:menu,border:off
 set diffopt+=algorithm:histogram,indent-heuristic,vertical
 set display=lastline
@@ -85,6 +85,10 @@ endif
 
 if has('patch-9.0.1921')
   set jumpoptions=stack
+endif
+
+if has('patch-9.1.463')
+  set completeopt+=fuzzy
 endif
 
 if has('patch-9.1.537')
