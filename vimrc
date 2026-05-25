@@ -272,6 +272,12 @@ runtime! ftplugin/man.vim
 
 " ============================================================================
 
+if executable('pandoc')
+  autocmd vimrc FileType markdown setlocal formatprg=pandoc\ -t\ commonmark_x
+endif
+
+" ============================================================================
+
 " Load colorscheme for terminal Vim
 if !has('gui_running')
   colorscheme taewoong
