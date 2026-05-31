@@ -337,6 +337,7 @@ endif
 " fugitive
 
 nnoremap <Leader>l <Cmd>Git log --oneline --graph --decorate<CR>
+nnoremap <Leader>h <Cmd>Git log --oneline --graph --decorate %<CR>
 nnoremap <Leader>d <Cmd>Gdiffsplit<CR>
 nnoremap <Leader>b <Cmd>Git blame<CR>
 
