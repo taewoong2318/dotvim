@@ -348,6 +348,7 @@ nnoremap <Leader>b <Cmd>Git blame<CR>
 packadd lsp
 
 call g:LspOptionsSet(#{
+      \   autoHighlightDiags: v:false,
       \   completionMatcher: 'fuzzy',
       \   diagVirtualTextAlign: 'after',
       \   ignoreMissingServer: v:true,
@@ -367,6 +368,7 @@ function! OnLspAttached() abort
   nnoremap <buffer> <Leader>r <Cmd>LspRename<CR>
   nnoremap <buffer> <Leader>c <Cmd>LspCodeAction<CR>
   nnoremap <buffer> <Leader>f <Cmd>LspFormat<CR>
+  nnoremap <buffer> <Leader>g <Cmd>LspDiag highlight toggle<CR>
 endfunction
 
 autocmd vimrc User LspAttached call OnLspAttached()
