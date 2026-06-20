@@ -42,7 +42,6 @@ set nostartofline
 set nrformats-=octal
 set pumheight=10
 set pumwidth=40
-set signcolumn=no
 set smartcase
 set spelloptions=camel
 set splitbelow
@@ -64,6 +63,10 @@ set ruler
 " Mirror the value of 'tabstop'
 set shiftwidth=0
 set softtabstop=-1
+
+" Improve user experience of gitgutter
+set signcolumn=yes
+set updatetime=100
 
 " NOTE: Enabled by default since patch 9.1.1550
 set showcmd
@@ -336,10 +339,23 @@ endif
 
 " fugitive
 
-nnoremap <Leader>l <Cmd>Git log --oneline --graph --decorate<CR>
-nnoremap <Leader>h <Cmd>Git log --oneline --graph --decorate %<CR>
-nnoremap <Leader>d <Cmd>Gdiffsplit<CR>
-nnoremap <Leader>b <Cmd>Git blame<CR>
+nnoremap <Leader>gl <Cmd>Git log --oneline --graph --decorate<CR>
+nnoremap <Leader>gh <Cmd>Git log --oneline --graph --decorate %<CR>
+nnoremap <Leader>gd <Cmd>Gdiffsplit<CR>
+nnoremap <Leader>gb <Cmd>Git blame<CR>
+
+" ============================================================================
+
+" gitgutter
+
+let g:gitgutter_sign_added = '|'
+let g:gitgutter_sign_modified = '|'
+let g:gitgutter_sign_removed = '|'
+let g:gitgutter_sign_removed_first_line = '|'
+let g:gitgutter_sign_removed_above_and_below = '|'
+let g:gitgutter_sign_modified_removed = '|'
+
+let g:gitgutter_preview_win_floating = 1
 
 " ============================================================================
 
@@ -365,10 +381,10 @@ function! OnLspAttached() abort
   nnoremap <buffer> gi <Cmd>LspGotoImpl<CR>
   nnoremap <buffer> gy <Cmd>LspGotoTypeDef<CR>
   nnoremap <buffer> gr <Cmd>LspShowReferences<CR>
-  nnoremap <buffer> <Leader>r <Cmd>LspRename<CR>
-  nnoremap <buffer> <Leader>c <Cmd>LspCodeAction<CR>
-  nnoremap <buffer> <Leader>f <Cmd>LspFormat<CR>
-  nnoremap <buffer> <Leader>g <Cmd>LspDiag highlight toggle<CR>
+  nnoremap <buffer> <Leader>lr <Cmd>LspRename<CR>
+  nnoremap <buffer> <Leader>lc <Cmd>LspCodeAction<CR>
+  nnoremap <buffer> <Leader>lf <Cmd>LspFormat<CR>
+  nnoremap <buffer> <Leader>ld <Cmd>LspDiag highlight toggle<CR>
 endfunction
 
 autocmd vimrc User LspAttached call OnLspAttached()

@@ -37,3 +37,6 @@
 [submodule "pack/taewoong/start/ripgrep"]
 	path = pack/taewoong/start/ripgrep
 	url = https://github.com/jremmen/vim-ripgrep.git
+[submodule "pack/taewoong/start/gitgutter"]
+	path = pack/taewoong/start/gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
