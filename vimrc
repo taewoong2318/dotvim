@@ -271,9 +271,27 @@ runtime! ftplugin/man.vim
 
 " ============================================================================
 
+" Use pandoc to format Markdown files if available
 if executable('pandoc')
   autocmd vimrc FileType markdown setlocal formatprg=pandoc\ -t\ commonmark_x
 endif
+
+" ============================================================================
+
+" Restore the cursor position when reopening files
+autocmd vimrc BufReadPost *
+      \   if line("'\"") > 0 && line("'\"") <= line("$")
+      \       && index(['gitcommit', 'gitrebase'], &filetype) == -1
+      \ |   execute "normal! g`\""
+      \ | endif
+
+" ============================================================================
+
+" TODO: Preserve the cursor position when closing the diff view
+command! DiffOrig
+      \   let s:tmp_filetype = &filetype | vsplit | wincmd p | enew
+      \ | let &filetype = s:tmp_filetype | set bufhidden=delete buftype=nofile
+      \ | read ++edit # | 0d_ | diffthis | wincmd p | diffthis | wincmd p
 
 " ============================================================================
 
