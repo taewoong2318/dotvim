@@ -477,6 +477,15 @@ call g:LspAddServer([
       \     args: [ '-z', '--languageserver', '--encoding', 'utf-8' ]
       \   },
       \   #{
+      \     name: 'ruff',
+      \     filetype: 'python',
+      \     path: 'ruff',
+      \     args: [ 'server' ],
+      \     features: #{
+      \       hover: v:false,
+      \     }
+      \   },
+      \   #{
       \     name: 'tinymist',
       \     filetype: 'typst',
       \     path: 'tinymist',
@@ -492,16 +501,16 @@ call g:LspAddServer([
       \     }
       \   },
       \   #{
+      \     name: 'ty',
+      \     filetype: 'python',
+      \     path: 'ty',
+      \     args: [ 'server' ]
+      \   },
+      \   #{
       \     name: 'tsserver',
       \     filetype: [ 'javascript', 'typescript' ],
       \     path: 'typescript-language-server',
       \     args: [ '--stdio' ]
-      \   },
-      \   #{
-      \     name: 'pylsp',
-      \     filetype: 'python',
-      \     path: 'pylsp',
-      \     args: []
       \   }
       \ ])
 
