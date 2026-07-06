@@ -481,6 +481,7 @@ call g:LspAddServer([
       \     filetype: 'python',
       \     path: 'ruff',
       \     args: [ 'server' ],
+            "\ Avoid conflicts with ty
       \     features: #{
       \       hover: v:false,
       \     }
