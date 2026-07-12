@@ -343,11 +343,13 @@ if has('patch-9.0.185') && executable('node')
   let g:copilot_no_tab_map = v:true
 
   let g:copilot_filetypes = #{
+        \   bib: v:false,
         \   csv: v:false,
         \   json: v:false,
         \   markdown: v:false,
         \   text: v:false,
         \   toml: v:false,
+        \   tex: v:false,
         \   typst: v:false,
         \   yaml: v:false
         \ }
@@ -485,6 +487,12 @@ call g:LspAddServer([
       \     features: #{
       \       hover: v:false,
       \     }
+      \   },
+      \   #{
+      \     name: 'texlab',
+      \     filetype: [ 'bib', 'tex' ],
+      \     path: 'texlab',
+      \     args: [ 'run' ]
       \   },
       \   #{
       \     name: 'tinymist',
