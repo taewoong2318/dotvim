@@ -37,6 +37,7 @@ set incsearch
 set infercase
 set keywordprg=:Man
 set laststatus=0
+set number
 set nojoinspaces
 set nostartofline
 set nrformats-=octal
@@ -384,11 +385,9 @@ let g:gitgutter_preview_win_floating = 1
 packadd lsp
 
 call g:LspOptionsSet(#{
-      \   autoHighlightDiags: v:false,
       \   completionMatcher: 'fuzzy',
       \   diagVirtualTextAlign: 'after',
-      \   ignoreMissingServer: v:true,
-      \   showDiagWithVirtualText: has('patch-9.0.1157')
+      \   ignoreMissingServer: v:true
       \ })
 
 function! OnLspAttached() abort
@@ -401,10 +400,10 @@ function! OnLspAttached() abort
   nnoremap <buffer> gi <Cmd>LspGotoImpl<CR>
   nnoremap <buffer> gy <Cmd>LspGotoTypeDef<CR>
   nnoremap <buffer> gr <Cmd>LspShowReferences<CR>
+  nnoremap <buffer> <C-K> <Cmd>LspDiagCurrent<CR>
   nnoremap <buffer> <Leader>lr <Cmd>LspRename<CR>
   nnoremap <buffer> <Leader>lc <Cmd>LspCodeAction<CR>
   nnoremap <buffer> <Leader>lf <Cmd>LspFormat<CR>
-  nnoremap <buffer> <Leader>ld <Cmd>LspDiag highlight toggle<CR>
 endfunction
 
 autocmd vimrc User LspAttached call OnLspAttached()
