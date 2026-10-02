@@ -72,7 +72,7 @@ set updatetime=100
 " NOTE: Enabled by default since patch 9.1.1550
 set showcmd
 
-" Make <Esc> faster (See https://vi.stackexchange.com/a/24938)
+" Make <Esc> faster (see https://vi.stackexchange.com/a/24938)
 set ttimeout
 set ttimeoutlen=100
 
@@ -123,7 +123,7 @@ endif
 
 " ============================================================================
 
-" Place state files respecting Neovim's Standard Paths (See
+" Place state files respecting Neovim's Standard Paths (see
 " https://neovim.io/doc/user/starting.html#_standard-paths)
 
 let s:stdpath_data = ''
@@ -161,7 +161,7 @@ endif
 
 let g:mapleader = "\<Space>"
 
-" Act as recursive keymapping units (See
+" Act as recursive keymapping units (see
 " https://zenn.dev/mattn/articles/83c2d4c7645faa)
 nmap <SID>g <Nop>
 nmap <SID><C-W> <Nop>
@@ -224,7 +224,7 @@ nnoremap <C-P> <Cmd>bprevious<CR>
 
 " ============================================================================
 
-" Enable command-line auto-completion (See |cmdline-autocompletion|)
+" Enable command-line auto-completion (see |cmdline-autocompletion|)
 
 " Check if wildtrigger() is supported
 if !has('patch-9.1.1576')
@@ -234,7 +234,7 @@ else
 
   autocmd vimrc CmdlineChanged : call wildtrigger()
 
-  " Make :find a fuzzy file picker (See |fuzzy-file-picker|)
+  " Make :find a fuzzy file picker (see |fuzzy-file-picker|)
 
   let s:files_cache = []
 
@@ -418,7 +418,7 @@ function! s:getJdtlsArgs() abort
         \ ? [ '--jvm-arg=-javaagent:' .. l:lombok_path ] : []
 endfunction
 
-" Register language servers (See https://github.com/yegappan/lsp/wiki)
+" Register language servers (see https://github.com/yegappan/lsp/wiki)
 call g:LspAddServer([
       \   #{
       \     name: 'bashls',
@@ -527,7 +527,7 @@ call g:LspAddServer([
 " molder
 
 " Hop up to the directory listing from any buffer, inspired by vinegar.vim
-" (See https://github.com/tpope/vim-vinegar)
+" (see https://github.com/tpope/vim-vinegar)
 nnoremap - <Cmd>edit %:p:h<CR>
 
 " ============================================================================

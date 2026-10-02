@@ -1,3 +1,9 @@
+" This color scheme limits the color to ANSI 16 colors for consistent
+" appearance across different terminals since their actual colors are
+" configured in the terminal emulator's theme, not hard-coded in the Vim color
+" scheme. The idea was inspired by the Dim color scheme (see
+" https://jeffkreeftmeijer.com/vim-16-color/).
+
 hi clear
 
 if exists('syntax_on')
