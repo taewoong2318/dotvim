@@ -74,7 +74,6 @@ if &background ==# 'dark'
   hi Italic            ctermfg=NONE ctermbg=NONE cterm=italic
   hi BoldItalic        ctermfg=NONE ctermbg=NONE cterm=bold,italic
 
-  hi CopilotSuggestion ctermfg=8    ctermbg=NONE cterm=italic
   hi ExtraWhitespace   ctermfg=NONE ctermbg=1    cterm=NONE
 else
   hi ColorColumn       ctermfg=NONE ctermbg=1    cterm=NONE
@@ -138,7 +137,6 @@ else
   hi Italic            ctermfg=NONE ctermbg=NONE cterm=italic
   hi BoldItalic        ctermfg=NONE ctermbg=NONE cterm=bold,italic
 
-  hi CopilotSuggestion ctermfg=8    ctermbg=NONE cterm=italic
   hi ExtraWhitespace   ctermfg=NONE ctermbg=1    cterm=NONE
 endif
 
